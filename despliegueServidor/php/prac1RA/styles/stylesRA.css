@@ -1,0 +1,33 @@
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+.weekends {
+    background-color: #d2ebd7;
+}
+
+.higheravg {
+    background-color: #fff1cc;
+}
+
+.cities {
+    color: #60707c;
+    background-color: #ccebf0;
+}
+
+.headers {
+    color: #60707c;
+    background-color: #e7eaea;
+}
+
+table {
+    border: 1px solid;
+}
+
+.averages {
+    background-color: #d2ebd7;
+}

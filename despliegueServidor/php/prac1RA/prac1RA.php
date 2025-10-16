@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica 1</title>
+    <link rel="stylesheet" href="styles/stylesRA.css">
 </head>
 
 <body>
@@ -125,24 +126,37 @@
     var_dump($mayorVariacion);
 
     echo "<table>
-        <tr><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td>Día 6</td><td>Media</td></tr>
+        <tr class=\"headers\"><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td class=\"weekends\">Día 6</td><td>Media</td></tr>
     ";
+    $max = -INF;
+    $cityM; 
     foreach ($temps as $ciudad => $temp) {
         echo "<tr>";
-        echo "<td>$ciudad</td>";
+        echo "<td class=\"cities\">$ciudad</td>";
         $sum = 0;
         for ($i = 0; $i < count($temp); $i++) {
-            echo "<td>$temp[$i]</td>";
+            if ($i == 5) {
+                echo "<td class=\"weekend\">$temp[$i]º</td>";
+            } else {
+            echo "<td>$temp[$i]º</td>";
+            }
         }
         for ($i = 0; $i < count($temp); $i++) {
-            $sum += $temp[$i]; 
+            $sum += $temp[$i];
+             
         }
-        echo "<td>" . $sum/count($temp) . "</td>";
+        $avg = $sum/count($temp);
+        if ($avg > $max) {
+            $max = $avg;
+            $cityM = $ciudad;
+        }
+        echo "<td>" . $avg . "º</td>";
         echo "</tr>";
     }
     echo "</table>";
 
     echo "El día con más variación es el día $diaM<br>";
+    echo "La ciudad con mas media es $cityM";
     ?>
 
     <h2>Ejercicio 3</h2>
