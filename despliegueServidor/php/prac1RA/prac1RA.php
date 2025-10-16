@@ -105,10 +105,10 @@
 
 
     $mayorVariacion = 0;
-    foreach ($temps as $ciudad => $temp) {
+    for ($i = 0; $i < count($temp); $i++) {
         $maxDia = $temp[0];
         $minDia = $temp[0];
-        for ($i = 0; $i < count($temp); $i++) {
+        foreach ($temps as $ciudad => $temp) {
             if ($temp[$i] > $maxDia) {
                 $maxDia = $temp[$i];
             }
@@ -118,7 +118,6 @@
         }
         if ($maxDia - $minDia > $mayorVariacion) {
             $mayorVariacion = $maxDia - $minDia;
-            $ciudadM = $ciudad;
             $diaM = $i + 1;
         }
     }
@@ -131,12 +130,19 @@
     foreach ($temps as $ciudad => $temp) {
         echo "<tr>";
         echo "<td>$ciudad</td>";
+        $sum = 0;
         for ($i = 0; $i < count($temp); $i++) {
             echo "<td>$temp[$i]</td>";
         }
+        for ($i = 0; $i < count($temp); $i++) {
+            $sum += $temp[$i]; 
+        }
+        echo "<td>" . $sum/count($temp) . "</td>";
         echo "</tr>";
     }
     echo "</table>";
+
+    echo "El día con más variación es el día $diaM<br>";
     ?>
 
     <h2>Ejercicio 3</h2>
