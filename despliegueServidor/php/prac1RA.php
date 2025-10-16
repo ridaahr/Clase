@@ -118,10 +118,25 @@
         }
         if ($maxDia - $minDia > $mayorVariacion) {
             $mayorVariacion = $maxDia - $minDia;
+            $ciudadM = $ciudad;
+            $diaM = $i + 1;
         }
     }
     echo "<br>";
     var_dump($mayorVariacion);
+
+    echo "<table>
+        <tr><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td>Día 6</td><td>Media</td></tr>
+    ";
+    foreach ($temps as $ciudad => $temp) {
+        echo "<tr>";
+        echo "<td>$ciudad</td>";
+        for ($i = 0; $i < count($temp); $i++) {
+            echo "<td>$temp[$i]</td>";
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
     ?>
 
     <h2>Ejercicio 3</h2>
