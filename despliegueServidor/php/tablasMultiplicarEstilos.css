@@ -1,0 +1,22 @@
+table {
+    border: solid 2px wheat;
+    border-spacing: 4px;
+}
+
+td, th {
+    border-collapse: collapse;
+    padding: 20px;
+}
+
+th {
+    background-color: rgb(98, 146, 98);
+}
+
+
+#cabecera {
+    background-color: green;
+}
+
+#x {
+    background-color: aquamarine;
+}

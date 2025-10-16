@@ -1,0 +1,21 @@
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid;
+}
+
+td {
+    width: 1000px;
+}
+table {
+    width: 60%;
+}
+
+.temp {
+    width: 20%;
+    text-align: left;
+}
+
+.personas {
+    text-align: center;
+    width: 30%;
+}
