@@ -124,7 +124,7 @@
     }
     echo "<br>";
     var_dump($mayorVariacion);
-
+    echo "<div>";
     echo "<table>
         <tr class=\"headers\"><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td class=\"weekends\">Día 6</td><td>Media</td></tr>
     ";
@@ -135,15 +135,14 @@
         echo "<td class=\"cities\">$ciudad</td>";
         $sum = 0;
         for ($i = 0; $i < count($temp); $i++) {
-            if ($i == 5) {
-                echo "<td class=\"weekend\">$temp[$i]º</td>";
+            if ($i === 5) {
+                echo "<td class=\"weekends\">$temp[$i]º</td>";
             } else {
             echo "<td>$temp[$i]º</td>";
             }
         }
         for ($i = 0; $i < count($temp); $i++) {
-            $sum += $temp[$i];
-             
+            $sum += $temp[$i]; 
         }
         $avg = $sum/count($temp);
         if ($avg > $max) {
@@ -155,8 +154,12 @@
     }
     echo "</table>";
 
+    
+
     echo "El día con más variación es el día $diaM<br>";
     echo "La ciudad con mas media es $cityM";
+
+    echo "</div>";
     ?>
 
     <h2>Ejercicio 3</h2>

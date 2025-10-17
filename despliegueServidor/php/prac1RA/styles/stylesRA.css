@@ -24,10 +24,19 @@
     background-color: #e7eaea;
 }
 
-table {
+table, td, th {
     border: 1px solid;
+    width: 100%;
 }
 
 .averages {
     background-color: #d2ebd7;
+}
+
+div {
+    text-align: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    justify-items: center;
 }
