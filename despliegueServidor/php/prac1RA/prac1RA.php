@@ -229,16 +229,16 @@
         }
     }
     echo "</table>";
-
+    echo "</div>";
 
     echo "<div class=\"info\">";
-    echo "<p>Estadísticas</p>";
-    echo "<hr>";
+    echo "<h3>Estadísticas</h3>";
+    echo "<hr class=\"infohr\">";
     echo "<p>Temperatura mínima: " . $min . "ºC (Día $minDay, $minCity)</p>";
     echo "<p>Temperatura máxima: " . $max . "ºC (Día $maxDay, $maxCity)</p>";
-    echo "<p>Día con mayor variación: Día $diaMV (". $mayorVariacion . "ºC de diferencia)</p>";
+    echo "<p>Día con mayor variación: Día $diaMV (" . $mayorVariacion . "ºC de diferencia)</p>";
     echo "</div>";
-    echo "</div>";
+
     ?>
 
     <h2>Ejercicio 3</h2>

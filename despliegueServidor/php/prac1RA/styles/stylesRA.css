@@ -72,7 +72,33 @@ div {
     margin-bottom: 3px;
 }
 
+
 .info {
-    border: 1px solid lightgray;
-    margin-top: 10px;
+    border: 1.5px solid lightgray;
+    background-color: lightgray;
+    border-radius: 8px;
+    width: 60%;
+    margin: 20px auto;
+    padding: 15px 20px;
+    text-align: left;
 }
+
+.info h3,
+.info p {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+.info h3 {
+    color: #465055;
+}
+
+.infohr {
+    border: none;
+    height: 1px;
+    background-color: #465055;
+    width: 100%;
+    margin: 10px 0;
+}
+
