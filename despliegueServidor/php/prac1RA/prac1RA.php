@@ -83,33 +83,41 @@
 
 
     $max = $temps["Ciudad 1"][0];
+    $maxCity = "Ciudad 1";
+    $maxDay = 1;
     foreach ($temps as $city => $temp) {
-        foreach ($temp as $dia => $t) {
+        foreach ($temp as $day => $t) {
             if ($t > $max) {
                 $max = $t;
+                $maxCity = $city;
+                $maxDay = $day + 1;
             }
         }
     }
     echo "<br>";
-    var_dump($max);
+
 
     $min = $temps["Ciudad 1"][0];
+    $minCity = "Ciudad 1";
+    $minDay = 1;
     foreach ($temps as $city => $temp) {
-        foreach ($temp as $dia => $t) {
+        foreach ($temp as $day => $t) {
             if ($t < $min) {
                 $min = $t;
+                $minCity = $city;
+                $minDay = $day + 1;
             }
         }
     }
     echo "<br>";
-    var_dump($min);
+
 
 
     $mayorVariacion = 0;
     for ($i = 0; $i < count($temp); $i++) {
         $maxDia = $temp[0];
         $minDia = $temp[0];
-        foreach ($temps as $ciudad => $temp) {
+        foreach ($temps as $city => $temp) {
             if ($temp[$i] > $maxDia) {
                 $maxDia = $temp[$i];
             }
@@ -119,16 +127,18 @@
         }
         if ($maxDia - $minDia > $mayorVariacion) {
             $mayorVariacion = $maxDia - $minDia;
-            $diaM = $i + 1;
+            $diaMV = $i + 1;
         }
     }
+
     echo "<br>";
     var_dump($mayorVariacion);
     echo "<div>";
+    echo "<h2 id=\"tableHeader\">Temperaturas de ciudades por día (ºC)</h2>";
     echo "<table>
         <tr class=\"headers\"><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td class=\"weekends\">Día 6</td><td>Media</td></tr>
     ";
-    $max = -INF;
+    $maxAvg = -INF;
     $cityM;
     foreach ($temps as $ciudad => $temp) {
         $sum = 0;
@@ -136,8 +146,8 @@
             $sum += $temp[$i];
         }
         $avg = $sum / count($temp);
-        if ($avg > $max) {
-            $max = $avg;
+        if ($avg > $maxAvg) {
+            $maxAvg = $avg;
             $cityM = $ciudad;
         }
     }
@@ -150,50 +160,69 @@
             for ($i = 0; $i < count($temp); $i++) {
                 $sum += $temp[$i];
             }
-            $avg = $sum / count($temp);
-            if ($avg > $max) {
-                $max = $avg;
+            $avg = round($sum / count($temp), 1);
+            if ($avg > $maxAvg) {
+                $maxAvg = $avg;
                 $cityM = $ciudad;
             }
 
             if ($ciudad === $cityM) {
                 for ($i = 0; $i < count($temp); $i++) {
                     if ($i === 5) {
-                        if ($temp[$i] > 35) {
+                        if ($temp[$i] == $max) {
+                            echo "<td class=\"weekends higheravg highest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] == $min) {
+                            echo "<td class=\"weekends higheravg lowest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] > 35) {
                             echo "<td class=\"weekends red higheravg\">$temp[$i]º</td>";
                         } elseif ($temp[$i] < 0) {
                             echo "<td class=\"weekends higheravg\">$temp[$i]º</td>";
                         } else {
                             echo "<td class=\"weekends higheravg\">$temp[$i]º</td>";
                         }
-                    } elseif ($temp[$i] > 35) {
-                        echo "<td class=\"red higheravg\">$temp[$i]º</td>";
-                    } elseif ($temp[$i] < 0) {
-                        echo "<td class=\"blue higheravg\">$temp[$i]º</td>";
                     } else {
-                        echo "<td class=\"higheravg\">$temp[$i]º</td>";
+                        if ($temp[$i] == $max) {
+                            echo "<td class=\"highest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] == $min) {
+                            echo "<td class=\"higheravg lowest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] > 35) {
+                            echo "<td class=\"red higheravg\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] < 0) {
+                            echo "<td class=\"blue higheravg\">$temp[$i]º</td>";
+                        } else {
+                            echo "<td class=\"higheravg\">$temp[$i]º</td>";
+                        }
                     }
                 }
             } else {
                 for ($i = 0; $i < count($temp); $i++) {
                     if ($i === 5) {
-                        if ($temp[$i] > 35) {
+                        if ($temp[$i] == $max) {
+                            echo "<td class=\"weekends highest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] == $min) {
+                            echo "<td class=\"weekends lowest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] > 35) {
                             echo "<td class=\"weekends red\">$temp[$i]º</td>";
                         } elseif ($temp[$i] < 0) {
                             echo "<td class=\"weekends blue\">$temp[$i]º</td>";
                         } else {
                             echo "<td class=\"weekends\">$temp[$i]º</td>";
                         }
-                    } elseif ($temp[$i] > 35) {
-                        echo "<td class=\"red\">$temp[$i]º</td>";
-                    } elseif ($temp[$i] < 0) {
-                        echo "<td class=\"blue\">$temp[$i]º</td>";
                     } else {
-                        echo "<td>$temp[$i]º</td>";
+                        if ($temp[$i] == $max) {
+                            echo "<td class=\"highest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] == $min) {
+                            echo "<td class=\"lowest\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] > 35) {
+                            echo "<td class=\"red\">$temp[$i]º</td>";
+                        } elseif ($temp[$i] < 0) {
+                            echo "<td class=\"blue\">$temp[$i]º</td>";
+                        } else {
+                            echo "<td>$temp[$i]º</td>";
+                        }
                     }
                 }
             }
-
 
             echo "<td class=\"averageValues\">" . $avg . "º</td>";
             echo "</tr>";
@@ -202,10 +231,13 @@
     echo "</table>";
 
 
-
-    echo "El día con más variación es el día $diaM<br>";
-    echo "La ciudad con mas media es $cityM";
-
+    echo "<div class=\"info\">";
+    echo "<p>Estadísticas</p>";
+    echo "<hr>";
+    echo "<p>Temperatura mínima: " . $min . "ºC (Día $minDay, $minCity)</p>";
+    echo "<p>Temperatura máxima: " . $max . "ºC (Día $maxDay, $maxCity)</p>";
+    echo "<p>Día con mayor variación: Día $diaMV (". $mayorVariacion . "ºC de diferencia)</p>";
+    echo "</div>";
     echo "</div>";
     ?>
 

@@ -28,7 +28,8 @@ table, td, th {
     border: 1.5px solid;
     width: 100%;
     border-radius: 3%;
-    border-spacing: 5px;
+    border-spacing: 2px;
+    padding: 5px;
 }
 
 td, th {
@@ -53,12 +54,25 @@ div {
     justify-items: center;
 }
 
-#lowest {
+.lowest {
     text-decoration: underline;
-    font-weight: 700;
+    font-weight: bold;
 }
 
-#highest {
+.highest {
     color: brown;
     font-style: oblique;
+}
+
+#tableHeader {
+    color: #fffcf5;
+    background-color: #465055;
+    padding: 10px;
+    width: 95%;
+    margin-bottom: 3px;
+}
+
+.info {
+    border: 1px solid lightgray;
+    margin-top: 10px;
 }
