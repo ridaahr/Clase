@@ -26,7 +26,7 @@
 
 table, td, th {
     border: 1.5px solid;
-    width: 100%;
+    width: 60%;
     border-radius: 3%;
     border-spacing: 2px;
     padding: 5px;
@@ -96,7 +96,7 @@ hr {
     border: 1.5px solid #d0d0d0;
     background-color: #ebebeb;
     border-radius: 8px;
-    width: 60%;
+    width: 40%;
     margin: 20px auto;
     padding: 15px 20px;
     text-align: left;

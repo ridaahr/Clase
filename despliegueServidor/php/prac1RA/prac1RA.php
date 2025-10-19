@@ -1,5 +1,6 @@
 <?php
 include("functions/shopRA.php");
+include("functions/gameRA.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +10,7 @@ include("functions/shopRA.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica 1</title>
     <link rel="stylesheet" href="styles/stylesRA.css">
+    <link rel="stylesheet" href="styles/gameRA.css">
 </head>
 
 <body>
@@ -139,7 +141,7 @@ include("functions/shopRA.php");
     echo "<div class=\"tabla\">";
     echo "<h2 id=\"tableHeader\">Temperaturas de ciudades por día (ºC)</h2>";
     echo "<table>
-        <tr class=\"headers\"><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td class=\"weekends\">Día 6</td><td>Media</td></tr>
+        <tr class=\"headers\"><th>Ciudad/Día</th><th>Día 1</th><th>Día 2</th><th>Día 3</th><th>Día 4</th><th>Día 5</th><th class=\"weekends\">Día 6</th><th>Media</th></tr>
     ";
     $maxAvg = -INF;
     $cityM;
@@ -256,7 +258,7 @@ include("functions/shopRA.php");
     <?php
 
     echo "<table>";
-    echo "<tr><td>Nombre</td><td>Precio con IVA</td><td>Stock</td></tr>";
+    echo "<tr><th>Nombre</th><th>Precio con IVA</th><th>Stock</th></tr>";
     foreach ($productos as $producto => $valor) {
         echo "<tr>";
         echo "<td>" . ucwords($valor["nombre"]) . "</td>";
@@ -280,7 +282,7 @@ include("functions/shopRA.php");
     <?php
 
     echo "<table>";
-    echo "<tr><td>Nombre</td><td>Precio con IVA</td><td>Descuento</td><td>Stock</td></tr>";
+    echo "<tr><th>Nombre</th><th>Precio con IVA</th><th>Descuento</th><th>Stock</th></tr>";
     foreach ($productosConDescuento as $producto => $valor) {
         echo "<tr>";
         echo "<td>" . ucwords($valor["nombre"]) . "</td>";
@@ -304,6 +306,32 @@ include("functions/shopRA.php");
     echo "</table>";
 
 
+    ?>
+
+    <h2>Ejercicio 5</h2>
+
+    <?php
+    
+    echo "<table class=\"punt\">";
+
+    echo "<tr><th>Usuario</th><th>Nombre</th><th>Edad</th><th>Nivel</th><th>Número de partidas</th><th>Máxima puntuacion</th></tr>";
+    $partidas = partidas($jugadores);
+    $maximos = maxPuntuacion($jugadores);
+    foreach ($jugadores as $clave => $jugador) {
+        echo "<tr>";
+        if ($jugador["activo"]) {
+        echo "<td class=\"activo\">". $clave . "</td>";
+        } else {
+            echo "<td>". $clave . "</td>";
+        }
+        echo "<td>". $jugador["nombre"] . "</td>";
+        echo "<td>". $jugador["edad"] . "</td>";
+        echo "<td>". nivel(promedio($clave, $jugadores)) . "</td>";
+        echo "<td>". $partidas[$clave] . "</td>";
+        echo "<td>". $maximos[$clave] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
     ?>
 </body>
 
