@@ -1,3 +1,6 @@
+<?php
+include("functions/shopRA.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,7 +136,7 @@
 
     echo "<br>";
     var_dump($mayorVariacion);
-    echo "<div>";
+    echo "<div class=\"tabla\">";
     echo "<h2 id=\"tableHeader\">Temperaturas de ciudades por día (ºC)</h2>";
     echo "<table>
         <tr class=\"headers\"><td>Ciudad/Día</td><td>Día 1</td><td>Día 2</td><td>Día 3</td><td>Día 4</td><td>Día 5</td><td class=\"weekends\">Día 6</td><td>Media</td></tr>
@@ -232,16 +235,76 @@
     echo "</div>";
 
     echo "<div class=\"info\">";
-    echo "<h3>Estadísticas</h3>";
+    echo "<span class=\"estadisticas\">Estadísticas</span>";
     echo "<hr class=\"infohr\">";
-    echo "<p>Temperatura mínima: " . $min . "ºC (Día $minDay, $minCity)</p>";
-    echo "<p>Temperatura máxima: " . $max . "ºC (Día $maxDay, $maxCity)</p>";
-    echo "<p>Día con mayor variación: Día $diaMV (" . $mayorVariacion . "ºC de diferencia)</p>";
+    echo "<p><span>Temperatura mínima:</span> " . $min . "ºC (Día $minDay, $minCity)</p>";
+    echo "<hr class=\"dashed\">";
+    echo "<p><span>Temperatura máxima:</span> " . $max . "ºC (Día $maxDay, $maxCity)</p>";
+    echo "<hr class=\"dashed\">";
+    echo "<p><span>Día con mayor variación:</span> Día $diaMV (" . $mayorVariacion . "ºC de diferencia)</p>";
     echo "</div>";
 
     ?>
 
     <h2>Ejercicio 3</h2>
+    <?php
+
+
+
+    ?>
+    <h2>Ejercicio 4</h2>
+    <?php
+
+    echo "<table>";
+    echo "<tr><td>Nombre</td><td>Precio con IVA</td><td>Stock</td></tr>";
+    foreach ($productos as $producto => $valor) {
+        echo "<tr>";
+        echo "<td>" . ucwords($valor["nombre"]) . "</td>";
+        echo "<td>" . formatPrice(calculateIVA($valor["precio"])) . "</td>";
+        if ($valor["stock"] == 0) {
+            echo "<td class=\"red\">" . $valor["stock"] . "</td>";
+        } elseif ($valor["stock"] > 10) {
+            echo "<td class=\"green\">" . $valor["stock"] . "</td>";
+        } else {
+            echo "<td class=\"yellow\">" . $valor["stock"] . "</td>";
+        }
+        echo "</tr>";
+    }
+
+    echo "</table>";
+
+
+    ?>
+
+    <h2>Ejercicio 4.1</h2>
+    <?php
+
+    echo "<table>";
+    echo "<tr><td>Nombre</td><td>Precio con IVA</td><td>Descuento</td><td>Stock</td></tr>";
+    foreach ($productosConDescuento as $producto => $valor) {
+        echo "<tr>";
+        echo "<td>" . ucwords($valor["nombre"]) . "</td>";
+        if (isset($valor["descuento"])) {
+            echo "<td class=\"tachado\">" . formatPrice(calculateIVA($valor["precio"])) . "</td>";
+            echo "<td>" . formatPrice($valor["descuento"]) . "</td>";
+        } else {
+            echo "<td>" . formatPrice(calculateIVA($valor["precio"])) . "</td>";
+            echo "<td>No hay descuento :(</td>";
+        }
+        if ($valor["stock"] == 0) {
+            echo "<td class=\"red\">" . $valor["stock"] . "</td>";
+        } elseif ($valor["stock"] > 10) {
+            echo "<td class=\"green\">" . $valor["stock"] . "</td>";
+        } else {
+            echo "<td class=\"yellow\">" . $valor["stock"] . "</td>";
+        }
+        echo "</tr>";
+    }
+
+    echo "</table>";
+
+
+    ?>
 </body>
 
 </html>

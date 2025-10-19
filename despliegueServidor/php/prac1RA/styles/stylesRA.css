@@ -46,7 +46,7 @@ td, th {
     border-left: 2px solid black;
 }
 
-div {
+.tabla {
     text-align: center;
     align-items: center;
     width: 80%;
@@ -73,9 +73,28 @@ div {
 }
 
 
+hr {
+    display: block;
+    width: 100%;
+    height: 1px;
+    margin: 8px 0;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.infohr {
+    border-top: 2px solid #465055;
+    margin: 10px 0;
+}
+
+.dashed {
+    border-top: 1px dashed #777;
+    margin: 8px 0;
+}
+
 .info {
-    border: 1.5px solid lightgray;
-    background-color: lightgray;
+    border: 1.5px solid #d0d0d0;
+    background-color: #ebebeb;
     border-radius: 8px;
     width: 60%;
     margin: 20px auto;
@@ -83,22 +102,22 @@ div {
     text-align: left;
 }
 
-.info h3,
-.info p {
-    display: block;
-    width: 100%;
-    text-align: left;
-}
-
-.info h3 {
+.estadisticas {
     color: #465055;
 }
 
-.infohr {
-    border: none;
-    height: 1px;
-    background-color: #465055;
-    width: 100%;
-    margin: 10px 0;
+p span {
+    font-weight: bold;
 }
 
+.green {
+    color: green;
+}
+
+.yellow {
+    color: yellow;
+}
+
+.tachado {
+    text-decoration: line-through;
+}
