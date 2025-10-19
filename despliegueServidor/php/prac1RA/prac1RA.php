@@ -317,6 +317,12 @@ include("functions/gameRA.php");
     echo "<tr><th>Usuario</th><th>Nombre</th><th>Edad</th><th>Nivel</th><th>Número de partidas</th><th>Máxima puntuacion</th></tr>";
     $partidas = partidas($jugadores);
     $maximos = maxPuntuacion($jugadores);
+    $max = 0;
+    foreach ($maximos as $jugador => $valor) {
+        if ($valor > $max) {
+            $max = $valor;
+        }
+    }
     foreach ($jugadores as $clave => $jugador) {
         echo "<tr>";
         if ($jugador["activo"]) {
@@ -326,9 +332,19 @@ include("functions/gameRA.php");
         }
         echo "<td>". $jugador["nombre"] . "</td>";
         echo "<td>". $jugador["edad"] . "</td>";
-        echo "<td>". nivel(promedio($clave, $jugadores)) . "</td>";
+        if (nivel(promedio($clave, $jugadores)) == "Principiante") {
+        echo "<td class=\"principiante\">". nivel(promedio($clave, $jugadores)) . "</td>";
+        } elseif (nivel(promedio($clave, $jugadores)) == "Intermedio"){
+        echo "<td class=\"intermedio\">". nivel(promedio($clave, $jugadores)) . "</td>";
+        } else {
+        echo "<td class=\"experto\">". nivel(promedio($clave, $jugadores)) . "</td>";
+        }
         echo "<td>". $partidas[$clave] . "</td>";
-        echo "<td>". $maximos[$clave] . "</td>";
+        if ($maximos[$clave] == $max) {
+        echo "<td class=\"record\">". $maximos[$clave] . "</td>";
+        } else {
+            echo "<td>". $maximos[$clave] . "</td>";
+        }
         echo "</tr>";
     }
     echo "</table>";

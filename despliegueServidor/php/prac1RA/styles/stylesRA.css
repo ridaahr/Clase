@@ -116,6 +116,7 @@ p span {
 
 .yellow {
     color: yellow;
+    background-color: lightblue;  /*por el amarillo*/
 }
 
 .tachado {
