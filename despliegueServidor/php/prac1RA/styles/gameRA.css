@@ -7,3 +7,34 @@
     width: 60%;
 }
 
+.partidas-pocas {
+    background-color: #FFCDD2; 
+}
+
+.partidas-muchas {
+    background-color: #C8E6C9; 
+}
+
+.rekord {
+    border: 2px solid #FFD700;
+    box-shadow: 0 0 5px #FFD700;
+    font-weight: bold;
+}
+
+.nivel-experto {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+.nivel-intermedio {
+    background-color: #FFC107;
+    color: black;
+    font-weight: bold;
+}
+
+.nivel-principiante {
+    background-color: #F44336;
+    color: white;
+    font-weight: bold;
+}
