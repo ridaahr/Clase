@@ -1,73 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tablas</title>
+    <title>Diseños de Tablas (Tabla 1 a 7)</title>
     <style>
         body {
             background-color: rgb(98, 68, 83);
+            margin: 20px;
         }
 
-        div {
-            margin: 5px;
+        .contenedor-tabla {
+            width: 400px; 
+            height: 400px; 
+            border: 2px solid #fff;
+            margin: 10px;
+            float: left; 
         }
 
-        .caja1 {
+        .caja {
             background-color: rgb(46, 187, 187);
-            width: 200px;
-            height: 200px;
-
-        }
-
-        .caja2 {
-            background-color: rgb(46, 187, 187);
-            width: 200px;
-            height: 75px;
-
-        }
-
-        .caja3 {
-            background-color: rgb(46, 187, 187);
-            width: 200px;
-            height: 120px;
-        }
-
-        .left {
+            border: 2px solid rgb(98, 68, 83);
+            box-sizing: border-box;
             float: left;
         }
 
-        .right {
-            float: left;
-            margin-right: 70px;
+        .vacio {
+            background-color: transparent !important;
+            border: none !important;
         }
 
-        .caja4 {
-            background-color: rgb(46, 187, 187);
-            width: 200px;
-            height: 50px;
+        .columna-anidada {
+            float: left;
+            width: 50%; 
+            height: 100%; 
+            box-sizing: border-box;
         }
+
+
+        .clear {
+            clear: both;
+            height: 0; 
+            line-height: 0; 
+            font-size: 0; 
+        }
+
+        .w100 { width: 100%; }
+        .w66 { width: 66.6666%; }
+        .w50 { width: 50%; }
+        .w33 { width: 33.3333%; }
+        .w30 { width: 30%; } 
+        .w25 { width: 25%; }
+        .w20 { width: 20%; } 
+
+        .h100 { height: 100%; }
+        .h66 { height: 66.6666%; } 
+        .h65 { height: 65%; } 
+        .h60 { height: 60%; } 
+        .h50 { height: 50%; } 
+        .h45 { height: 45%; } 
+        .h40 { height: 40%; } 
+        .h35 { height: 35%; } 
+        .h33 { height: 33.3333%; } 
+        .h30 { height: 30%; } 
+        .h25 { height: 25%; } 
+        .h20 { height: 20%; } 
+        .h15 { height: 15%; } 
+        .h10 { height: 10%; } 
+
+
+        /*esto es para la tabla 5*/
+        .h-t5-10 { height: 20%; } 
+        .h-t5-15 { height: 30%; } 
+        .h-t5-20 { height: 40%; } 
+        .h-t5-25 { height: 50%; } 
+        .h-t5-35 { height: 70%; } 
+
     </style>
 </head>
-
 <body>
-    <div>
-        <div class="left">
-            <div class="caja1"></div>
-            <div class="caja4"></div>
-            <div class="caja3"></div>
-        </div>
-        <div class="right">
-            <div class="caja2"></div>
-            <div class="caja3"></div>
-            <div class="caja4"></div>
-            <div class="caja3"></div>
-        </div>
+
+<div class="contenedor-tabla">
+    <div class="caja w50 h50"></div>
+    <div class="columna-anidada h50">
+        <div class="caja w100 h40"></div> 
+        <div class="caja w100 h60"></div> 
     </div>
-    <div>
+    <div class="caja w50 h15"></div>
+    <div class="caja w50 h15"></div>
+    <div class="caja w50 h35"></div>
+    <div class="caja w50 h35"></div>
+</div>
+
+<div class="contenedor-tabla">
+    <div class="columna-anidada h50">
+        <div class="caja w100 h25"></div>
+        <div class="caja w100 h25"></div>
+        <div class="caja w100 h25"></div>
+        <div class="caja w100 h25"></div>
+    </div>
+    <div class="caja w50 h50"></div>
+    <div class="caja w100 h50"></div>
+</div>
+
+<div class="contenedor-tabla">
+    <div class="caja w33 h33"></div> 
+    <div class="caja w66 h33"></div> 
+    <div class="caja w33 h66"></div>
+    <div class="caja w33 h66"></div>
+    <div class="columna-anidada w33 h66">
+        <div class="caja w100 h50"></div>
+        <div class="caja w100 h50"></div>
+    </div>
+</div>
+
+<div class="contenedor-tabla">
+    <div class="caja w100 h20"></div>
+    <div class="caja w30 h65"></div>
+    <div class="caja w50 h65"></div>
+    <div class="caja w20 h65"></div>
+    <div class="caja w100 h15"></div>
+</div>
+
+<div class="clear"></div>
+
+<div class="contenedor-tabla">
+    <div class="caja w50 h50"></div> 
+    <div class="columna-anidada w50 h50">
+        <div class="caja w100 h-t5-15"></div>
+        <div class="caja w100 h-t5-25"></div>
+        <div class="caja vacio w100 h-t5-10"></div> 
+    </div>
+    <div class="clear"></div> 
+    <div class="columna-anidada w50 h50">
+        <div class="caja vacio w100 h-t5-10"></div> 
+        <div class="caja w100 h-t5-20"></div>
+        <div class="caja vacio w100 h-t5-20"></div> 
+    </div>
+    <div class="columna-anidada w50 h50">
+        <div class="caja w100 h-t5-15"></div>
+        <div class="caja w100 h-t5-35"></div>
+    </div>
+</div>
+
+
+
+<div class="contenedor-tabla">
+    <div class="columna-anidada w33 h100">
+        <div class="caja w100 h20"></div>
+        <div class="caja w100 h10"></div>
+        <div class="caja w100 h10"></div>
+        <div class="caja w100 h30"></div>
         
     </div>
-</body>
 
+    <div class="columna-anidada w66 h100">
+        <div class="caja vacio w100 h10"></div> <div class="caja w100 h45"></div>         <div class="caja w100 h45"></div>         </div>
+</div>
+
+<div class="contenedor-tabla">
+    <div class="caja w33 h33"></div> 
+    <div class="caja w66 h33"></div> 
+    
+    <div class="clear"></div> 
+
+    <div class="columna-anidada w33 h66">
+        <div class="caja vacio w100 h30"></div> 
+        <div class="caja w100 h66"></div> 
+    </div>
+    
+    <div class="caja w33 h66"></div>
+    
+    <div class="columna-anidada w33 h66">
+        <div class="caja w100 h33"></div> 
+        <div class="caja vacio w100 h67"></div> 
+    </div>
+</div>
+
+<div class="contenedor-tabla">
+    <div class="caja w100 h25"></div> 
+
+    <div class="caja w30 h65"></div> 
+    
+    <div class="caja w33 h65"></div> 
+    
+    <div class="clear"></div>
+
+    <div class="caja w66 h10"></div> 
+</div>
+</body>
 </html>
