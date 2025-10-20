@@ -35,6 +35,8 @@ table, td, th {
 td, th {
     border-color: gainsboro;
     width: 70px;
+    height: 50px;
+    text-align: center;
 }
 
 .averages {
@@ -121,4 +123,8 @@ p span {
 
 .tachado {
     text-decoration: line-through;
+}
+
+.shop {
+    margin: 0 auto;
 }

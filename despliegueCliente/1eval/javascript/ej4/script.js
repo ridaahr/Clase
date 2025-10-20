@@ -105,9 +105,10 @@ let precios = [25.50, 24.40, 10, 12];
 let descuento = prompt("Introduce el descuento a aplicar");
 
 for (let i = 0; i < precios.length; i++) {
-    precios[i] = (descuento * precios[i]) / 100;
+    precios[i] = (descuento * precios[i]) / 100
 }
 alert(precios);
+
 /*
 //Ej 7
 let numbers = [];

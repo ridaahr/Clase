@@ -170,65 +170,58 @@ include("functions/gameRA.php");
                 $maxAvg = $avg;
                 $cityM = $ciudad;
             }
+            for ($i = 0; $i < count($temp); $i++) {
+                if ($ciudad === $cityM) {
+                    if ($temp[$i] < 0) {
+                        if ($temp[$i] == $min) {
 
-            if ($ciudad === $cityM) {
-                for ($i = 0; $i < count($temp); $i++) {
-                    if ($i === 5) {
-                        if ($temp[$i] == $max) {
-                            echo "<td class=\"weekends higheravg highest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] == $min) {
-                            echo "<td class=\"weekends higheravg lowest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] > 35) {
-                            echo "<td class=\"weekends red higheravg\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] < 0) {
-                            echo "<td class=\"weekends higheravg\">$temp[$i]º</td>";
+                            echo "<td class=\"higheravg lowest blue\">$temp[$i]º</td>";
                         } else {
-                            echo "<td class=\"weekends higheravg\">$temp[$i]º</td>";
+                            echo "<td class=\"higheravg blue\">$temp[$i]º</td>";
                         }
-                    } else {
+                    } elseif ($temp[$i] > 35) {
                         if ($temp[$i] == $max) {
-                            echo "<td class=\"highest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] == $min) {
-                            echo "<td class=\"higheravg lowest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] > 35) {
+                            echo "<td class=\"higheravg highest\">$temp[$i]º</td>";
+                        } else {
                             echo "<td class=\"red higheravg\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] < 0) {
-                            echo "<td class=\"blue higheravg\">$temp[$i]º</td>";
-                        } else {
-                            echo "<td class=\"higheravg\">$temp[$i]º</td>";
-                        }
-                    }
-                }
-            } else {
-                for ($i = 0; $i < count($temp); $i++) {
-                    if ($i === 5) {
-                        if ($temp[$i] == $max) {
-                            echo "<td class=\"weekends highest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] == $min) {
-                            echo "<td class=\"weekends lowest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] > 35) {
-                            echo "<td class=\"weekends red\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] < 0) {
-                            echo "<td class=\"weekends blue\">$temp[$i]º</td>";
-                        } else {
-                            echo "<td class=\"weekends\">$temp[$i]º</td>";
                         }
                     } else {
-                        if ($temp[$i] == $max) {
-                            echo "<td class=\"highest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] == $min) {
-                            echo "<td class=\"lowest\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] > 35) {
-                            echo "<td class=\"red\">$temp[$i]º</td>";
-                        } elseif ($temp[$i] < 0) {
-                            echo "<td class=\"blue\">$temp[$i]º</td>";
-                        } else {
-                            echo "<td>$temp[$i]º</td>";
-                        }
+                        echo "<td class=\"higheravg\">$temp[$i]º</td>";
                     }
+                } elseif ($i === 5) {
+                    if ($temp[$i] < 0) {
+                        if ($temp[$i] == $min) {
+
+                            echo "<td class=\"weekends lowest blue\">$temp[$i]º</td>";
+                        } else {
+                            echo "<td class=\"weekends blue\">$temp[$i]º</td>";
+                        }
+                    } elseif ($temp[$i] > 35) {
+                        if ($temp[$i] == $max) {
+                            echo "<td class=\"weekends lowest\">$temp[$i]º</td>";
+                        } else {
+                            echo "<td class=\"red weekends\">$temp[$i]º</td>";
+                        }
+                    } else {
+                        echo "<td class=\"weekends\">$temp[$i]º</td>";
+                    }
+                } elseif ($temp[$i] < 0) {
+                    if ($temp[$i] == $min) {
+
+                        echo "<td class=\"lowest blue\">$temp[$i]º</td>";
+                    } else {
+                        echo "<td class=\"blue\">$temp[$i]º</td>";
+                    }
+                } elseif ($temp[$i] > 35) {
+                    if ($temp[$i] == $max) {
+                        echo "<td class=\"highest\">$temp[$i]º</td>";
+                    } else {
+                        echo "<td class=\"red\">$temp[$i]º</td>";
+                    }
+                } else {
+                    echo "<td>" . $temp[$i] . "º</td>";
                 }
             }
-
             echo "<td class=\"averageValues\">" . $avg . "º</td>";
             echo "</tr>";
         }
@@ -257,7 +250,7 @@ include("functions/gameRA.php");
     <h2>Ejercicio 4</h2>
     <?php
 
-    echo "<table>";
+    echo "<table class=\"shop\">";
     echo "<tr><th>Nombre</th><th>Precio con IVA</th><th>Stock</th></tr>";
     foreach ($productos as $producto => $valor) {
         echo "<tr>";
@@ -281,7 +274,7 @@ include("functions/gameRA.php");
     <h2>Ejercicio 4.1</h2>
     <?php
 
-    echo "<table>";
+    echo "<table class=\"shop\">";
     echo "<tr><th>Nombre</th><th>Precio con IVA</th><th>Descuento</th><th>Stock</th></tr>";
     foreach ($productosConDescuento as $producto => $valor) {
         echo "<tr>";
@@ -311,7 +304,7 @@ include("functions/gameRA.php");
     <h2>Ejercicio 5</h2>
 
     <?php
-    
+
     echo "<table class=\"punt\">";
 
     echo "<tr><th>Usuario</th><th>Nombre</th><th>Edad</th><th>Nivel</th><th>Número de partidas</th><th>Máxima puntuacion</th></tr>";
@@ -326,24 +319,24 @@ include("functions/gameRA.php");
     foreach ($jugadores as $clave => $jugador) {
         echo "<tr>";
         if ($jugador["activo"]) {
-        echo "<td class=\"activo\">". $clave . "</td>";
+            echo "<td class=\"activo\">" . $clave . "</td>";
         } else {
-            echo "<td>". $clave . "</td>";
+            echo "<td>" . $clave . "</td>";
         }
-        echo "<td>". $jugador["nombre"] . "</td>";
-        echo "<td>". $jugador["edad"] . "</td>";
+        echo "<td>" . $jugador["nombre"] . "</td>";
+        echo "<td>" . $jugador["edad"] . "</td>";
         if (nivel(promedio($clave, $jugadores)) == "Principiante") {
-        echo "<td class=\"principiante\">". nivel(promedio($clave, $jugadores)) . "</td>";
-        } elseif (nivel(promedio($clave, $jugadores)) == "Intermedio"){
-        echo "<td class=\"intermedio\">". nivel(promedio($clave, $jugadores)) . "</td>";
+            echo "<td class=\"principiante\">" . nivel(promedio($clave, $jugadores)) . "</td>";
+        } elseif (nivel(promedio($clave, $jugadores)) == "Intermedio") {
+            echo "<td class=\"intermedio\">" . nivel(promedio($clave, $jugadores)) . "</td>";
         } else {
-        echo "<td class=\"experto\">". nivel(promedio($clave, $jugadores)) . "</td>";
+            echo "<td class=\"experto\">" . nivel(promedio($clave, $jugadores)) . "</td>";
         }
-        echo "<td>". $partidas[$clave] . "</td>";
+        echo "<td>" . $partidas[$clave] . "</td>";
         if ($maximos[$clave] == $max) {
-        echo "<td class=\"record\">". $maximos[$clave] . "</td>";
+            echo "<td class=\"record\">" . $maximos[$clave] . "</td>";
         } else {
-            echo "<td>". $maximos[$clave] . "</td>";
+            echo "<td>" . $maximos[$clave] . "</td>";
         }
         echo "</tr>";
     }
