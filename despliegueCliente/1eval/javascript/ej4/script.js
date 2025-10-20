@@ -60,7 +60,49 @@ let option;
 do {
     option = Number(prompt(alert("1.Añadir al principio\n 2.Añadir al final\n 3.Eliminar repetido\n 4.Borrar todos\n 5.Salir\n")));
     if (option == 1) {
-        
+        let product = prompt(alert("Introduce el producto"));
+        basket.unshift(product);
+        alert(basket);
+    } else if (option == 2) {
+        let product = prompt(alert("Introduce el producto"));
+        basket.push(product);
+        alert(basket);
+    } else if (option == 3) {
+        let product = prompt(alert("Introduce el producto"));
+        if (basket.includes(product)) {
+            let count = 0;
+            let repetido = [];
+            for (let i = 0; i < basket.length; i++) {
+                if (basket[i] == product) {
+                    count++;
+                    repetido.push(i);
+                }
+            }
+            if (repetido.length > 1) {
+                for (let i = 1; i <= repetido.length; i++) {
+                    basket.splice(repetido[i], 1);
+                }
+            }
+        }
+        alert(basket);
+    } else if (option == 4) {
+        basket.splice(0, basket.length);
+        alert(basket);
+    } else if (option == 5) {
+        alert("Saliendo...")
     }
 } while (option != 5);
 
+//Ej 6
+let numbers = [];
+let num;
+do {
+    num = Number(prompt("Introduce un número"));
+    if (num != 0) {
+        numbers.push(num);
+    } else {
+        alert("Finalizando programa...")
+    }
+} while (num != 0);
+numbers.sort;
+alert(numbers);
