@@ -113,12 +113,18 @@ p span {
 }
 
 .green {
-    color: green;
+    background-color: green;
+    font-weight: bold;
 }
 
 .yellow {
-    color: yellow;
-    background-color: lightblue;  /*por el amarillo*/
+    background-color: yellow;
+    font-weight: bold;
+}
+
+.red2 {
+    background-color: red;
+    font-weight: bold;
 }
 
 .tachado {

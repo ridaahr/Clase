@@ -1,5 +1,5 @@
 .activo {
-    color: blue;
+    color: rgb(204, 0, 255);
     text-decoration: underline;
 }
 
@@ -29,4 +29,8 @@
     background-color: #F44336;
     color: white;
     font-weight: bold;
+}
+
+table {
+    margin: 0 auto;
 }

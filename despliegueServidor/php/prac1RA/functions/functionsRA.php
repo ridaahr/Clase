@@ -1,23 +1,20 @@
 <?php
 function filterByType($arr, $type)
 {
-    $arr2 = [];
-    if ($type == "par") {
-        for ($i = 0; $i < count($arr); $i++) {
-            if ($arr[$i] % 2 == 0) {
-                $arr2[] = $arr[$i];
+    for ($i = 0; $i < count($arr); $i++) {
+        $arr2 = [];
+        if ($type == "par") {
+            for ($i = 0; $i < count($arr); $i++) {
+                if ($arr[$i] % 2 == 0) {
+                    $arr2[] = $arr[$i];
+                }
             }
-        }
-        return $arr2;
-    } elseif ($type == "impar") {
-        for ($i = 0; $i < count($arr); $i++) {
-            if ($arr[$i] % 2 != 0) {
-                $arr2[] = $arr[$i];
+        } elseif ($type == "impar") { {
+                if ($arr[$i] % 2 != 0) {
+                    $arr2[] = $arr[$i];
+                }
             }
-        }
-        return $arr2;
-    } elseif ($type == "primo") {
-        for ($i = 0; $i < count($arr); $i++) {
+        } elseif ($type == "primo") {
             $num = $arr[$i];
             $esPrimo = true;
             if ($num > 1) {
@@ -33,23 +30,19 @@ function filterByType($arr, $type)
             if ($esPrimo) {
                 $arr2[] = $num;
             }
-        }
-        return $arr2;
-    } elseif ($type == "positivo") {
-        for ($i = 0; $i < count($arr); $i++) {
+        } elseif ($type == "positivo") {
             if ($arr[$i] >= 0) {
                 $arr2[] = $arr[$i];
             }
-        }
-        return $arr2;
-    } elseif ($type == "negativo") {
-        for ($i = 0; $i < count($arr); $i++) {
+
+
+        } elseif ($type == "negativo") {
             if ($arr[$i] < 0) {
                 $arr2[] = $arr[$i];
             }
         }
-        return $arr2;
     }
+    return $arr2;
 }
 
 function calculateStatistics($arr)
@@ -160,7 +153,8 @@ $personas = $personas = [
  * @param mixed $dni Aquí se indica el DNI de la persona a buscar
  * @param mixed $arr Aquí pasamos el array donde tenemos guardadas las personas que tengamos registradas en nuestro sistema imaginario
  */
-function inventoRida($dni, $arr) {
+function inventoRida($dni, $arr)
+{
     foreach ($arr as $key => $value) {
         if ($dni == $key) {
             return $value;

@@ -174,7 +174,6 @@ include("functions/gameRA.php");
                 if ($ciudad === $cityM) {
                     if ($temp[$i] < 0) {
                         if ($temp[$i] == $min) {
-
                             echo "<td class=\"higheravg lowest blue\">$temp[$i]º</td>";
                         } else {
                             echo "<td class=\"higheravg blue\">$temp[$i]º</td>";
@@ -198,7 +197,7 @@ include("functions/gameRA.php");
                         }
                     } elseif ($temp[$i] > 35) {
                         if ($temp[$i] == $max) {
-                            echo "<td class=\"weekends lowest\">$temp[$i]º</td>";
+                            echo "<td class=\"weekends highest\">$temp[$i]º</td>";
                         } else {
                             echo "<td class=\"red weekends\">$temp[$i]º</td>";
                         }
@@ -257,7 +256,7 @@ include("functions/gameRA.php");
         echo "<td>" . ucwords($valor["nombre"]) . "</td>";
         echo "<td>" . formatPrice(calculateIVA($valor["precio"])) . "</td>";
         if ($valor["stock"] == 0) {
-            echo "<td class=\"red\">" . $valor["stock"] . "</td>";
+            echo "<td class=\"red2\">" . $valor["stock"] . "</td>";
         } elseif ($valor["stock"] > 10) {
             echo "<td class=\"green\">" . $valor["stock"] . "</td>";
         } else {
@@ -287,7 +286,7 @@ include("functions/gameRA.php");
             echo "<td>No hay descuento :(</td>";
         }
         if ($valor["stock"] == 0) {
-            echo "<td class=\"red\">" . $valor["stock"] . "</td>";
+            echo "<td class=\"red2\">" . $valor["stock"] . "</td>";
         } elseif ($valor["stock"] > 10) {
             echo "<td class=\"green\">" . $valor["stock"] . "</td>";
         } else {
