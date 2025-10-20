@@ -52,13 +52,13 @@ if (names.includes(searchName)) {
 } else {
     alert("No lo he encontrado");
 }
-*/
+
 
 //Ej 5
 let basket = [];
 let option;
 do {
-    option = Number(prompt(alert("1.Añadir al principio\n 2.Añadir al final\n 3.Eliminar repetido\n 4.Borrar todos\n 5.Salir\n")));
+    option = Number(prompt("1.Añadir al principio\n 2.Añadir al final\n 3.Eliminar repetido\n 4.Borrar todos\n 5.Salir\n"));
     if (option == 1) {
         let product = prompt(alert("Introduce el producto"));
         basket.unshift(product);
@@ -83,6 +83,8 @@ do {
                     basket.splice(repetido[i], 1);
                 }
             }
+        } else {
+            alert("Este producto no se encuentra");
         }
         alert(basket);
     } else if (option == 4) {
@@ -92,7 +94,7 @@ do {
         alert("Saliendo...")
     }
 } while (option != 5);
-
+*/
 //Ej 6
 let numbers = [];
 let num;
@@ -104,5 +106,5 @@ do {
         alert("Finalizando programa...")
     }
 } while (num != 0);
-numbers.sort;
+numbers.sort((a, b) => a - b);
 alert(numbers);
