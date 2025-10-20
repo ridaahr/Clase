@@ -1,45 +1,35 @@
 <?php
+
 function filterByType($arr, $type)
 {
+    $arr2 = [];
+
     for ($i = 0; $i < count($arr); $i++) {
-        $arr2 = [];
-        if ($type == "par") {
-            for ($i = 0; $i < count($arr); $i++) {
-                if ($arr[$i] % 2 == 0) {
-                    $arr2[] = $arr[$i];
-                }
-            }
-        } elseif ($type == "impar") { {
-                if ($arr[$i] % 2 != 0) {
-                    $arr2[] = $arr[$i];
-                }
-            }
+        $num = $arr[$i];
+
+        if ($type == "par" && $num % 2 == 0) {
+            $arr2[] = $num;
+        } elseif ($type == "impar" && $num % 2 != 0) {
+            $arr2[] = $num;
         } elseif ($type == "primo") {
-            $num = $arr[$i];
             $esPrimo = true;
-            if ($num > 1) {
+            if ($num <= 1) {
+                $esPrimo = false;
+            } else {
                 for ($j = 2; $j < $num; $j++) {
                     if ($num % $j == 0) {
                         $esPrimo = false;
+                        break;
                     }
                 }
-            } else {
-                $esPrimo = false;
             }
-
             if ($esPrimo) {
                 $arr2[] = $num;
             }
-        } elseif ($type == "positivo") {
-            if ($arr[$i] >= 0) {
-                $arr2[] = $arr[$i];
-            }
-
-
-        } elseif ($type == "negativo") {
-            if ($arr[$i] < 0) {
-                $arr2[] = $arr[$i];
-            }
+        } elseif ($type == "positivo" && $num >= 0) {
+            $arr2[] = $num;
+        } elseif ($type == "negativo" && $num < 0) {
+            $arr2[] = $num;
         }
     }
     return $arr2;
@@ -54,6 +44,7 @@ function calculateStatistics($arr)
     }
     $media = $suma / count($arr);
 
+    sort($arr);
     $count = count($arr);
     if ($count % 2 == 1) {
         $mediana = $arr[($count / 2)];
@@ -64,9 +55,11 @@ function calculateStatistics($arr)
     $frecuencias = array_count_values($arr);
     $maxFreq = max($frecuencias);
     $moda = [];
-    foreach ($frecuencias as $valor => $freq) {
-        if ($freq == $maxFreq) {
-            $moda[] = $valor;
+    if ($maxFreq > 1) {
+        foreach ($frecuencias as $valor => $freq) {
+            if ($freq == $maxFreq) {
+                $moda[] = $valor;
+            }
         }
     }
 
@@ -82,15 +75,16 @@ function analizarPalabras($text)
     $palabras = preg_split("/\s+/", $text);
 
     $number_of_words = count($palabras);
-    $longest_word = 0;
-    $shortest_word = 0;
+    $longest_word = '';
+    $shortest_word = '';
 
-    for ($i = 0; $i < count($palabras); $i++) {
-        if (mb_strlen($palabras[$i] > mb_strlen($longest_word))) {
-            $longest_word = $palabras[$i];
+    foreach ($palabras as $palabra) {
+        $len = strlen($palabra);
+        if ($len > strlen($longest_word)) {
+            $longest_word = $palabra;
         }
-        if (mb_strlen($palabras[$i] < mb_strlen($shortest_word))) {
-            $shortest_word = $palabras[$i];
+        if ($shortest_word === '' || $len < strlen($shortest_word)) {
+            $shortest_word = $palabra;
         }
     }
 
@@ -162,5 +156,3 @@ function inventoRida($dni, $arr)
     }
     return false;
 }
-
-var_dump(inventoRida("11223344C", $personas));
