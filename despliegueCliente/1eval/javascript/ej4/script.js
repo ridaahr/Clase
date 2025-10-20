@@ -28,7 +28,7 @@ if (numbers.includes(5) || includes5) {
 } else {
     alert("No hay ningún 5");
 }
-/*
+
 //Ej 3
 let search = Number(prompt("¿Qué numbero quieres buscar?"));
 let counter = 0;
@@ -58,18 +58,19 @@ if (names.includes(searchName)) {
 let basket = [];
 let option;
 do {
-    option = Number(prompt("1.Añadir al principio\n 2.Añadir al final\n 3.Eliminar repetido\n 4.Borrar todos\n 5.Salir\n"));
+    option = Number(prompt("1.Añadir al principio\n2.Añadir al final\n3.Eliminar repetido\n4.Borrar todos\n5.Salir\n"));
     if (option == 1) {
-        let product = prompt(alert("Introduce el producto"));
+        let product = prompt("Introduce el producto");
         basket.unshift(product);
         alert(basket);
     } else if (option == 2) {
-        let product = prompt(alert("Introduce el producto"));
+        let product = prompt("Introduce el producto");
         basket.push(product);
         alert(basket);
     } else if (option == 3) {
-        let product = prompt(alert("Introduce el producto"));
+        let product = prompt("Introduce el producto");
         if (basket.includes(product)) {
+            /*
             let count = 0;
             let repetido = [];
             for (let i = 0; i < basket.length; i++) {
@@ -86,16 +87,29 @@ do {
         } else {
             alert("Este producto no se encuentra");
         }
-        alert(basket);
-    } else if (option == 4) {
-        basket.splice(0, basket.length);
-        alert(basket);
-    } else if (option == 5) {
-        alert("Saliendo...")
+        
+            basket.splice(basket.indexOf(product), 1);
+            alert(basket);
+        } else if (option == 4) {
+            basket.splice(0, basket.length);
+            alert(basket);
+        } else if (option == 5) {
+            alert("Saliendo...")
+        }
     }
 } while (option != 5);
 */
+
 //Ej 6
+let precios = [25.50, 24.40, 10, 12];
+let descuento = prompt("Introduce el descuento a aplicar");
+
+for (let i = 0; i < precios.length; i++) {
+    precios[i] = (descuento * precios[i]) / 100;
+}
+alert(precios);
+/*
+//Ej 7
 let numbers = [];
 let num;
 do {
@@ -108,3 +122,4 @@ do {
 } while (num != 0);
 numbers.sort((a, b) => a - b);
 alert(numbers);
+*/
