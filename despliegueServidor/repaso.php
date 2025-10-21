@@ -8,6 +8,15 @@ include "funcionesrepaso.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repaso</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .center {
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -19,6 +28,32 @@ include "funcionesrepaso.php";
     echo "<br>";
     $analiza2 = analiza2("hola", "h");
     var_dump($analiza2);
+    ?>
+
+    <?php
+    $bid = [];
+    for ($i = 0; $i < 10; $i++) {
+        for ($j = 0; $j < 10; $j++) {
+            $bid[$i][$j] = $j;
+        }
+    }
+
+
+    echo "<table>";
+    for ($i = 0; $i < 10; $i++) {
+        echo "<tr>";
+        for ($j = 0; $j < 10; $j++) {
+            if ($i == 4 && $j == 4) {
+                echo "<td class=\"center\">" . $bid[$i][$j] . "</td>";
+            } else if ($i == $j || $i + $j == 9) {
+                echo "<td class=\"red\">" . $bid[$i][$j] . "</td>";
+            } else {
+                echo "<td>". $bid[$i][$j] . "</td>";
+            }
+        }
+        echo "</tr>";
+    }
+    echo "</table>";
     ?>
 </body>
 </html>
