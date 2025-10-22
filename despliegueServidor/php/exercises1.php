@@ -78,31 +78,29 @@
     }
     ?>
 
+    <h2>Ejercicio 6</h2>
     <?php
-    echo "<h1>Ej 6</h1>";
-    echo "<br>";
-    $hora = 22;
-    $minuto = 59;
-    $segundo = 30;
-    if ($hora == 23 && $minuto == 59 && $segundo == 59) {
-        echo "00:00:00";
-    } else {
-        if ($segundo == 59) {
-            if ($minuto == 59) {
-                echo $hora + 1 . ":00:00";
-            } elseif ($segundo < 59) {
-                if ($minuto == 59) {
-                    echo "$hora:00:" . $segundo + 1;
-                } else {
-                    echo $hora . ":00:00";
-                }
-            } elseif ($segundo == 59) {
-                echo "$hora:" . $minuto + 1 . ":00";
+    $hour = 23;
+    $minute = 59;
+    $second = 59;
+
+    echo "<p>La hora actual es $hour:$minute:$second</p>";
+    $second++;
+    //Si ha llegado a 60s -> Reinicializar los segundos e incrementar 1 minuto
+    if ($second >= 60) {
+        $minute++;
+        $second = 0;
+        //Si ha llegado a 60min -> Reinicializar los minutos e incrementar 1 hora
+        if ($minute >= 60) {
+            $hour++;
+            $minute = 0;
+            //Si ha llegado a 24h -> reinicializar las horas
+            if ($hour >= 24) {
+                $hour = 0;
             }
-        } elseif ($segundo < 59) {
-            echo "$hora:$minuto:" . $segundo + 1;
         }
     }
+    echo "<p>Un segundo después: $hour:$minute:$second</p>";
     ?>
     <?php
     echo "<h1>Ej 7</h1>";
