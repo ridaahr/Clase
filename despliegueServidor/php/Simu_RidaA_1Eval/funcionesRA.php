@@ -16,11 +16,9 @@ function promedio(...$nums)
 
 function potencia($base, $exponente = 2)
 {
-    $counter = $exponente;
     $result = $base;
     for ($i = 1; $i < $exponente; $i++) {
-        $result = $result * $base;
-
+        $result *= $base;
     }
     return $result;
 }
