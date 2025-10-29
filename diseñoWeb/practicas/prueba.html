@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,20 +11,24 @@
             width: 180px;
             height: 76px;
         }
+
         .div3 {
             background-color: red;
             width: 50vw;
             height: 76px;
         }
+
         .green1 {
             background-color: green;
             width: 50%;
         }
+
         .div4 {
             background-color: red;
             width: 50vw;
             height: 76px;
         }
+
         .green2 {
             background-color: green;
             width: 80%;
@@ -39,28 +44,68 @@
             width: 70%;
             float: left;
             border: solid 1px;
-
+            box-sizing: border-box;
         }
 
         .caja2 {
             padding: 20px;
-            width: calc(100%-70%);
+            width: 30%;
             border: solid 1px;
-            float: right;
+            float: left;
+        }
+
+        .box {
+            box-sizing: border-box;
+        }
+
+        .box1 {
+            background: blue;
+            width: 250px;
+            height: 250px;
+            border: 10px solid red;
+            padding: 10px;
+        }
+
+        .box2 {
+            background: blue;
+            width: 250px;
+            height: 250px;
+            border: 10px solid red;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        div {
+            margin-bottom: 5px;
+        }
+
+        .box3 {
+            font-size: 30px;
+            border-radius: 2em;
+            padding: 50px;
+            text-align: center;
+            margin: 40px 50px;
+            background-color: green;
+            color: black;
+            text-shadow: 1px 1px white;
+            box-shadow: 30px 20px 10px 10px black;
+            float: left;
+            transform: rotate(-30deg);
             box-sizing: border-box;
         }
     </style>
 </head>
+
 <body>
     <p>Párrafo 1</p>
     <div class="rojo">
-    <p>Párrafo 2</p>
+        <p>Párrafo 2</p>
     </div>
     <div class="div3">
-    <p class="green1">Párrafo 3</p>
+        <p class="green1">Párrafo 3</p>
     </div>
     <div class="div4">
-    <p class="green2">Párrafo 4</p>
+        <p class="green2">Párrafo 4</p>
     </div>
 
     <section>
@@ -68,8 +113,26 @@
         <p>HOLA</p>
         <p>HOLA</p>
     </section>
+    <div>
+        <div class="caja">Caja 1</div>
+        <div class="caja2">Caja 2</div>
+    </div>
 
-    <div class="caja">Caja 1</div>
-    <div class="caja2">Caja 2</div>
+    <div>
+        <div class="caja box">Caja 1</div>
+        <div class="caja2 box">Caja 2</div>
+    </div>
+
+    <br><br><br><br>
+    <h1>Cajas</h1>
+    <div class="box1"></div>
+    <div class="box2"></div>
+
+
+    <h1>Cajas verdes</h1>
+
+    <div class="box3">Hola mundo</div>
+    <div class="box3">Hola tierra</div>
 </body>
+
 </html>

@@ -1,12 +1,13 @@
-/*
+
 //Ej 1
 let numbers = [1, 4, 5, 6, 3, 4];
 const setnumbers = new Set(numbers);
+let show = "";
 for (const n of setnumbers) {
-    alert(n);
+    show += n  + ", ";
 }
-
-
+alert(show);
+/*
 //Ej 2
 let setA = new Set([1, 2, 3, 4]);
 let setB = new Set([3, 4, 5, 6]);
@@ -68,8 +69,8 @@ do {
         alert("Opción incorrecta");
     }
 } while (option != 3);
-*/
 
+*/
 //Ej 4
 let size1 = Number(prompt("¿Cuántos vas a meter en el primero?"));
 let set1 = new Set();
@@ -123,6 +124,9 @@ for (const n of set3) {
     }
 }
 
+
+
 for (const n of dif) {
     alert(n);
 }
+
