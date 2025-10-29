@@ -64,18 +64,23 @@ for (let i = 0; i < numbers.length; i++) {
     }
 }
 alert(max);
-*/
-//Ej 5
-let array = [2, 5, 6];
-let aux = array[0];
-array[0] = array[array.length - 1];
-array[array.length - 1] = aux;
-rot[0] = array[0];
-rot[array.length - 1] = array[array.length - 1]
-for (let i = 1; i < array.length - 1; i++) {
-    for (let j = 1; j < array.length - 1; j++) {
-        rot[j + 1] = array[i]
-    }
-}
 
-alert(rot);
+//Ej 5
+let array = [2, 5, 6, 3];
+let aux = array[array.length - 1];
+for (let i = array.length - 1; i > 0; i--) {
+  array[i] = array[i - 1];
+}
+array[0] = aux;
+alert(array);
+
+*/
+let array = [2, 5, 6, 3];
+let aux = array[array.length - 1];
+for (let i = 0; i < array.length; i++) {
+    let temp = array[i];
+    array[i] = aux;
+    aux = temp;
+}
+array[0] = aux;
+alert(array);
