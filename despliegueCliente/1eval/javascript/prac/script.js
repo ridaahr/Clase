@@ -369,9 +369,9 @@ let n2 = 1;
 
 for (let i = 0; i < 20; i++) {
     alert(n1);
-    n2 = n1 + n2;
+    temp = n1 + n2;
     n1 = n2;
-    
+    n2 = temp;
 }
 
 
