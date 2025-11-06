@@ -188,7 +188,7 @@
     }
     echo "</ol>";
     */
-    echo "<p>La alumna con DNI 2345X tiene la edad " . $alumnado["2345X"]["edad"] ."</p>";
+    echo "<p>La alumna con DNI 2345X tiene la edad " . $alumnado["2345X"]["edad"] . "</p>";
     echo "<ol>";
     foreach ($alumnado as $dni => $info) {
         if ($info["matricula"]) {
@@ -207,6 +207,27 @@
     }
     echo "</ul>";
 
+
+    $dia = 3;
+    switch ($dia) {
+        case 1:
+            echo "Lunes";
+        
+        case 2:
+            echo "Martes";
+          
+        case 3:
+            echo "Miércoles";
+            
+        case 4:
+            echo "Jueves";
+           
+        case 5:
+            echo "Viernes";
+           
+        default:
+            echo "No válido";
+    }
     ?>
 </body>
 
