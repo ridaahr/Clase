@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenedor {
+            background-color: orange;
+            height: 200px;
+            width: 200px;
+            position: relative;
+        }
+
+        div {
+            margin: 30px;
+        }
+
+        .hijo {
+            background-color: blue;
+            height: 50px;
+            width: 50px;
+            position: relative;
+            left: -40px;
+            top: -10px;
+            z-index: -1; /*lo hecha al fondo*/
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="hijo"></div>
+    </div>
+</body>
+</html>
