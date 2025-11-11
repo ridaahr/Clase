@@ -47,4 +47,16 @@ class Concessionaire
 
         return $this;
     }
+
+    public static function findVehicleByPlate(array $vehicles, string $plate): ?Vehicle
+    {
+        foreach ($vehicles as $v) {
+            if ($v->getPlate() === $plate) {
+                return $v;
+            }
+        }
+        return null;
+    }
+
+    
 }

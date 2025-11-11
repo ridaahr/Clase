@@ -39,7 +39,5 @@ class Van extends Vehicle
         return $this;
     }
 
-    public function calculateConsumation()
-    {
-    }
+    public function calculateConsumation() {}
 }

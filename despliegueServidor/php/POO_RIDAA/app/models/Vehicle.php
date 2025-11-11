@@ -97,4 +97,9 @@ abstract class Vehicle
         return $this;
     }
     public abstract function calculateConsumation();
+
+    public function __toString()
+        {
+            echo 
+        }
 }

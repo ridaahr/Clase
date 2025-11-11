@@ -56,4 +56,14 @@ class Rental
 
         return $this;
     }
+
+    public static function calculateTotalDays(DateTime $start, DateTime $end): int
+    {
+        return $start->diff($end)->days;
+    }
+
+    public function calculateTotal() {
+        $sum = 0;
+        
+    }
 }
