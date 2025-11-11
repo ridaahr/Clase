@@ -97,3 +97,5 @@ function palindromos(arr) {
 }
 */
 alert(palindromos(["casa", "ana", "oso", "contenedor"]));
+alert(convert(30));
+alert(vocalsCount("holaaaaa"))

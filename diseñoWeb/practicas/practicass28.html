@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
+    <style>
+
+        .izq {
+            background-color: gainsboro;
+        }
+
+        .dcha {
+            background-color: gray;
+        }
+        div {
+            display: inline-block;
+            width: 45%;
+            padding: 20px;
+        }
+        
+        @media only screen and (max-width: 800px) {
+            div {
+                display: block;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="izq">
+        <h2>Título párrafo 1</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dignissimos recusandae laborum eaque quasi reprehenderit, dicta at natus possimus id sit, odio asperiores veniam fugiat minima. Nisi dignissimos quos corrupti.Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dignissimos recusandae laborum eaque quasi reprehenderit, dicta at natus possimus id sit, odio asperiores veniam fugiat minima. Nisi dignissimos quos corrupti.</p>
+    </div>
+    <div class="dcha">
+        <h2>Título párrafo 2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis dignissimos recusandae laborum eaque quasi reprehenderit, dicta at natus possimus id sit, odio asperiores veniam fugiat minima. Nisi dignissimos quos corrupti.</p>
+    </div>
+</body>
+
+</html>

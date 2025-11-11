@@ -1,15 +1,18 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"] . "/despliegueServidor/php/POO/ejerciciosU4POO/Clases/Person.php";
-class Employee extends Person
+class Empleado
 {
     public function __construct(
-        $name,
-        $surname,
-        $salary,
-        protected array $telephones = [],
+        private string $name,
+        private string $surname,
+        private float $salary = -1,
+        private $numbers,
     ) {
-        parent::__construct($name, $surname, $salary);
+        $this->name = $name;
+        $this->surname = $surname;
+        $this->salary = $salary;
     }
+
+
 
     public function getName()
     {
@@ -49,24 +52,24 @@ class Employee extends Person
         return $this;
     }
 
-    public function getTelephones()
+    public function getNumbers()
     {
-        return $this->telephones;
+        return $this->numbers;
     }
 
-    public function setTelephones($numbers)
+    public function setNumbers($numbers)
     {
         $this->numbers = $numbers;
 
         return $this;
     }
-    public function getFullName(): string
-    {
-        return $this->getName() . " " . $this->getSurname();
 
+    public function getNombreCompleto()
+    {
+        return $this->name . " " . $this->surname;
     }
 
-    public function payTaxes(): float
+    public function pagarImpuestos(): float
     {
         if ($this->getSalary() == -1) {
             return -1;
@@ -87,26 +90,26 @@ class Employee extends Person
         }
     }
 
-    public function addTelephone($telephone)
+    public function anadirTelefono($telefono)
     {
-        $this->telephones[] = $telephone;
-        return $this->telephones;
+        $this->numbers[] = $telefono;
+        return $this->numbers;
     }
 
-    public function listTelephones()
+    public function listarTelefonos()
     {
-        $telephones = "";
-        foreach ($this->telephones as $telephone) {
-            $telephones .= $telephone . ", ";
+        $telefonos = "";
+        foreach ($this->numbers as $telefono) {
+            $telefonos .= $telefono . ", ";
         }
-        return $telephones;
+        return $telefonos;
     }
 
-    public function emptyTelephones(): void
+    public function vaciarTelefonos(): void
     {
-        if (count($this->telephones) > 0) {
-            while (count($this->telephones) > 0) {
-                array_pop($this->telephones);
+        if (count($this->numbers) > 0) {
+            while (count($this->numbers) > 0) {
+                array_pop($this->numbers);
             }
         }
     }
@@ -114,9 +117,9 @@ class Employee extends Person
     public function toHtml(): string
     {
         $ret = "Empleado: " . $this->getName() . " " . $this->getSurname() . ". Sueldo: " . $this->salary . " ";
-        if (count($this->telephones) > 0) {
+        if (count($this->numbers) > 0) {
             $ret .= "<ul>";
-            foreach ($this->telephones as $telefono) {
+            foreach ($this->numbers as $telefono) {
                 $ret .= "<li>$telefono</li>";
             }
             $ret .= "</ul>";
@@ -124,8 +127,8 @@ class Employee extends Person
         return "<p>$ret</p>";
     }
 
-    public function calculateSalary(){
-        return $this->salary -  $this->payTaxes();
+    public function __toString()
+    {
+        return "<p>Empleado: " . $this->name . " " . $this->surname . ". Sueldo: " . $this->salary . ".</p>";
     }
-    
 }

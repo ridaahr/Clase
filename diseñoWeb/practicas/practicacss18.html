@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            margin: 5px;
+            border: 5px solid orange;
+            border-radius: 5px;
+            background-color: plum;
+            font-size: 30px;
+        }
+        .caja1 {
+            cursor: pointer;
+        }
+        .caja1:active {
+            cursor: copy;
+        }
+        .caja2 {
+            cursor: crosshair;
+        }
+        .caja2:active {
+            cursor: move;
+        }
+        .caja3 {
+            cursor: wait;
+        }
+        .caja3:active {
+            cursor: alias;
+        }
+        .caja4 {
+            cursor: zoom-in;
+        }
+        .caja4:active {
+            cursor: no-drop;
+        }
+        .caja5 {
+            cursor:grab;
+        }
+        .caja5:active {
+            cursor: help;
+        }
+    </style>
+</head>
+<body>
+    <div class="caja1">Pointer y copy</div>
+    <div class="caja2">Crosshair y move</div>
+    <div class="caja3">Wait y alias</div>
+    <div class="caja4">Zoom in y no drop</div>
+    <div class="caja5">Grab y help</div>
+</body>
+</html>

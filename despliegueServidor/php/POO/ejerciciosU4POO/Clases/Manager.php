@@ -1,14 +1,15 @@
 <?php
 include_once $_SERVER["DOCUMENT_ROOT"] . "/despliegueServidor/php/POO/ejerciciosU4POO/Clases/Person.php";
-class Employee extends Person
+class Manager extends Person
 {
     public function __construct(
         $name,
         $surname,
         $salary,
-        protected array $telephones = [],
+        $telephones = [],
+        private int $seniority = 0,
     ) {
-        parent::__construct($name, $surname, $salary);
+        parent::__construct($name, $surname, $salary, $telephones);
     }
 
     public function getName()
@@ -57,6 +58,19 @@ class Employee extends Person
     public function setTelephones($numbers)
     {
         $this->numbers = $numbers;
+
+        return $this;
+    }
+
+    public function getSeniority()
+    {
+        return $this->seniority;
+    }
+
+
+    public function setSeniority($seniority)
+    {
+        $this->seniority = $seniority;
 
         return $this;
     }
@@ -124,8 +138,8 @@ class Employee extends Person
         return "<p>$ret</p>";
     }
 
-    public function calculateSalary(){
-        return $this->salary -  $this->payTaxes();
+    public function calculateSalary()
+    {
+        return ($this->salary - $this->payTaxes()) + 50 * $this->getSeniority();
     }
-    
 }

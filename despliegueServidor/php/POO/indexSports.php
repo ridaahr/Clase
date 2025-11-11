@@ -21,8 +21,6 @@
 
     $s1 = new Tennis("Tierra", ["Wilson", "Sonwil"], "Individual", false, 4);
     echo "<p>$s1</p>";
-
-    
     ?>
 </body>
 </html>

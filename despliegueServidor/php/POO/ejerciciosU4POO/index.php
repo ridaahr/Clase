@@ -1,17 +1,17 @@
 <?php
-include_once $_SERVER["DOCUMENT_ROOT"] . "/despliegueServidor/php/POO/ejerciciosU4POO/Clases/Employee.php";
+include_once $_SERVER["DOCUMENT_ROOT"] . "/despliegueServidor/php/POO/ejerciciosU4POO/Clases/Empleado.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee</title>
+    <title>Empleado</title>
 </head>
 <body>
     <?php
 
-    $e1 = new Employee("rida", "aharrar", 254234, ["634232532"]);
+    $e1 = new Empleado("rida", "aharrar", 254234, ["634232532"]);
     echo $e1;
     echo "<p>" . $e1->getNombreCompleto() . "</p>";
     echo $e1->pagarImpuestos();
