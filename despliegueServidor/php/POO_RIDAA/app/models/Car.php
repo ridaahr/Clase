@@ -2,16 +2,16 @@
 class Car extends Vehicle
 {
     public function __construct(
-        private int $doors,
-        private int $seats,
-        private $extras,
         $plate,
         $brand,
         $model,
         $fabricationYear,
         $consumation,
         $pricePerDay,
-        $available
+        $available,
+        private int $doors,
+        private int $seats,
+        private $extras,
     ) {
         parent::__construct($plate, $brand, $model, $fabricationYear, $consumation, $pricePerDay, $available);
     }

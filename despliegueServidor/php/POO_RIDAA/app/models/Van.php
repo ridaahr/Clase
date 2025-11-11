@@ -2,15 +2,15 @@
 class Van extends Vehicle
 {
     public function __construct(
-        private int $volume,
-        private int $maxCapacity,
         $plate,
         $brand,
         $model,
         $fabricationYear,
         $consumation,
         $pricePerDay,
-        $available
+        $available,
+        private int $volume,
+        private int $maxCapacity,
     ) {
         parent::__construct($plate, $brand, $model, $fabricationYear, $consumation, $pricePerDay, $available);
     }

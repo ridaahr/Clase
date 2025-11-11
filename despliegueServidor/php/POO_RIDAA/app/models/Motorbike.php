@@ -2,15 +2,15 @@
 class Motorbike extends Vehicle
 {
     public function __construct(
-        private int $horsePower,
-        private bool $includesHelmet,
         $plate,
         $brand,
         $model,
         $fabricationYear,
         $consumation,
         $pricePerDay,
-        $available
+        $available,
+        private int $horsePower,
+        private bool $includesHelmet,
     ) {
         parent::__construct($plate, $brand, $model, $fabricationYear, $consumation, $pricePerDay, $available);
     }
