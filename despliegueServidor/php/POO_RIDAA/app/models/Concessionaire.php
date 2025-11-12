@@ -58,5 +58,8 @@ class Concessionaire
         return null;
     }
 
-    
+    public function __toString() {
+        $ret = "Concesionario " . $this->getName();
+        
+    }
 }

@@ -66,4 +66,11 @@ class Rental
         $sum = 0;
         
     }
+
+    public function __toString() {
+        $ret = "Alquiler con id " . $this->getId() . 
+        ". " . $this->getVehicle() . " Inicio: " . $this->getStart() . 
+        ". Fin: " . $this->getEnd() . ".";
+        return $ret;
+    }
 }

@@ -85,4 +85,10 @@ class Customer {
             $sum += $r->calculateTotal();
         }
     }
+
+    public function __toString() {
+        $ret = "Cliente: " . $this->getName() ." ". $this->getSurname() . 
+        ". Alquileres: " . $this->getRentals();
+        return $ret;        
+    }
 }

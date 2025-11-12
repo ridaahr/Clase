@@ -11,7 +11,7 @@ class Car extends Vehicle
         $available,
         private int $doors,
         private int $seats,
-        private $extras,
+        private array $extras,
     ) {
         parent::__construct($plate, $brand, $model, $fabricationYear, $consumation, $pricePerDay, $available);
     }
@@ -53,5 +53,18 @@ class Car extends Vehicle
         $this->extras = $extras;
 
         return $this;
+    }
+
+    public function infoExtras() {
+        foreach ($this->getExtras as $extra) {
+            echo $extra;
+        }
+    }
+
+    public function __toString() {
+        $ret = "Coche " . parent::__toString() . 
+        " con " . $this->getDoors() . " puertas y " . 
+        $this->getSeats() . " asientos."; 
+        return $ret . $this->infoExtras();
     }
 }

@@ -39,5 +39,12 @@ class Van extends Vehicle
         return $this;
     }
 
+    public function __toString() {
+        $ret = "Furgoneta " . parent::__toString() . 
+        " con un volumen de " . $this->getVolume() . " cm cúbicos y una capacidad máxima de " . 
+        $this->getMaxCapacity();
+        return $ret;
+    }
+
     public function calculateConsumation() {}
 }

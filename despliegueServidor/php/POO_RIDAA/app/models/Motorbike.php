@@ -42,4 +42,14 @@ class Motorbike extends Vehicle
     public function calculateConsumation()
     {
     }
+
+    public function __toString() {
+        $ret = "Moto " . parent::__toString() . 
+        " con una potencia de " . $this->getHorsePower() . " cv."; 
+        if ($this->getIncludesHelmet()) {
+            return $ret . " e incluye casco";
+        } else {
+            return $ret . " y no incluye casco";
+        }
+    }
 }

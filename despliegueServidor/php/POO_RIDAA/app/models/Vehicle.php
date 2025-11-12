@@ -10,7 +10,7 @@ abstract class Vehicle
         protected float $pricePerDay,
         protected bool $available
     ) {
-        
+
     }
 
     public function getPlate()
@@ -99,7 +99,15 @@ abstract class Vehicle
     public abstract function calculateConsumation();
 
     public function __toString()
-        {
-            echo 
+    {
+        $ret = "con matrícula: " . $this->getPlate() .
+            ". " . $this->getBrand() . " " . $this->getBrand() .
+            " del año " . $this->getFabricationYear() . ". Consumo de" .
+            $this->getConsumation() . " l/100km. " . $this->getPricePerDay() . " por día.";
+        if ($this->getAvailable()) {
+            return $ret . " Disponible.";
+        } else {
+            return $ret . " No disponible.";
         }
+    }
 }
