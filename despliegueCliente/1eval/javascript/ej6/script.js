@@ -39,8 +39,23 @@ function vocalsCount(text) {
 }
 
 function ecuacion(a, b, c) {
-    return "1 = " + ((-b + Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a)) + ". 2 = " + ((-b - Math.sqrt(b ** 2 - 4 * a * c)) / (2 * a));
+    let arr = [];
+    let discriminante = b ** 2 - 4 * a * c;
+
+    if (a === 0) {
+        return "No es una ecuación cuadrática";
+    }
+
+    if (discriminante < 0) {
+        return "No hay soluciones reales";
+    }
+
+    let arr1 = (-b + Math.sqrt(discriminante)) / (2 * a);
+    let arr2 = (-b - Math.sqrt(discriminante)) / (2 * a);
+    arr.push(arr1, arr2);
+    return arr;
 }
+
 
 
 function callback() {
@@ -96,6 +111,6 @@ function palindromos(arr) {
     return palindromos;
 }
 */
-alert(palindromos(["casa", "ana", "oso", "contenedor"]));
-alert(convert(30));
+let soluciones = ecuacion(1, 4, 3);
+alert(soluciones);
 alert(vocalsCount("holaaaaa"))
