@@ -1,4 +1,7 @@
 <?php
+
+include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Customer.php";
 class Concessionaire
 {
     public function __construct(

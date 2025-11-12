@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
 class Car extends Vehicle
 {
     public function __construct(

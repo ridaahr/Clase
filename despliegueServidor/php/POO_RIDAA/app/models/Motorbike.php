@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
 class Motorbike extends Vehicle
 {
     public function __construct(
@@ -29,7 +30,7 @@ class Motorbike extends Vehicle
 
     public function getIncludesHelmet()
     {
-        return $this->getIncludesHelmet();
+        return $this->includesHelmet;
     }
 
     public function setIncludesHelmet()
@@ -67,11 +68,11 @@ class Motorbike extends Vehicle
 
     public function __toString() {
         $ret = "Moto " . parent::__toString() . 
-        " con una potencia de " . $this->getHorsePower() . " cv."; 
+        " con una potencia de " . $this->getHorsePower() . " cv"; 
         if ($this->getIncludesHelmet()) {
-            return $ret . " e incluye casco";
+            return $ret . " e incluye casco.";
         } else {
-            return $ret . " y no incluye casco";
+            return $ret . " y no incluye casco.";
         }
     }
 }

@@ -108,7 +108,7 @@ abstract class Vehicle
 
     public function changeAvailability() 
     {
-        $this->setAvailable(!$this->getAvailable())
+        $this->setAvailable(!$this->getAvailable());
     }
 
     public function __toString()
@@ -119,6 +119,6 @@ abstract class Vehicle
             " del año " . $year .
             ". Consumo de " . $this->getConsumation() . " l/100km. " .
             $this->getPricePerDay() . "€/día.";
-        return $ret . ($this->getAvailable() ? " Disponible." : " No disponible.");
+        return $ret . ($this->getAvailable() ? " Disponible," : " No disponible.");
     }
 }
