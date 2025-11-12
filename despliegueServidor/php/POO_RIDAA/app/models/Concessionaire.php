@@ -58,8 +58,21 @@ class Concessionaire
         return null;
     }
 
+    public function listVehicles() {
+
+    }
+
+    public function listCustomers() {
+
+    }
+
+    public function findCustomer() {
+
+    }
+
     public function __toString() {
-        $ret = "Concesionario " . $this->getName();
-        
+        return "Concesionario " . $this->getName() .
+        " Vehículos: " . count($this->getVehicles()) .
+        " Clientes: " . count($this->getCustomers()) . ".";
     }
 }

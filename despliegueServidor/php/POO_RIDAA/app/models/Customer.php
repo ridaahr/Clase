@@ -66,7 +66,7 @@ class Customer {
 
     public function removeRental(int $id)
     {
-        foreach ($this->rentals as $key => $rental) {
+        foreach ($this->getRentals() as $key => $rental) {
             if ($rental->getId() == $id) {
                 unset($this->rentals[$key]);
             }
@@ -84,11 +84,14 @@ class Customer {
         foreach ($this->rentals as $r) {
             $sum += $r->calculateTotal();
         }
+        return $sum;
     }
 
-    public function __toString() {
-        $ret = "Cliente: " . $this->getName() ." ". $this->getSurname() . 
-        ". Alquileres: " . $this->getRentals();
-        return $ret;        
+    public function __toString(): string 
+    {
+        $rentalsCount = count($this->rentals);
+        return "Cliente: " . $this->getName() . " " . $this->getSurname() .
+            ". Alquileres: " . $rentalsCount .
+            ". Coste total: " . $this->totalCost() . "€.";
     }
 }

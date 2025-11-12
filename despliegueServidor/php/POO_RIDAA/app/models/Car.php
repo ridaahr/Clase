@@ -55,10 +55,10 @@ class Car extends Vehicle
         return $this;
     }
 
-    public function infoExtras() {
-        foreach ($this->getExtras as $extra) {
-            echo $extra;
-        }
+    public function infoExtras()
+    {
+        if (empty($this->getExtras())) return "";
+        return " Extras: " . implode(", ", $this->getExtras()) . ".";
     }
 
     public function __toString() {

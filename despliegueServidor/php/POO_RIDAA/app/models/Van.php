@@ -35,7 +35,6 @@ class Van extends Vehicle
     public function setMaxCapacity($maxCapacity)
     {
         $this->maxCapacity = $maxCapacity;
-
         return $this;
     }
 

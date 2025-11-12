@@ -29,18 +29,40 @@ class Motorbike extends Vehicle
 
     public function getIncludesHelmet()
     {
-        return $this->includesHelmet;
+        return $this->getIncludesHelmet();
     }
 
-    public function setIncludesHelmet($includesHelmet)
+    public function setIncludesHelmet()
     {
-        $this->includesHelmet = $includesHelmet;
-
-        return $this;
+        return $this->getIncludesHelmet();
     }
 
     public function calculateConsumation()
     {
+        if ($this->getHorsePower() <= 50) {
+            $consumo = 0.9;
+        } elseif ($this->getHorsePower() <= 125) {
+            $consumo = 1.0;
+        } elseif ($this->getHorsePower() <= 300) {
+            $consumo = 1.2;
+        } else {
+            $consumo = 1.5;
+        }
+
+        return $this->getConsumation() * $consumo;
+    }
+
+    public function licenseNeeded() 
+    {
+        if ($this->getHorsePower() <= 50) {
+            return "AM (ciclomotor)";
+        } elseif ($this->getHorsePower() <= 125) {
+            return "A1";
+        } elseif ($this->getHorsePower() <= 300) {
+            return "A2";
+        } else {
+            return "A";
+        }
     }
 
     public function __toString() {

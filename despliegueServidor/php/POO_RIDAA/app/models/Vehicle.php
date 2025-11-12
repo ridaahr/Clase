@@ -98,16 +98,27 @@ abstract class Vehicle
     }
     public abstract function calculateConsumation();
 
+    public function isAvailable() {
+        return $this->getAvailable();
+    }
+
+    public function vehicleName() {
+        return $this->getBrand() . " " . $this->getModel() . ".";
+    }
+
+    public function changeAvailability() 
+    {
+        $this->setAvailable(!$this->getAvailable())
+    }
+
     public function __toString()
     {
-        $ret = "con matrícula: " . $this->getPlate() .
-            ". " . $this->getBrand() . " " . $this->getBrand() .
-            " del año " . $this->getFabricationYear() . ". Consumo de" .
-            $this->getConsumation() . " l/100km. " . $this->getPricePerDay() . " por día.";
-        if ($this->getAvailable()) {
-            return $ret . " Disponible.";
-        } else {
-            return $ret . " No disponible.";
-        }
+        $year = $this->getFabricationYear()->format('Y');
+        $ret = "con matrícula " . $this->getPlate() . ", " .
+            $this->getBrand() . " " . $this->getModel() .
+            " del año " . $year .
+            ". Consumo de " . $this->getConsumation() . " l/100km. " .
+            $this->getPricePerDay() . "€/día.";
+        return $ret . ($this->getAvailable() ? " Disponible." : " No disponible.");
     }
 }

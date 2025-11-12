@@ -57,20 +57,28 @@ class Rental
         return $this;
     }
 
-    public static function calculateTotalDays(DateTime $start, DateTime $end): int
+    public static function calculateTotalDays(DateTime $start, DateTime $end)
     {
         return $start->diff($end)->days;
     }
 
+    public function calculateLeftDays() 
+    {
+        $today = new DateTime();
+        $diff = $today->diff($this->getEnd());
+
+        return ($today < $this->getEnd()) ? $diff->days : 0;
+    }
+
     public function calculateTotal() {
-        $sum = 0;
-        
+        $days = $this->calculateTotalDays($this->start, $this->end);
+        return $days * $this->vehicle->getPricePerDay();
     }
 
     public function __toString() {
         $ret = "Alquiler con id " . $this->getId() . 
-        ". " . $this->getVehicle() . " Inicio: " . $this->getStart() . 
-        ". Fin: " . $this->getEnd() . ".";
+        ". Matrñicula" . $this->getVehicle()->getPlate() . " Inicio: " . $this->getStart()->format('Y-m-d') . 
+        ". Fin: " . $this->getEnd()->format('Y-m-d') . ". Total: " . $this->calculateTotal() . "€.";
         return $ret;
     }
 }
