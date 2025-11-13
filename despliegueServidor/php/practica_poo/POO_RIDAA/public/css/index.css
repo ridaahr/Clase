@@ -14,7 +14,7 @@ header {
 
 .container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -24,8 +24,9 @@ header {
     border-radius: 5px;
     border: 3px solid rgb(0, 28, 44);
     margin: 10px;
-    flex: 1 1 200px;
+    flex: 0 0 300px;
     box-sizing: border-box;
+    max-width: 300px;
 }
 
 .rental {
@@ -34,13 +35,46 @@ header {
     border-radius: 5px;
     border: 3px solid rgb(0, 28, 44);
     margin: 10px;
-    flex: 1;
+    flex: 0 0 300px;
     box-sizing: border-box;
+    max-width: 300px;
 }
 
-.vehicle:hover, .rental:hover {
+.customers {
+    background-color: rgb(201, 207, 218);
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid rgb(22, 40, 51);
+    margin: 10px;
+    flex: 0 0 300px;
+    box-sizing: border-box;
+    max-width: 300px;
+}
+
+.vehicle:hover, .rental:hover, .customers:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 6px 12px black;
+}
+
+.methods {
+    background-color: #f4f4f4;
+    border: 3px solid #1c1c1c;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.methods h4 {
+    margin: 10px 0 5px 0;
+    color: #27293d;
+}
+
+.methods p {
+    margin: 5px 0;
+    padding-left: 10px;
 }
 
 .footer {

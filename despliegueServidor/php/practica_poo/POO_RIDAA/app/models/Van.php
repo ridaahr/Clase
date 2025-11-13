@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/despliegueServidor/php/POO_RIDAA/app/models/Vehicle.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
 class Van extends Vehicle
 {
     public function __construct(
@@ -39,12 +39,26 @@ class Van extends Vehicle
         return $this;
     }
 
-    public function __toString() {
-        $ret = "Furgoneta " . parent::__toString() . 
-        " con un volumen de " . $this->getVolume() . " cm cúbicos y una capacidad máxima de " . 
-        $this->getMaxCapacity() . ".";
-        return $ret;
+    /**
+     * calculamos el consumo de la furgoneta y que va a depender del volumen y de la capacidad
+     * de carga
+     * @return float|int el consumo en litros/100km
+     */
+    public function calculateConsumation()
+    {
+        $plus = ($this->getVolume() / 1000 + $this->getMaxCapacity() / 1000) * 0.1;
+        return $this->consumation + $plus;
     }
 
-    public function calculateConsumation() {}
+    /**
+     * muestra información sobre la furgoneta
+     * @return string
+     */
+    public function __toString()
+    {
+        $ret = "Furgoneta " . parent::__toString() .
+            " Con un volumen de " . $this->getVolume() . " cm cúbicos y una capacidad máxima de " .
+            $this->getMaxCapacity() . ".";
+        return $ret;
+    }
 }

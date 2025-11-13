@@ -96,21 +96,38 @@ abstract class Vehicle
 
         return $this;
     }
+
     public abstract function calculateConsumation();
 
+    /**
+     * nos devuelve si el vehículo está disponible o no
+     * @return bool
+     */
     public function isAvailable() {
         return $this->getAvailable();
     }
 
+    /**
+     * devuelve el nombre completo, es decir, la marca y el modelo
+     * @return string
+     */
     public function vehicleName() {
         return $this->getBrand() . " " . $this->getModel();
     }
 
+    /**
+     * para cambiar la disponibilidad del vehículo
+     * @return void
+     */
     public function changeAvailability() 
     {
         $this->setAvailable(!$this->getAvailable());
     }
 
+    /**
+     * un resumen de la información del vehículo
+     * @return string
+     */
     public function __toString()
     {
         $year = $this->getFabricationYear()->format('Y');
@@ -119,6 +136,6 @@ abstract class Vehicle
             " del año " . $year .
             ". Consumo de " . $this->getConsumation() . " l/100km. " .
             $this->getPricePerDay() . "€/día.";
-        return $ret . ($this->getAvailable() ? " Disponible," : " No disponible.");
+        return $ret . ($this->getAvailable() ? " Disponible." : " No disponible.");
     }
 }
