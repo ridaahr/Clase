@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/despliegueServidor/php/POO_RIDAA/app/models/Vehicle.php";
 class Van extends Vehicle
 {
     public function __construct(
@@ -42,7 +42,7 @@ class Van extends Vehicle
     public function __toString() {
         $ret = "Furgoneta " . parent::__toString() . 
         " con un volumen de " . $this->getVolume() . " cm cúbicos y una capacidad máxima de " . 
-        $this->getMaxCapacity();
+        $this->getMaxCapacity() . ".";
         return $ret;
     }
 

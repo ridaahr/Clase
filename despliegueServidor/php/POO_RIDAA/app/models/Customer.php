@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Rental.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/despliegueServidor/php/POO_RIDAA/app/models/Rental.php";
 class Customer {
     public function __construct(
         private String $name,

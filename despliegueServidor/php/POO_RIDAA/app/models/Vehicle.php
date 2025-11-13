@@ -103,7 +103,7 @@ abstract class Vehicle
     }
 
     public function vehicleName() {
-        return $this->getBrand() . " " . $this->getModel() . ".";
+        return $this->getBrand() . " " . $this->getModel();
     }
 
     public function changeAvailability() 

@@ -1,5 +1,5 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/despliegueServidor/php/POO_RIDAA/app/models/Vehicle.php";
 class Rental
 {
     public function __construct(
@@ -77,9 +77,9 @@ class Rental
     }
 
     public function __toString() {
-        $ret = "Alquiler con id " . $this->getId() . 
-        ". Matrñicula" . $this->getVehicle()->getPlate() . " Inicio: " . $this->getStart()->format('Y-m-d') . 
-        ". Fin: " . $this->getEnd()->format('Y-m-d') . ". Total: " . $this->calculateTotal() . "€.";
+        $ret = "<h2>Alquiler con id " . $this->getId() . 
+        ".</h2> <p>Matricula: " . $this->getVehicle()->getPlate() . ".</p> <p>Inicio: " . $this->getStart()->format('Y-m-d') . 
+        ".</p> <p>Fin: " . $this->getEnd()->format('Y-m-d') . ".</p> <p>Total: " . $this->calculateTotal() . "€.</p>";
         return $ret;
     }
 }

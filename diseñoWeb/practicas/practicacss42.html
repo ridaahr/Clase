@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            height: 100vh;
+            align-items: baseline;
+            justify-content: space-evenly;
+        }
+
+        .flex-item {
+            background-color: rgb(255, 64, 175);
+            color: #fff;
+            margin: 10px;
+            padding: 10px;
+            height: 150px;
+            min-width: 150px;
+            font-size: 10px;
+        }
+
+        .item-blue {
+            background-color: blue;
+            font-size: 50px;
+        }
+
+        .item-orange {
+            background-color: orange;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item item-blue">asdasd</div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item"></div>
+        <div class="flex-item item-orange">asdasd</div>
+    </div>
+</body>
+</html>

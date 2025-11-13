@@ -1,7 +1,7 @@
 <?php
 
-include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Vehicle.php";
-include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Customer.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/despliegueServidor/php/POO_RIDAA/app/models/Vehicle.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/despliegueServidor/php/POO_RIDAA/app/models/Customer.php";
 class Concessionaire
 {
     public function __construct(
@@ -51,14 +51,14 @@ class Concessionaire
         return $this;
     }
 
-    public static function findVehicleByPlate(array $vehicles, string $plate): ?Vehicle
+    public static function findVehicleByPlate(array $vehicles, string $plate)
     {
         foreach ($vehicles as $v) {
             if ($v->getPlate() === $plate) {
-                return $v;
-            }
+                return "Vehículo encontrado: $v";
+            }  
         }
-        return null;
+        return "Vehículo no encontrado";
     }
 
     public function listVehicles() {
@@ -76,6 +76,6 @@ class Concessionaire
     public function __toString() {
         return "Concesionario " . $this->getName() .
         " Vehículos: " . count($this->getVehicles()) .
-        " Clientes: " . count($this->getCustomers()) . ".";
+        ". Clientes: " . count($this->getCustomers()) . ".";
     }
 }

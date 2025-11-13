@@ -1,0 +1,54 @@
+body {
+    background-color: rgb(213, 215, 216);
+}
+
+header {
+    position: relative;
+    padding: 20px;
+    text-align: center;
+    background-color: #27293d;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.vehicle {
+    background-color: lightcyan;
+    padding: 15px;
+    border-radius: 5px;
+    border: 3px solid rgb(0, 28, 44);
+    margin: 10px;
+    flex: 1 1 200px;
+    box-sizing: border-box;
+}
+
+.rental {
+    background-color: rgb(166, 199, 248);
+    padding: 10px;
+    border-radius: 5px;
+    border: 3px solid rgb(0, 28, 44);
+    margin: 10px;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.vehicle:hover, .rental:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 6px 12px black;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #27293d;
+  color: white;
+  text-align: center;
+}
