@@ -6,13 +6,7 @@ class Empleado
         private string $surname,
         private float $salary = -1,
         private $numbers,
-    ) {
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->salary = $salary;
-    }
-
-
+    ) {}
 
     public function getName()
     {

@@ -12,6 +12,7 @@
             height: 90vh;
             align-items: center;
             border-radius: 10px;
+            flex-direction: row;
         }
 
         .flex_item {
@@ -21,12 +22,13 @@
         .flex_item__logo {
             background-image: url(img/z.jpg);
             background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
+            background-size: contain;
+            background-position: center center;
             height: 70%;
             width: 100%;
             border-radius: 10px;
             margin: 20px;
+            overflow: hidden;
         }
 
         .flex_item__form {
@@ -38,12 +40,19 @@
             margin: 20px;
         }
 
-        .flex_item__form input, textarea {
+        .flex_item__form input,
+        .flex_item__form textarea {
             background-color: pink;
             border-bottom: 5px solid white;
             border-top: none;
             border-left: none;
             border-right: none;
+            padding: 16px;
+            font-size: 1.2rem;
+        }
+
+        .flex_item__form textarea {
+            height: 80px;
         }
 
         .flex_item__form .button {
@@ -54,19 +63,24 @@
             background-image: linear-gradient(to top, purple, pink);
             border-bottom: 5px solid purple;
         }
+
+        @media only screen and (max-width: 800px) {
+            .flex_container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="flex_container">
         <div class="flex_item flex_item__logo"></div>
-            <form class="flex_item flex_item__form">
-                <input type="text" id="one" name="one"><br>
-                <input type="text" id="second" name="second"><br>
-                <textarea name="textarea" id="textarea"></textarea><br>
-                <input class="button" type="button" value="Enviar">
-            </form>
+        <form class="flex_item flex_item__form">
+            <input type="text" id="one" name="one"><br>
+            <input type="text" id="second" name="second"><br>
+            <textarea name="textarea" id="textarea"></textarea><br>
+            <input class="button" type="button" value="Enviar">
+        </form>
     </div>
 </body>
-
 </html>
