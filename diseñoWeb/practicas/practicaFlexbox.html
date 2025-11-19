@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Flexbox</title>
+    <style>
+        .flex_container {
+            display: flex;
+            background-color: plum;
+            height: 90vh;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .flex_item {
+            width: 50vw;
+        }
+
+        .flex_item__logo {
+            background-image: url(img/z.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 70%;
+            width: 100%;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .flex_item__form {
+            display: flex;
+            height: 60%;
+            width: 100%;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin: 20px;
+        }
+
+        .flex_item__form input, textarea {
+            background-color: pink;
+            border-bottom: 5px solid white;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .flex_item__form .button {
+            background-color: rgb(176, 141, 199);
+        }
+
+        .flex_item__form input:hover {
+            background-image: linear-gradient(to top, purple, pink);
+            border-bottom: 5px solid purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex_container">
+        <div class="flex_item flex_item__logo"></div>
+            <form class="flex_item flex_item__form">
+                <input type="text" id="one" name="one"><br>
+                <input type="text" id="second" name="second"><br>
+                <textarea name="textarea" id="textarea"></textarea><br>
+                <input class="button" type="button" value="Enviar">
+            </form>
+    </div>
+</body>
+
+</html>
