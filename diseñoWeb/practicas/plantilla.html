@@ -1,126 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Plantilla Responsive</title>
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Única Responsive con BEM</title>
+    <!-- Librería de iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            color: #333;
+        }
 
-    /* Estilos del menú */
-    header {
-      background: #333;
-      color: #fff;
-      padding: 10px 20px;
-    }
+        /* ===== HEADER / MENU ===== */
+        .menu {
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            padding: 15px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
 
-    nav {
-      display: flex;
-      justify-content: center; /* 🔹 Centra el menú */
-      align-items: center;
-      flex-wrap: wrap;
-    }
+        .menu__nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-    nav .logo {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin-right: 20px; /* separa el logo del menú */
-    }
+        .menu__logo {
+            font-size: 1.6em;
+            font-weight: bold;
+            margin-right: 20px;
+            color: #ffeb3b;
+        }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center; /* 🔹 Centra los enlaces */
-    }
+        .menu__list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    nav ul li {
-      margin: 0 10px;
-    }
+        .menu__item {
+            margin: 0 12px;
+        }
 
-    nav ul li a {
-      color: #fff;
-      text-decoration: none;
-      padding: 5px 10px;
-      transition: background 0.3s;
-    }
+        .menu__link {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 12px;
+            transition: background 0.3s, transform 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 6px;
+        }
 
-    nav ul li a:hover {
-      background: #555;
-      border-radius: 5px;
-    }
+        .menu__link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
 
-    /* Estilos del contenido */
-    main {
-      padding: 20px;
-      min-height: 60vh;
-    }
+        /* ===== MAIN / CARDS ===== */
+        .main {
+            flex: 1;
+            padding: 40px 20px;
+        }
 
-    main h1 {
-      margin-bottom: 15px;
-    }
+        .main__title {
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 2em;
+            color: #6a11cb;
+        }
 
-    /* Footer */
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-    }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
+        .cards__box {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            width: 260px;
+            min-height: 300px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-      nav .logo {
-        margin: 10px 0;
-      }
+        .cards__box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
 
-      nav ul {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-      }
+        .cards__icon {
+            font-size: 2.5em;
+            margin-bottom: 12px;
+            color: #2575fc;
+        }
 
-      nav ul li {
-        margin: 5px 0;
-      }
-    }
-  </style>
+        .cards__title {
+            margin-bottom: 12px;
+            font-size: 1.3em;
+            color: #6a11cb;
+        }
+
+        .cards__text {
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+            color: #fff;
+            text-align: center;
+            padding: 18px;
+            font-size: 0.9em;
+        }
+
+        .footer__text {
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .menu__nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .menu__logo {
+                margin: 10px 0;
+            }
+
+            .menu__list {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+            }
+
+            .menu__item {
+                margin: 8px 0;
+            }
+
+            .cards__box {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <nav>
-      <div class="logo">Mi Sitio</div>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Servicios</a></li>
-        <li><a href="#">Acerca</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="menu">
+        <nav class="menu__nav">
+            <div class="menu__logo">Mi Sitio</div>
+            <ul class="menu__list">
+                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-home"></i> Inicio</a></li>
+                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-cogs"></i> Servicios</a></li>
+                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-info-circle"></i> Acerca</a></li>
+                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <h1>Bienvenido a la página</h1>
-    <p>Este es el contenido principal del sitio. Aquí puedes añadir texto, imágenes o lo que necesites.</p>
-  </main>
+    <main class="main">
+        <h1 class="main__title">Galería de Cajas</h1>
+        <div class="cards">
+            <div class="cards__box cards__box--1"></div>
+            <div class="cards__box cards__box--2"></div>
+            <div class="cards__box cards__box--3"></div>
+            <div class="cards__box cards__box--4"></div>
+            <div class="cards__box cards__box--5"></div>
+            <div class="cards__box cards__box--6"></div>
+            <div class="cards__box cards__box--7"></div>
+            <div class="cards__box cards__box--8"></div>
+            <div class="cards__box cards__box--9"></div>
+            <div class="cards__box cards__box--10"></div>
+            <div class="cards__box cards__box--11"></div>
+            <div class="cards__box cards__box--12"></div>
+        </div>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Mi Sitio Web - Todos los derechos reservados</p>
-  </footer>
+
+    <footer class="footer">
+        <p class="footer__text">&copy; 2025 Mi Sitio Web - Todos los derechos reservados</p>
+    </footer>
 </body>
+
 </html>
