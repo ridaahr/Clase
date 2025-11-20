@@ -23,9 +23,19 @@
         $pass = $_POST["pass"];
         $pass2 = $_POST["pass2"];
         $age = $_POST["age"];
-
-        $u = new User($name, $pass, $email, $age);
-        echo "<p    >$u</p>";
+        var_dump($_POST);
+        //El name tiene que tener indicado que es un array studies[]
+        $studies = [];
+        $u = new User($name, $pass, $email, $age, $studies);
+        
+        if (empty($age)) {
+            $age;
+        }
+        //Si son checkbox, radio, select, etc. Tengo que verificar si existe esa clavev en $_POST
+        if (isset($_POST["studies"])) {
+            $studies = $_POST["studies"];
+        }
+        echo "<p>$u</p>";
     } else {
         echo "<p>No puedes estar aquí.</p>";
     }

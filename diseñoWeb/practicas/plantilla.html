@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla Responsive</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* Estilos del menú */
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center; /* 🔹 Centra el menú */
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-right: 20px; /* separa el logo del menú */
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* 🔹 Centra los enlaces */
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      transition: background 0.3s;
+    }
+
+    nav ul li a:hover {
+      background: #555;
+      border-radius: 5px;
+    }
+
+    /* Estilos del contenido */
+    main {
+      padding: 20px;
+      min-height: 60vh;
+    }
+
+    main h1 {
+      margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav .logo {
+        margin: 10px 0;
+      }
+
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+      }
+
+      nav ul li {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Mi Sitio</div>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Acerca</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Bienvenido a la página</h1>
+    <p>Este es el contenido principal del sitio. Aquí puedes añadir texto, imágenes o lo que necesites.</p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mi Sitio Web - Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>

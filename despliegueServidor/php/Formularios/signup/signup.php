@@ -24,17 +24,16 @@
 
         <label for="age">Edad:</label>
         <input type="number" id="age" name="age"><br>
-        <<<<<<< HEAD=======>>>>>>> 1d6c46d (formulario)
-            <p>Cursos</p>
-            <input type="checkbox" id="daw" name="studies" value="daw">
-            <label for="daw">DAW</label><br>
-            <input type="checkbox" id="dam" name="studies" value="dam">
-            <label for="dam">DAM</label><br>
-            <input type="checkbox" id="asir" name="studies" value="asir">
-            <label for="daw">ASIR</label><br>
-            <br>
+        <p>Cursos</p>
+        <input type="checkbox" id="daw" name="studies[]" value="daw">
+        <label for="daw">DAW</label><br>
+        <input type="checkbox" id="dam" name="studies[]" value="dam">
+        <label for="dam">DAM</label><br>
+        <input type="checkbox" id="asir" name="studies[]" value="asir">
+        <label for="daw">ASIR</label><br>
+        <br>
 
-            <input type="submit" value="Enviar datos">
+        <input type="submit" value="Enviar datos">
     </form>
 </body>
 
