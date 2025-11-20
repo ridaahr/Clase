@@ -6,24 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Práctica Flexbox</title>
     <style>
-        .flex_container {
+        .flex-container {
             display: flex;
             background-color: plum;
-            height: 90vh;
+            height: 70vh;
+            width: 70vw;
             align-items: center;
             border-radius: 10px;
             flex-direction: row;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
         }
 
-        .flex_item {
+        .flex-item {
             width: 50vw;
         }
 
-        .flex_item__logo {
+        .flex-item__logo {
             background-image: url(img/z.jpg);
             background-repeat: no-repeat;
             background-size: contain;
-            background-position: center center;
+            background-position: center;
             height: 70%;
             width: 100%;
             border-radius: 10px;
@@ -31,7 +38,7 @@
             overflow: hidden;
         }
 
-        .flex_item__form {
+        .flex-item__form {
             display: flex;
             height: 60%;
             width: 100%;
@@ -40,8 +47,8 @@
             margin: 20px;
         }
 
-        .flex_item__form input,
-        .flex_item__form textarea {
+        .flex-item__form input,
+        .flex-item__form textarea {
             background-color: pink;
             border-bottom: 5px solid white;
             border-top: none;
@@ -51,31 +58,35 @@
             font-size: 1.2rem;
         }
 
-        .flex_item__form textarea {
+        .flex-item__form textarea {
             height: 80px;
         }
 
-        .flex_item__form .button {
+        .flex-item__form .button {
             background-color: rgb(176, 141, 199);
         }
 
-        .flex_item__form input:hover {
+        .flex-item__form input:hover {
             background-image: linear-gradient(to top, purple, pink);
             border-bottom: 5px solid purple;
         }
 
         @media only screen and (max-width: 800px) {
-            .flex_container {
+            .flex-container {
                 flex-direction: column;
+            }
+
+            .flex-item__form {
+                width: 80%;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="flex_container">
-        <div class="flex_item flex_item__logo"></div>
-        <form class="flex_item flex_item__form">
+    <div class="flex-container">
+        <div class="flex-item flex-item__logo"></div>
+        <form class="flex-item flex-item__form">
             <input type="text" id="one" name="one"><br>
             <input type="text" id="second" name="second"><br>
             <textarea name="textarea" id="textarea"></textarea><br>
@@ -83,4 +94,5 @@
         </form>
     </div>
 </body>
+
 </html>

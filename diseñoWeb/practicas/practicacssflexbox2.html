@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .flex-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgb(236, 161, 214);
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 25px;
+            max-width: 1000px;
+        }
+        .form {
+            min-width: 400px;
+            flex: 1;
+            text-align: center;
+            padding: 40px;
+        }
+        .form__input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-bottom: 3px solid #fff;
+            background-color: #ea7fee33;
+            color: #fff;
+        }
+        .form__input:focus {
+            background: linear-gradient(to bottom, transparent, #1e9cd688);
+            outline: none;
+            border-bottom: 3px solid rgb(233, 87, 213);
+        }
+        .form textarea {
+            min-height: 150px;
+            resize: none;
+        }
+        .form-img {
+            flex: 1;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="form-inscrip">
+            <div class="form__section">
+                <input type="text" class="form__input" placeholder="Email">
+            </div>
+            <div class="form__section">
+                <input type="text" class="form__input" placeholder="Asunto">
+            </div>
+            <div class="form__section">
+                <textarea class="form__input" placeholder="Mensaje"></textarea>
+            </div>
+            <div class="form__section">
+                <input type="submit" class="form__input">
+            </div>
+            <div class="form-img">
+                <div class="img-container">
+                    <img src="img/z.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
