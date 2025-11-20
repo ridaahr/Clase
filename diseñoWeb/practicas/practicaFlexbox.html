@@ -22,11 +22,11 @@
             right: 0;
         }
 
-        .flex-item {
+        .flex-container__item {
             width: 50vw;
         }
 
-        .flex-item__logo {
+        .flex-container__logo {
             background-image: url(img/z.jpg);
             background-repeat: no-repeat;
             background-size: contain;
@@ -38,7 +38,7 @@
             overflow: hidden;
         }
 
-        .flex-item__form {
+        .flex-container__form {
             display: flex;
             height: 60%;
             width: 100%;
@@ -47,8 +47,8 @@
             margin: 20px;
         }
 
-        .flex-item__form input,
-        .flex-item__form textarea {
+        .flex-container__input,
+        .flex-container__textarea {
             background-color: pink;
             border-bottom: 5px solid white;
             border-top: none;
@@ -58,15 +58,16 @@
             font-size: 1.2rem;
         }
 
-        .flex-item__form textarea {
+        .flex-container__textarea {
             height: 80px;
         }
 
-        .flex-item__form .button {
+        .flex-container__button {
             background-color: rgb(176, 141, 199);
         }
 
-        .flex-item__form input:hover {
+        .flex-container__input:hover,
+        .flex-container__textarea:hover {
             background-image: linear-gradient(to top, purple, pink);
             border-bottom: 5px solid purple;
         }
@@ -76,7 +77,7 @@
                 flex-direction: column;
             }
 
-            .flex-item__form {
+            .flex-container__form {
                 width: 80%;
             }
         }
@@ -85,12 +86,13 @@
 
 <body>
     <div class="flex-container">
-        <div class="flex-item flex-item__logo"></div>
-        <form class="flex-item flex-item__form">
-            <input type="text" id="one" name="one"><br>
-            <input type="text" id="second" name="second"><br>
-            <textarea name="textarea" id="textarea"></textarea><br>
-            <input class="button" type="button" value="Enviar">
+        <div class="flex-container__item flex-container__logo"></div>
+
+        <form class="flex-container__item flex-container__form">
+            <input class="flex-container__input" type="text" id="one" name="one"><br>
+            <input class="flex-container__input" type="text" id="second" name="second"><br>
+            <textarea class="flex-container__textarea" name="textarea" id="textarea"></textarea><br>
+            <input class="flex-container__button" type="button" value="Enviar">
         </form>
     </div>
 </body>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla BEM</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f2f2;
+        }
+
+        /* HEADER */
+        .header {
+            background: #4a148c;
+            color: #fff;
+            padding: 15px 20px;
+        }
+
+        .header__nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centrado */
+            gap: 40px;
+        }
+
+        .header__logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .header__menu {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .header__menu-item a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .header__menu-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* FLEX CONTAINER */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start; /* empieza desde arriba */
+            padding: 30px;
+            max-width: 1200px;
+            margin: 20px auto; /* separación del header */
+            gap: 30px;
+        }
+
+        .flex-container__item {
+            background: #e1bee7;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #4a148c;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .header__nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header__menu {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .flex-container {
+                flex-direction: column;
+            }
+
+            .flex-container__item {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="header__nav">
+            <h1 class="header__logo">Mi Sitio</h1>
+            <ul class="header__menu">
+                <li class="header__menu-item"><a href="#">Inicio</a></li>
+                <li class="header__menu-item"><a href="#">Servicios</a></li>
+                <li class="header__menu-item"><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="flex-container">
+        <div class="flex-container__item">Elemento 1</div>
+        <div class="flex-container__item">Elemento 2</div>
+        <div class="flex-container__item">Elemento 3</div>
+    </div>
+
+    <footer class="footer">
+        RIDA - DIW
+    </footer>
+
+</body>
+</html>

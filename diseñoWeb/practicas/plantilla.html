@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
       box-sizing: border-box;
     }
 
-    body {
+    .flex-container {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
@@ -19,12 +20,12 @@
       background: #f5f5f5;
     }
 
-    /* ===== HEADER / MENU ===== */
+
     .menu {
       background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
       color: #fff;
       padding: 15px 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .menu__nav {
@@ -56,7 +57,6 @@
       color: #fff;
       text-decoration: none;
       padding: 8px 12px;
-      transition: background 0.3s, transform 0.2s;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -64,11 +64,10 @@
     }
 
     .menu__link:hover {
-      background: rgba(255,255,255,0.2);
-      transform: scale(1.05);
+      background: rgba(255, 255, 255, 0.2);
     }
 
-    /* ===== CARDS ===== */
+
     .cards {
       flex: 1;
       display: flex;
@@ -83,24 +82,58 @@
       width: 220px;
       height: 220px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
 
-    /* Colores únicos */
-    .cards__box--1 { background: #ff6f61; }
-    .cards__box--2 { background: #ffcc00; }
-    .cards__box--3 { background: #4caf50; }
-    .cards__box--4 { background: #2196f3; }
-    .cards__box--5 { background: #9c27b0; }
-    .cards__box--6 { background: #00bcd4; }
-    .cards__box--7 { background: #e91e63; }
-    .cards__box--8 { background: #795548; }
-    .cards__box--9 { background: #607d8b; }
-    .cards__box--10 { background: #ff5722; }
-    .cards__box--11 { background: #8bc34a; }
-    .cards__box--12 { background: #3f51b5; }
 
-    /* ===== FOOTER ===== */
+    .cards__box--1 {
+      background: #ff6f61;
+    }
+
+    .cards__box--2 {
+      background: #ffcc00;
+    }
+
+    .cards__box--3 {
+      background: #4caf50;
+    }
+
+    .cards__box--4 {
+      background: #2196f3;
+    }
+
+    .cards__box--5 {
+      background: #9c27b0;
+    }
+
+    .cards__box--6 {
+      background: #00bcd4;
+    }
+
+    .cards__box--7 {
+      background: #e91e63;
+    }
+
+    .cards__box--8 {
+      background: #795548;
+    }
+
+    .cards__box--9 {
+      background: #607d8b;
+    }
+
+    .cards__box--10 {
+      background: #ff5722;
+    }
+
+    .cards__box--11 {
+      background: #8bc34a;
+    }
+
+    .cards__box--12 {
+      background: #3f51b5;
+    }
+
+
     .footer {
       background: #333;
       color: #fff;
@@ -109,7 +142,7 @@
       font-size: 1em;
     }
 
-    /* ===== RESPONSIVE ===== */
+
     @media (max-width: 768px) {
       .menu__nav {
         flex-direction: column;
@@ -135,8 +168,11 @@
         height: 140px;
       }
     }
+
+
   </style>
 </head>
+
 <body>
   <header class="menu">
     <nav class="menu__nav">
@@ -149,24 +185,26 @@
       </ul>
     </nav>
   </header>
-
-  <div class="cards">
-    <div class="cards__box cards__box--1"></div>
-    <div class="cards__box cards__box--2"></div>
-    <div class="cards__box cards__box--3"></div>
-    <div class="cards__box cards__box--4"></div>
-    <div class="cards__box cards__box--5"></div>
-    <div class="cards__box cards__box--6"></div>
-    <div class="cards__box cards__box--7"></div>
-    <div class="cards__box cards__box--8"></div>
-    <div class="cards__box cards__box--9"></div>
-    <div class="cards__box cards__box--10"></div>
-    <div class="cards__box cards__box--11"></div>
-    <div class="cards__box cards__box--12"></div>
+  <div class="flex-container">
+    <div class="cards">
+      <div class="cards__box cards__box--1"></div>
+      <div class="cards__box cards__box--2"></div>
+      <div class="cards__box cards__box--3"></div>
+      <div class="cards__box cards__box--4"></div>
+      <div class="cards__box cards__box--5"></div>
+      <div class="cards__box cards__box--6"></div>
+      <div class="cards__box cards__box--7"></div>
+      <div class="cards__box cards__box--8"></div>
+      <div class="cards__box cards__box--9"></div>
+      <div class="cards__box cards__box--10"></div>
+      <div class="cards__box cards__box--11"></div>
+      <div class="cards__box cards__box--12"></div>
+    </div>
   </div>
 
   <footer class="footer">
-    &copy; 2025 Mi Sitio Web - Todos los derechos reservados
+    Rida
   </footer>
 </body>
+
 </html>
