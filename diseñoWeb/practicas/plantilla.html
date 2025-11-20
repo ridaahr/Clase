@@ -1,207 +1,172 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plantilla Única Responsive con BEM</title>
-    <!-- Librería de iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con Menú, Cajas y Footer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
-            color: #333;
-        }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background: #f5f5f5;
+    }
 
-        /* ===== HEADER / MENU ===== */
-        .menu {
-            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-            color: #fff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        }
+    /* ===== HEADER / MENU ===== */
+    .menu {
+      background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      color: #fff;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
 
-        .menu__nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-        }
+    .menu__nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
-        .menu__logo {
-            font-size: 1.6em;
-            font-weight: bold;
-            margin-right: 20px;
-            color: #ffeb3b;
-        }
+    .menu__logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-right: 20px;
+      color: #ffeb3b;
+    }
 
-        .menu__list {
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+    .menu__list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-        .menu__item {
-            margin: 0 12px;
-        }
+    .menu__item {
+      margin: 0 12px;
+    }
 
-        .menu__link {
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 12px;
-            transition: background 0.3s, transform 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            border-radius: 6px;
-        }
+    .menu__link {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background 0.3s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-radius: 6px;
+    }
 
-        .menu__link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
+    .menu__link:hover {
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.05);
+    }
 
-        /* ===== MAIN / CARDS ===== */
-        .main {
-            flex: 1;
-            padding: 40px 20px;
-        }
+    /* ===== CARDS ===== */
+    .cards {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 40px 20px;
+    }
 
-        .main__title {
-            margin-bottom: 25px;
-            text-align: center;
-            font-size: 2em;
-            color: #6a11cb;
-        }
+    .cards__box {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
 
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
+    /* Colores únicos */
+    .cards__box--1 { background: #ff6f61; }
+    .cards__box--2 { background: #ffcc00; }
+    .cards__box--3 { background: #4caf50; }
+    .cards__box--4 { background: #2196f3; }
+    .cards__box--5 { background: #9c27b0; }
+    .cards__box--6 { background: #00bcd4; }
+    .cards__box--7 { background: #e91e63; }
+    .cards__box--8 { background: #795548; }
+    .cards__box--9 { background: #607d8b; }
+    .cards__box--10 { background: #ff5722; }
+    .cards__box--11 { background: #8bc34a; }
+    .cards__box--12 { background: #3f51b5; }
 
-        .cards__box {
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px;
-            width: 400px;
-            min-height: 300px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    /* ===== FOOTER ===== */
+    .footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 1em;
+    }
 
-        .cards__box:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .menu__nav {
+        flex-direction: column;
+        align-items: center;
+      }
 
-        .cards__icon {
-            font-size: 2.5em;
-            margin-bottom: 12px;
-            color: #2575fc;
-        }
+      .menu__logo {
+        margin: 10px 0;
+      }
 
-        .cards__title {
-            margin-bottom: 12px;
-            font-size: 1.3em;
-            color: #6a11cb;
-        }
+      .menu__list {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+      }
 
-        .cards__text {
-            font-size: 0.95em;
-            color: #555;
-        }
+      .menu__item {
+        margin: 8px 0;
+      }
 
-        /* ===== FOOTER ===== */
-        .footer {
-            background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
-            color: #fff;
-            text-align: center;
-            padding: 18px;
-            font-size: 0.9em;
-        }
-
-        .footer__text {
-            letter-spacing: 0.5px;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .menu__nav {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .menu__logo {
-                margin: 10px 0;
-            }
-
-            .menu__list {
-                flex-direction: column;
-                width: 100%;
-                align-items: center;
-            }
-
-            .menu__item {
-                margin: 8px 0;
-            }
-
-            .cards__box {
-                width: 100%;
-            }
-        }
-    </style>
+      .cards__box {
+        width: 140px;
+        height: 140px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header class="menu">
-        <nav class="menu__nav">
-            <div class="menu__logo">Mi Sitio</div>
-            <ul class="menu__list">
-                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-home"></i> Inicio</a></li>
-                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-cogs"></i> Servicios</a></li>
-                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-info-circle"></i> Acerca</a></li>
-                <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-envelope"></i> Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="menu">
+    <nav class="menu__nav">
+      <div class="menu__logo">Mi Sitio</div>
+      <ul class="menu__list">
+        <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-home"></i> Inicio</a></li>
+        <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-cogs"></i> Servicios</a></li>
+        <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-info-circle"></i> Acerca</a></li>
+        <li class="menu__item"><a href="#" class="menu__link"><i class="fas fa-envelope"></i> Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main class="main">
-        <h1 class="main__title">Galería de Cajas</h1>
-        <div class="cards">
-            <div class="cards__box cards__box--1"></div>
-            <div class="cards__box cards__box--2"></div>
-            <div class="cards__box cards__box--3"></div>
-            <div class="cards__box cards__box--4"></div>
-            <div class="cards__box cards__box--5"></div>
-            <div class="cards__box cards__box--6"></div>
-            <div class="cards__box cards__box--7"></div>
-            <div class="cards__box cards__box--8"></div>
-            <div class="cards__box cards__box--9"></div>
-            <div class="cards__box cards__box--10"></div>
-            <div class="cards__box cards__box--11"></div>
-            <div class="cards__box cards__box--12"></div>
-        </div>
-    </main>
+  <div class="cards">
+    <div class="cards__box cards__box--1"></div>
+    <div class="cards__box cards__box--2"></div>
+    <div class="cards__box cards__box--3"></div>
+    <div class="cards__box cards__box--4"></div>
+    <div class="cards__box cards__box--5"></div>
+    <div class="cards__box cards__box--6"></div>
+    <div class="cards__box cards__box--7"></div>
+    <div class="cards__box cards__box--8"></div>
+    <div class="cards__box cards__box--9"></div>
+    <div class="cards__box cards__box--10"></div>
+    <div class="cards__box cards__box--11"></div>
+    <div class="cards__box cards__box--12"></div>
+  </div>
 
-
-    <footer class="footer">
-        <p class="footer__text">&copy; 2025 Mi Sitio Web - Todos los derechos reservados</p>
-    </footer>
+  <footer class="footer">
+    &copy; 2025 Mi Sitio Web - Todos los derechos reservados
+  </footer>
 </body>
-
 </html>
