@@ -1,0 +1,117 @@
+<title></title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.flex-container{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: rgb(236, 161, 214);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 25px;
+    max-width: 1000px;
+
+}
+.form{
+    min-width: 400px;
+    flex: 1;
+    text-align: center;
+    padding: 40px;
+
+}
+.form__imput{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 3px solid #fff;
+    background: #ea7fee33;
+    color: #fff;
+}
+
+.form__imput:focus{
+    background: linear-gradient(to bottom, transparent, #1e9cd688);
+    outline: none;
+    border-bottom: 3px solid rgb(233, 87, 213);
+
+}
+
+.form textarea{
+    min-height: 150px;
+    resize: none;
+}
+
+.form-img {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    min-width: 300px;
+    max-width: 300px;
+    order: 1;
+}
+
+.img-container{
+    margin: auto;
+    padding: 20px;
+    border-radius: 10%;
+    background: #fff;
+}
+.form-img img{
+    width: 100%;
+
+}
+
+.form input[type="submit"]{
+    background:  #1e9cd688;
+}
+
+.form input[type="submit"]:hover{
+    background:  #136b9488;
+}
+.form input[type="submit"]:focus{
+    background:  #5fc0ec88;
+}
+.form input[type="submit"]:active{
+    background: linear-gradient(to bottom, transparent, #1e9cd688);
+}
+
+</style>
+<html>
+<head>
+    <title>Formulario Flex</title>
+</head>    
+<body>
+    <div class="flex-container">
+        <form class="form-inscrip">
+            <div class="form-isncrp__section">
+                <input type="email" class="form__imput" placeholder="Email">
+            </div>
+            <div class="form__section">
+                <input type="text" class="form__imput" placeholder="Asunto">
+            </div>
+            <div class="form__section">
+                <textarea class="form__imput" placeholder="Mensaje"></textarea>
+            </div>
+            <div class="form__section">
+                <input type="submit" class="form__imput">
+            </div>
+        </form>
+        <div class="form-img">
+            <div class="img-container">
+                <img src="logoZ1.png">
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+</html>

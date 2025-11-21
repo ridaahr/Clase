@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Moderno Flexbox</title>
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: #f5f5f5;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* FLEX CONTAINER */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+            flex: 1;
+            gap: 30px;
+        }
+
+        /* ITEMS */
+        .flex-container__item {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .flex-container__logo {
+            background-image: url('img/z.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 300px;
+            border-radius: 15px;
+        }
+
+        .flex-container__form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* INPUTS */
+        .flex-container__input,
+        .flex-container__textarea {
+            padding: 14px 18px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .flex-container__input:focus,
+        .flex-container__textarea:focus {
+            border-color: #8e44ad;
+            box-shadow: 0 0 8px rgba(142, 68, 173, 0.3);
+            outline: none;
+        }
+
+        .flex-container__textarea {
+            resize: none;
+            min-height: 100px;
+        }
+
+        /* BUTTON */
+        .flex-container__button {
+            padding: 14px 20px;
+            background: linear-gradient(90deg, #8e44ad, #c39bd3);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .flex-container__button:hover {
+            background: linear-gradient(90deg, #c39bd3, #8e44ad);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+            .flex-container {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .flex-container__logo {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .flex-container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="flex-container">
+        <!-- Logo -->
+        <div class="flex-container__item flex-container__logo"></div>
+
+        <!-- Formulario -->
+        <form class="flex-container__item flex-container__form">
+            <input class="flex-container__input" type="text" placeholder="Nombre">
+            <input class="flex-container__input" type="email" placeholder="Correo">
+            <textarea class="flex-container__textarea" placeholder="Mensaje"></textarea>
+            <button type="submit" class="flex-container__button">Enviar</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
