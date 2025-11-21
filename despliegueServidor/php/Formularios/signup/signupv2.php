@@ -1,9 +1,23 @@
 <?php
+session_start();
+
 $name = $email = $pass = $pass2 = "";
 $age = 0;
 $studies = [];
 $errors = false;
 $passEror = "";
+
+function secure($text) {
+    // quitar espacios delante y detrás
+    // $text = trim($text);
+    // Escapar caracteres especiales
+    // $text = stripslashes($text);
+    // Caracteres especiales html
+    // $text = htmlspecialchars($text);
+
+    $text = htmlspecialchars(stripslashes(trim($text)));
+    return $text;
+}
 
 //Hago las comprobaciones del formulario
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -11,33 +25,33 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //es decir, después de hacer click en el botón del formulario post
     //echo "hola";
 
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $pass = $_POST["pass"];
-    $pass2 = $_POST["pass2"];
-    $age = $_POST["age"];
+    $name = secure($_POST["name"]);
+    $email = secure($_POST["email"]);
+    $pass = secure($_POST["pass"]);
+    $pass2 = secure($_POST["pass2"]);
+    $age = secure($_POST["age"]);
 
+    if (isset($_POST["studies"])) {
+        $studies = $_POST["studies"];
+    }
+0
     if ($pass != $pass2) {
         //Hay errores, muestro el form (sigo aquí)
         $errors = true;
         $passEror = "Las contraseñas no coinciden";
         //echo "estoy en el if de contra";
     } else {
-        //Me voy al index
-        if (!$errors) {
             $_SESSION["name"] = $name;
             $_SESSION["email"] = $email;
             $_SESSION["pass"] = $pass;
-            $_SESSION["pass2"] = $pass2;
             $_SESSION["age"] = $age;
-            $_SESSION["course"] = $course;
-        }
+            $_SESSION["studies"] = $studies;
+            // le puedo meter otra info
+            $_SESSION["origin"] = "signup";
         header("Location: indexv2.php");
         exit();
     }
-    if (isset($_POST["studies"])) {
-        $studies = $_POST["studies"];
-    }
+    
 }
 
 
