@@ -1,0 +1,8 @@
+.error{
+    font-size: 0.5rem;
+    color: red;
+}
+.checkError{
+    background-image: linear-gradient(135deg, #B1B6BE 0%, #FFF 100%);
+    color: red;
+}

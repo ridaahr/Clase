@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["origin"]) or $_SESSION["origin"] != "signup") {
-    header("Location: signupv2.php");
+    header("Location: /signup/signupv2.php");
     exit();
 }
 
