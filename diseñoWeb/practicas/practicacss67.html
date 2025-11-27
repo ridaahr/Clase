@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<title></title>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: radial-gradient(circle, pink, red, orange);
+    padding: 20px;
+}
+.grid-container{
+    display: grid;
+    background: gray;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    align-content: space-evenly;
+    justify-content: space-evenly;
+    height: 800px;
+    align-items: center;
+    justify-items: center;
+}
+
+.grid-item{
+    border: 2px solid #000;
+    background: rgb(115, 252, 2);
+    font-size: 50px;
+    padding: 70px;
+}
+
+.grid-item:first-child{
+    background-color: rgb(0, 174, 255);
+    order: 150;
+}
+
+.grid-item:nth-child(2) {
+    background-color: cyan;
+    order: 20
+}
+
+
+</style>
+<html>
+<head>
+    <title>Grid</title>
+</head>    
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+
+    </div>
+    
+</body>
+
+</html>

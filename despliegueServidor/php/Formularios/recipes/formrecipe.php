@@ -1,4 +1,6 @@
 <?php
+include "sadsa";
+
 session_start();
 $email = $name = $color = "";
 $time = 0;
@@ -27,6 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $radioError = "Tienes que seleccionar si tiene gluten o no";
         $errors = true;
+    }
+
+    if(isset($_POST["cookie"])) {
+        setcookie("receta", "valor de la cookie", time() + (14*24*60*60));
     }
 
     if (!$errors) {
@@ -95,7 +101,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <?= "<p class='error'> " . $radioError . "</p>" ?>
         <label for="color">Elige el color</label>
         <input type="color" name="color" id="color" value="<?= $color ?>"><br>
+        
+        <label for="cookie">Quiero que me hagas una cookie</label>
+        <input type="checkbox" name="cookie" id="cookie"><br>
         <input type="submit" value="Enviar datos">
+        <input type="reset">
     </form>
 </body>
 

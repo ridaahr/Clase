@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $errores = true;
     }
 
+
     //Si está todo bien: a index,
     //si no, me quedo.
     if (!$errores){
@@ -34,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION["origin"] = "login";  //este me viene bien para saber en el index de dónde vengo
         $_SESSION["terms"] = $terms;
         $_SESSION["test"] = 45.9;   //este no vale para nada
+        //Hago de la cookie permanecer logueado
+        setcookie("logged", $name, time() + 30*24*60*60);
         //Redirijo:
         //header("Location: indexprovisional.php");
         header("Location: ../indexv2.php");
@@ -70,7 +73,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             Acepto los términos</label>
         <?= "<p class='error'> " . $termsError . "</p>" ?>
         
-        <br>
+
+        <input type="checkbox" name="logged" id="logged">
+        <label for="logged">Quiero permanecer regitrado</label><br>
         <input type="submit" value="Entrar">
     </form>
 </body>

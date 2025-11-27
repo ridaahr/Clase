@@ -1,6 +1,10 @@
 <?php
 session_start();
-if (!isset($_SESSION["origin"]) or $_SESSION["origin"] != "signup") {
+//Compruebo la cookie
+$nameCookie = "";
+if(isset($_COOKIE["logged"])) {
+    $nameCookie = $_COOKIE["logged"];
+} else if (!isset($_SESSION["origin"]) or $_SESSION["origin"] != "signup") {
     header("Location: /signup/signupv2.php");
     exit();
 }
