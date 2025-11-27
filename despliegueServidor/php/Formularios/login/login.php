@@ -7,7 +7,7 @@ $termsError = $nameError = "";
 $errores = false;
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    include $_SERVER["DOCUMENT_ROOT"] . "/utils.php";
+    include $_SERVER["DOCUMENT_ROOT"] . "/despliegueServidor/php/Formularios/utils.php";
     $name = secure($_POST["name"]);
     $pass = secure($_POST["pass"]);
 
@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION["terms"] = $terms;
         $_SESSION["test"] = 45.9;   //este no vale para nada
         //Hago de la cookie permanecer logueado
-        setcookie("logged", $name, time() + 30*24*60*60);
+        setcookie("logged", $name, time() + 30*24*60*60, "/");
         //Redirijo:
         //header("Location: indexprovisional.php");
         header("Location: ../indexv2.php");
