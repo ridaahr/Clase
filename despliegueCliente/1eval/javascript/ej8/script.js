@@ -33,9 +33,9 @@ alert(phrase);
 function randomNumber(a, b) {
     return Math.random() * (a - b) + b;
 }
-let num = randomNumber(5, 9);
+let num = randomNumber(9, 5);
 alert(num);
-
+*/
 
 //Ej 5
 
@@ -44,21 +44,19 @@ class Punto {
         this.valX = valX;
         this.valY = valY
     }
-
-
 }
 
 function distance(puntoA, puntoB) {
     return Math.sqrt(Math.pow((puntoB.valX - puntoA.valX), 2) + Math.pow((puntoB.valY - puntoA.valY), 2))
 }
-let puntoA = new Punto(1, 3)
-let puntoB = new Punto(-2, 5);
+let puntoA = new Punto(4, 6)
+let puntoB = new Punto(1, 2);
 let length = distance(puntoA, puntoB);
 alert(length);
-*/
+/*
 
 //Ej 6
-let dias = [ "domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+let dias = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
 let currentDate = new Date();
 let cumpleaños = prompt("Introduce una fecha de cumpleaños");
 let cumpleañosSeparado = cumpleaños.split("/");
@@ -67,12 +65,19 @@ let mes = cumpleañosSeparado[1];
 let año = cumpleañosSeparado[2];
 let birthDate = new Date(año, mes - 1, dia);
 let dayBirth = birthDate.getDay();
-alert ("Nació un " + dias[dayBirth]);
+
 let edad;
 if (currentDate.getMonth() > birthDate.getMonth()) {
     edad = currentDate.getFullYear() - birthDate.getFullYear();
+} else if (currentDate.getMonth() < birthDate.getMonth()) {
+    edad = currentDate.getFullYear() - birthDate.getFullYear() - 1;
 } else {
-    let edad = currentDate.getFullYear() - birthDate.getFullYear();
+    if (currentDate.getDate() > birthDate.getDate()) {
+        edad = currentDate.getFullYear() - birthDate.getFullYear();
+    } else {
+        edad = currentDate.getFullYear() - birthDate.getFullYear() - 1;
+    }
 }
 
-alert(edad);
+alert("Nació un " + dias[dayBirth] + " y tiene " + edad + " años.");
+*/

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+        }
+
+        body {
+            background: radial-gradient(circle, pink, red, orange);
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: column;
+            background: rgb(138, 138, 138);
+            margin: 10px;
+            height: 95vh;
+            border: 5px solid white;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .header {
+            background-color: rgba(181, 214, 227);
+            flex-basis: 70px;
+        }
+
+        .main {
+            background-color: rgba(243, 163, 129);
+            flex-basis: 300px;
+            flex-grow: 2;
+            flex-shrink: 0;
+        }
+        .aside{
+            background-color: rgba(244, 184, 192);
+            flex-basis: 200px;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+        .footer {
+            background-color: rgba(113, 251, 91);
+            flex-grow: 1;
+        }
+
+        @media screen and (min-width: 700px) {
+            .flex-container {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+            .main {
+                flex-shrink: 0;
+                width: 50%;
+                height: 100%;
+            }
+            .aside {
+                flex-shrink: 1;
+                width: 50%;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <header class="header">Header</header>
+        <main class="main">Main</main>
+        <aside class="aside">Asider</aside>
+        <footer class="footer">Footer</footer>
+
+    </div>
+</body>
+
+</html>
