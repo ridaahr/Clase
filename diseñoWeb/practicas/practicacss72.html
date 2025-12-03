@@ -16,61 +16,64 @@
             background: radial-gradient(circle, pink, red, orange);
         }
 
-        .flex-container {
-            display: flex;
-            flex-direction: column;
+        .grid-container {
+            display: grid;
             background: rgb(138, 138, 138);
             margin: 10px;
             height: 95vh;
             border: 5px solid white;
-        }
 
-        .content {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            grid-template-areas:
+                "header header header"
+                "content content content"
+                "footer footer footer";
+
+            grid-template-rows: 100px 1fr 100px;
         }
 
         .header {
             background-color: rgba(181, 214, 227);
-            flex-basis: 70px;
-        }
-
-        .main {
-            background-color: rgba(243, 163, 129);
-            flex-basis: 300px;
-            flex-grow: 2;
-            flex-shrink: 0;
-        }
-
-        .aside {
-            background-color: rgba(244, 184, 192);
-            flex-basis: 200px;
-            flex-grow: 1;
-            flex-shrink: 0;
+            grid-area: header;
         }
 
         .footer {
             background-color: rgba(113, 251, 91);
-            flex-grow: 1;
+            grid-area: footer;
         }
+
+
+        .content {
+            grid-area: content;
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
 
         @media screen and (min-width: 600px) {
             .content {
-                flex-direction: row;
+                grid-template-columns: 2fr 1fr;
             }
+        }
+
+        .main {
+            background-color: rgba(243, 163, 129);
+        }
+
+        .aside {
+            background-color: rgba(244, 184, 192);
         }
     </style>
 </head>
 
 <body>
-    <div class="flex-container">
+    <div class="grid-container">
         <header class="header">Header</header>
         <section class="content">
             <main class="main">Main</main>
-            <aside class="aside">Asider</aside>
+            <aside class="aside">Aside</aside>
         </section>
         <footer class="footer">Footer</footer>
     </div>
 </body>
+
 </html>
