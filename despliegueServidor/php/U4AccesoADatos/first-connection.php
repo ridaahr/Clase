@@ -77,7 +77,7 @@
 
     //Creo objeto árbol y lo inserto
     require $_SERVER["DOCUMENT_ROOT"] . "/despliegueServidor/php/U4AccesoADatos/Tree.php";
-    $tree = new Tree(4, 2.05, 'iron', 10);
+    $tree = new Tree(4, 2.05, 'iron', );
     Tree::insert($tree, $conn);
 
     ?>
