@@ -13,4 +13,5 @@ class Vehiculo {
         let fecha = new Date; 
         return fecha.getFullYear() - this.ano;
     }
+    
 }

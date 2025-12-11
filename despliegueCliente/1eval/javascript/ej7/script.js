@@ -101,7 +101,7 @@ estudiantes.actualizarNota = function(nombre, nuevaNota) {
     let found = false;
     for (let i = 0; i < estudiantes.length; i++) {
         if(estudiantes[i]["nombre"] == nombre) {
-            estudiantes[i]["nota"] == nuevaNota
+            estudiantes[i]["nota"] = nuevaNota
             found = true;
         } 
     }
