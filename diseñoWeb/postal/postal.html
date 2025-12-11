@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Postal Navideña</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", sans-serif;
+      background-image: url("img/fondo.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+    }
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 0;
+    }
+
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      font-size: 1.5rem;
+      animation: fall linear infinite;
+      opacity: 0.9;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+    .card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(6px);
+      border: 4px solid #ffd34a;
+      border-radius: 25px;
+      padding: 2rem;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+      animation: pulse 4s ease-in-out infinite;
+      position: relative;
+    }
+    @keyframes pulse {
+      0%,100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,0,0,0.6); }
+      50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(0,255,0,0.6); }
+    }
+    .card::before {
+      content: "🎄🎁✨";
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: swing 3s ease-in-out infinite;
+    }
+    @keyframes swing {
+      0%,100% { transform: translateX(-50%) rotate(0deg); }
+      50% { transform: translateX(-50%) rotate(10deg); }
+    }
+    .card h1 {
+      font-size: 2.4rem;
+      color: #ffd34a;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px rgba(255,255,255,0.8);
+    }
+    .card p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(0,100,0,0.7);
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 600px) {
+      .card { padding: 1.5rem; }
+      .card h1 { font-size: 1.8rem; }
+      .card p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="backdrop"></div>
+
+  
+  <div class="snowflake" style="left:15%; animation-duration:12s;">❄</div>
+  <div class="snowflake" style="left:35%; animation-duration:18s;">❅</div>
+  <div class="snowflake" style="left:55%; animation-duration:15s;">❆</div>
+  <div class="snowflake" style="left:75%; animation-duration:20s;">❄</div>
+  <div class="snowflake" style="left:90%; animation-duration:14s;">❅</div>
+
+  <main>
+    <article class="card">
+      <h1>¡Felices Fiestas!</h1>
+      <p>
+        Que la magia de la Navidad ilumine tu hogar con alegría, amor y esperanza.<br>
+        Disfruta de la calidez de las casas de madera, las luces brillantes y la paz de la nieve.<br>
+        ¡Te deseamos una Navidad inolvidable y un próspero Año Nuevo!
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    ✨ Con cariño y buenos deseos ✨
+  </footer>
+</body>
+</html>

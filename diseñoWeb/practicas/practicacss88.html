@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            filter: contrast(20);
+            background: #fff;
+        }
+        .caja {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            background-color: rgb(137, 61, 235);
+            margin: 40px;
+            border-radius: 50%;
+            filter: blur(1px);
+        }
+        .caja:first-child {
+            animation: pegajoso 2s alternate infinite;
+        }
+        @keyframes pegajoso {
+            0% {
+                transform: translate(0);
+            }
+            100% {
+                transform: translate(160px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="caja"></div>
+        <div class="caja"></div>
+    </div>
+</body>
+</html>
