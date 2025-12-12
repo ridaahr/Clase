@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Completa</title>
+
+    <style>
+        .contenido { margin-bottom: 0.7rem; }
+        .activo { border-left: 4px solid green; padding-left: 6px; }
+        .visible { opacity: 1; }
+        .importante { font-weight: bold; color: #b30000; }
+        .destacar { background: yellow; }
+        div p { color: blueviolet; }
+    </style>
+</head>
+
+<body>
+    
+
+    <header>
+        <h1>Ejemplos de Clases</h1>
+    </header>
+
+    <div class="contenido">
+        <p>Párrafo dentro de div.</p>
+    </div>
+
+    <!-- Sección 1 -->
+    <section>
+        <h2 class="importante">Título Importante</h2>
+
+        <p class="contenido importante">
+            Este párrafo es solo <strong>importante</strong>.
+        </p>
+
+        <p class="contenido destacar">
+            Este párrafo está marcado para <strong>destacar</strong>.
+        </p>
+
+        <p class="contenido importante destacar">
+            Este párrafo es <strong>importante y al mismo tiempo destacar</strong>.
+        </p>
+        <p class="titulin"></p>
+    </section>
+
+    <!-- Sección 2 -->
+    <section class="visible">
+        <h2 class="destacar">Título Destacado</h2>
+
+        <p class="contenido">
+            Párrafo simple en una sección visible.
+        </p>
+
+        <p class="contenido activo">
+            Párrafo con clase <strong>activo</strong>.
+        </p>
+
+        <p class="contenido visible importante">
+            Párrafo visible e importante.
+        </p>
+    </section>
+
+    <!-- Sección 3 -->
+    <section class="activo visible">
+        <h2 class="importante destacar">Título Importante y Destacado</h2>
+
+        <p class="contenido">
+            Otro párrafo simple dentro de contenido.
+        </p>
+
+        <p class="contenido importante">
+            Este es un párrafo importante.
+        </p>
+
+        <p class="contenido destacar">
+            Este párrafo destaca visualmente.
+        </p>
+
+        <p class="contenido importante destacar activo">
+            Este párrafo combina: <strong>importante + destacar + activo</strong>.
+        </p>
+
+        <p class="contenido visible destacar">
+            Párrafo visible y destacado.
+        </p>
+    </section>
+
+    <!-- Sección 4 -->
+    <section>
+        <h2>Más ejemplos combinados</h2>
+
+        <p class="contenido importante activo">
+            Ejemplo de importante + activo.
+        </p>
+
+        <p class="contenido destacar activo">
+            Ejemplo de destacar + activo.
+        </p>
+
+        <p class="contenido visible importante destacar">
+            Ejemplo de visible + importante + destacar.
+        </p>
+
+        <p class="contenido importante destacar visible activo">
+            Ejemplo con todas las clases juntas.
+        </p>
+    </section>
+    <script src="script3.js"></script>
+</body>
+</html>
