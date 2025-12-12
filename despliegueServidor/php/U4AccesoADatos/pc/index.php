@@ -8,6 +8,7 @@
 <body>
     <?php
     require $_SERVER["DOCUMENT_ROOT"] ."/despliegueServidor/php/U4AccesoADatos/pc/Component.php";
+    require $_SERVER["DOCUMENT_ROOT"] ."/despliegueServidor/php/U4AccesoADatos/pc/ComponentDAO.php";
     try {
         $conn = new mysqli("127.0.0.1", "root", "Sandia4you", "shop"); //Puerto default 3306
         echo "Dentro";
@@ -18,7 +19,17 @@
     }
     
     $c = new Component("Procesador", "Intel", "i9");
-    Component::create($c, $conn);
+    //ComponentDAO::create($c);
+    $c2 = new Component("Procesador", "Intel", "i7");
+    //ComponentDAO::create($c2);
+    $c3 = new Component("Procesador", "Intel", "i3", 3);
+    //ComponentDAO::create($c3);
+    //ComponentDAO::update($c3);
+    //ComponentDAO::delete(4);
+    $components = ComponentDAO::readAll();
+    foreach ($components as $component) {
+        echo "<p>$component</p>";
+    }
     ?>
 </body>
 </html>
