@@ -1,0 +1,225 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+header {
+    background: linear-gradient(90deg, #0f172a, #1e293b);
+    color: #ffffff;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+header h1 {
+    font-size: 26px;
+    white-space: nowrap;
+}
+
+
+nav ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+}
+
+
+nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background-color: #1e40af;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+}
+
+
+nav a:hover {
+    background-color: #22d3ee;
+    color: #0f172a;
+}
+
+.form {
+    background: #ffffff;
+    max-width: 420px;
+    margin: 60px auto;
+    padding: 28px 32px;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+}
+
+
+.form h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #0f172a;
+    font-size: 24px;
+}
+
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+.form label {
+    font-size: 14px;
+    color: #334155;
+    margin-top: 10px;
+}
+
+
+.form input[type="text"],
+.form input[type="password"] {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form input::placeholder {
+    color: #94a3b8;
+}
+
+
+.form input:focus {
+    outline: none;
+    border-color: #22d3ee;
+    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
+}
+
+
+.form input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: #1e40af;
+}
+
+.checkbox-group {
+    display: flex;       
+    align-items: center; 
+    gap: 8px;             
+    margin-top: 12px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #1e40af;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #475569;
+    cursor: pointer;      
+}
+
+.form button {
+    margin-top: 22px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #1e40af, #22d3ee);
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(34, 211, 238, 0.35);
+}
+
+
+.errors {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+
+.form-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #475569;
+}
+
+.form-footer a {
+    color: #1e40af;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f172a;
+    color: #cbd5f5;
+    text-align: center;
+    padding: 12px 0;
+    z-index: 1000;
+}
+
+footer small {
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .form {
+        margin: 30px 16px;
+        padding: 24px;
+    }
+
+    .form h2 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav li {
+        width: 100%;
+    }
+
+    nav a {
+        width: 100%; 
+        justify-content: center;
+        font-size: 15px;
+    }
+}
