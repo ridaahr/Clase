@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!$errors) {
 
         if (isset($_POST["stay-connected"])) {
-            setcookie("stay-connected", $email, time() + 60 * 60 * 24 * 30,"/");
+            setcookie("stay-connected", $email, time() + 60 * 60 * 24 * 30, "/");
         }
         unset($_SESSION["error"]);
         $_SESSION["email"] = $email;
@@ -52,6 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/header.php" ?>
+
+    <?php
+    if (isset($_SESSION["error"])) {
+        $err = $_SESSION["error"];
+        echo "<p class=\"errors\">$err</p>";
+    }
+    ?>
 
     <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/components/form-login.php"; ?>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/footer.php" ?>

@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!(isset($_COOKIE["stay-connected"]) or isset($_SESSION["origin"]))) {
+    $_SESSION["error"] = "Tienes que iniciar sesión primero";
+    header("Location: login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

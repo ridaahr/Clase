@@ -13,6 +13,7 @@ class Car extends Vehicle
         private int $doors,
         private int $seats,
         private array $extras,
+        private int $id = -1
     ) {
         parent::__construct($plate, $brand, $model, $fabricationYear, $consumation, $pricePerDay, $available);
     }
@@ -56,6 +57,19 @@ class Car extends Vehicle
         return $this;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     /**
      * sirve para mostrar información de los extras del vehículo, si no tiene devuelve
      * un string vacío
@@ -86,7 +100,7 @@ class Car extends Vehicle
      */
     public function __toString()
     {
-        $ret = "Coche " . parent::__toString() .
+        $ret = "ID:" . $this->getId() . ".Coche " . parent::__toString() .
             " Con " . $this->getDoors() . " puertas y " .
             $this->getSeats() . " asientos.";
         return $ret . $this->infoExtras();

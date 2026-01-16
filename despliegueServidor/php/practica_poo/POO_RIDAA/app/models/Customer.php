@@ -9,7 +9,8 @@ class Customer
         private String $password,
         private String $dni,
         private int $age,
-        private array $rentals = []
+        private array $rentals = [],
+        private int $id = -1
     ) {}
 
     public function getName()
@@ -75,6 +76,18 @@ class Customer
         $this->rentals = $rentals;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
     /**
      * sirve para agregar un alquiler nuevo
      * @param Rental $rental
@@ -103,7 +116,7 @@ class Customer
      * sirve para mostrar los alquileres del cliente
      * @return void
      */
-    public function listRentals():string
+    public function listRentals(): string
     {
         if (empty($this->getRentals())) {
             return "No hay alquileres.<br>";
@@ -138,6 +151,6 @@ class Customer
         $rentalsCount = count($this->rentals);
         return "<p>Cliente: " . $this->getName() . " " . $this->getSurname() .
             ".</p> <p>Alquileres: " . $rentalsCount .
-            ".</p> <p>Coste total: " . $this->totalCost() . "€.</p>";
+            ".</p> <p>Coste total: " . $this->totalCost() . "€.</p> <p>ID: " . $this->getId() . "</p>";
     }
 }
