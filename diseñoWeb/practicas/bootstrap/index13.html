@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Columnas anidadas</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <style>
+        .contenido {
+            background-color: beige;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid blueviolet;
+        }
+
+        .row {
+            background: salmon;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="contenido col order-4 order-md-1">1</div>
+            <div class="contenido col order-3 order-md-2">2</div>
+            <div class="contenido col order-2 order-md-3">3</div>
+            <div class="contenido col order-1 order-md-4">4</div>
+        </div>
+        <div class="row">
+            <div class="contenido col-3 offset-3 offset-sm-6">Columna1</div>
+        </div>
+        <div class="row">
+            <div class="contenido col-3 offset-3">Columna1</div>
+            <div class="contenido col-3 offset-3">Columna2</div>
+        </div>
+    </div>
+</body>
+</html>

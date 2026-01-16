@@ -65,19 +65,23 @@ class ComponentDAO
     public static function update($c): bool
     {
         $conn = CoreDB::getConnection();
-        $sql = "UPDATE components 
-        SET name = \"{$c->getName()}\",
-        brand = \"{$c->getBrand()}\",
-        model = \"{$c->getModel()}\"
-        WHERE id = {$c->getId()};";
+        $sql = "UPDATE components set
+                    name = \"{$c->getName()}\",
+                    brand = \"{$c->getBrand()}\",
+                    model = \"{$c->getModel()}\"
+                    WHERE id = {$c->getId()}
+                    ";
+        // "UPDATE components set name="ram" brand="gte" model="tt3" where id=8";
+        //echo "$sql";
         $conn->query($sql);
-        $conn->close();
         $num = $conn->affected_rows;
-        if ($num > 0) {
+        $conn->close();
+        //Si he actualizado alguna (el número de filas afectadas es > 0) devuelvo true
+        /*if ($num > 0) {
             return true;
         }
-        return false;
-        //return (num > 0);
+        return false;*/
+        return ($num > 0);
     }
 
     public static function delete($id): ?Component

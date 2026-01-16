@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Columnas anidadas</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .row{
+            background-color: lightskyblue;
+        }
+        .columna {
+            background: lime;
+            text-align: center;
+            border: 1px solid blue;
+        }
+        .columna-interior-a {background-color: aqua; border: 1px solid red;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="columna col-12 col-md-6">
+                1ra columna
+                <div class="row">
+                    <div class="columna-interior-a col-md-6">Columna interior 1.1</div>
+                    <div class="columna-interior-a col-md-6">Columna interior 1.2</div>
+                </div>
+            </div>
+            <div class="columna col-12 col-md-6">
+                2a columna
+                <div class="row">
+                    <div class="columna-interior-b col-md-6">Columna interior 2.1</div>
+                    <div class="columna-interior-b col-md-6">Columna interior 1.2</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

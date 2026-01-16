@@ -118,6 +118,6 @@ class Pc
         public function __toString()
         {
                 return "$this->id $this->owner $this->brand $this->price - Components: " . 
-                implode(",", $this->components);
+                implode(" | ", $this->components);
         }
 }

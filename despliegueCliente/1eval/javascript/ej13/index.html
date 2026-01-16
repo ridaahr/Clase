@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background: linear-gradient(135deg, #f0f4ff, #e8ecff);
+            border-radius: 14px;
+            padding: 30px;
+            margin: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="abuelo">
+        <h1>Div 1</h1>
+        <div id="padre">
+            <h1>Div 2</h1>
+            <div id="hijo">
+                <h1>Div 3</h1>
+            </div>
+        </div>
+    </div>
+
+    <div id="abuelo2">
+        <h1>Div 1</h1>
+        <div id="padre2">
+            <h1>Div 2</h1>
+            <div id="hijo2">
+                <h1>Div 3</h1>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <a href="https://www.google.com" id="link">Click</a>
+    </div>
+
+    <div>
+        <h1 id="contador">0</h1>
+        <button id="btnContar">Sumar 1</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
