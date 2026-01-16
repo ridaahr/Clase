@@ -11,7 +11,6 @@
 <body>
     <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/components/car.php"; ?>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/footer.php" ?>
-
 </body>
 
 </html>

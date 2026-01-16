@@ -18,7 +18,7 @@
         <button type="submit">Iniciar Sesión</button>
 
         <div class="form-footer">
-            ¿No tienes cuenta? <a href="/public/signup.php" id="go-to-login">Inicia Sesión</a>
+            ¿No tienes cuenta? <a href="/public/signup.php" id="go-to-login">Regístrate</a>
         </div>
     </form>
 </div>
