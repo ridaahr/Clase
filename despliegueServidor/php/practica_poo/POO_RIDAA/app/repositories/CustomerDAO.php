@@ -23,5 +23,31 @@ class CustomerDAO {
             $conn->close();
             return false;
         }
+        
+        $conn->close();
+        return true;
+    }
+
+    public static function read(string $email): ?Customer {
+        $conn = CoreDB::getConnection();
+        $sql = "SELECT * FROM customers WHERE email = ?;";
+        $ps = $conn->prepare($sql);
+        $ps->bind_param("s", $email);
+        $ps->execute();
+        $result = $ps->get_result();
+
+        if ($row = $result->fetch_assoc()) {
+            $customer = new Customer(
+                $row["name"], 
+                $row["surname"], 
+                $row["email"],
+                $row["password"],
+                $row["dni"],
+                $row["age"]
+            );
+            $customer->setId($row["id"]);
+            return $customer;
+        }
+        return null;
     }
 }

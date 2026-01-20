@@ -9,14 +9,16 @@ create table if not exists customers (
 	age int,
 	rentals varchar(255)
 );
+drop table cars;
 
 create table if not exists cars (
 	id int primary key auto_increment,
-	plate varchar(255),
+	plate varchar(255) unique,
 	brand varchar(255),
 	model varchar(255),
-	fabricationYear DATE,
-	consumation varchar(255),
+	fabricationYear varchar(255),
+	consumation float,
+	pricePerDay float,
 	available bool,
 	doors int, 
 	seats int,

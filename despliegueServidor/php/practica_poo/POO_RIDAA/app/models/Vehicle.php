@@ -5,7 +5,7 @@ abstract class Vehicle
         protected string $plate,
         protected string $brand,
         protected string $model,
-        protected DateTime $fabricationYear,
+        protected int $fabricationYear,
         protected float $consumation,
         protected float $pricePerDay,
         protected bool $available
@@ -130,7 +130,7 @@ abstract class Vehicle
      */
     public function __toString()
     {
-        $year = $this->getFabricationYear()->format('Y');
+        $year = $this->getFabricationYear();
         $ret = "con matrícula " . $this->getPlate() . ", " .
             $this->getBrand() . " " . $this->getModel() .
             " del año " . $year .

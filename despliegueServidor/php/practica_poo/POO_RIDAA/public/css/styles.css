@@ -83,7 +83,7 @@ nav a:hover {
 
 .form input[type="text"],
 .form input[type="password"],
-.form input[type="date"] {
+.form input[type="number"] {
     padding: 10px 12px;
     border-radius: 8px;
     border: 1px solid #cbd5e1;

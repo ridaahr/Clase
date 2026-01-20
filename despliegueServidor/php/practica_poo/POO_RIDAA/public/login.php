@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include $_SERVER["DOCUMENT_ROOT"] . "/utils/functions.php";
     $email = secure($_POST["email"]);
-    $password = secure($_POST["password"]);
+    $password = ($_POST["password"]);
 
     if (strlen($email) < 3) {
         $emailError = "Error";
@@ -29,14 +29,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (!$errors) {
-
-        if (isset($_POST["stay-connected"])) {
-            setcookie("stay-connected", $email, time() + 60 * 60 * 24 * 30, "/");
+        require_once $_SERVER["DOCUMENT_ROOT"] . "/app/repositories/CustomerDAO.php";
+        $customer = CustomerDAO::read($email);
+        if ($customer == null) {
+            $_SESSION["error"] = "Email o contraseña incorrectos";
+        } else {
+            if (password_verify($password, $customer->getPassword())) {
+                if (isset($_POST["stay-connected"])) {
+                    setcookie("stay-connected", $email, time() + 60 * 60 * 24 * 30, "/");
+                }
+                unset($_SESSION["error"]);
+                $_SESSION["email"] = $email;
+                $_SESSION["origin"] = "login";
+                header("Location: index.php");
+                exit();
+            } else {
+                $_SESSION["error"] = "Email o contraseña incorrectos";
+            }
         }
-        unset($_SESSION["error"]);
-        $_SESSION["email"] = $email;
-        $_SESSION["origin"] = "login";
-        header("Location: index.php");
     }
 }
 ?>
