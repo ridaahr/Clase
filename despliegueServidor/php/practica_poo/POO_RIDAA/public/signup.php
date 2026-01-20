@@ -1,6 +1,6 @@
 <?php
 session_start();
-$name = $surname = $email = $password = $password2 = $dni = $age = "";
+$name = $surname = $email = $password = $password2 = $dni = $age = $connect = "";
 $nameError = $surnameError = $passError = $dniError = $ageError = "";
 $errors = false;
 $errorBD = "";

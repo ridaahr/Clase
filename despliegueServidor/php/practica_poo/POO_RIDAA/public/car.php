@@ -10,6 +10,12 @@ $plateError = $brandError = $modelError = $fabricationYearError = "";
 $consumationError = $pricePerDayError = $doorsError = $seatsError = $errorBD = "";
 $errors = false;
 
+if (!(isset($_COOKIE["stay-connected"]) or isset($_SESSION["origin"]))){
+    $_SESSION["error"]= "Tienes que iniciar sesión";
+    header("Location: login.php");
+    exit();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include $_SERVER["DOCUMENT_ROOT"] . "/utils/functions.php";
 
