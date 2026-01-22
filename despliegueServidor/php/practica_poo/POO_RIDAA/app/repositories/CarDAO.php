@@ -5,6 +5,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/app/core/CoreDB.php";
 
 class CarDAO
 {
+    /**
+     * Sirve para crear un vehículo pasándole un objeto de tipo Car
+     * @param Car $car le pasamos un car
+     * @return bool devuelve true o false dependiendo de si se crea o no
+     */
     public static function create(Car $car)
     {
         $conn = CoreDB::getConnection();
@@ -48,5 +53,60 @@ class CarDAO
         return $exists;
     }*/
 
-    public static function deleteAll() {}
+
+    /**
+     * lee todos los coches que hay en la bbdd
+     * @return Car[] devuelve un array de todos los coches
+     */
+    public static function readAll()
+    {
+        $conn = CoreDB::getConnection();
+        $cars = [];
+        $res = $conn->query("select * from cars");
+        while (($f = $res->fetch_assoc()) != null) {
+            $extrasStr = isset($f['extras']) ? (string)$f['extras'] : '';
+            $extrasStr = trim($extrasStr);
+            $extrasArr = ($extrasStr === '')
+                ? []
+                : array_map('trim', explode(', ', $extrasStr));
+            $availableBool = ((int)$f['available']) === 1;
+            $cars[] = new Car(
+                $f["plate"],
+                $f["brand"],
+                $f["model"],
+                $f["fabricationYear"],
+                $f["consumation"],
+                $f["pricePerDay"],
+                $availableBool,
+                $f["doors"],
+                $f["seats"],
+                $extrasArr,
+                $f["id"]
+            );
+        }
+        $conn->close();
+        return $cars;
+    }
+
+    /**
+     * borra un coche de la bbdd mediante la id que le pasemos
+     * @param mixed $id le pasamos un id
+     * @return bool devuelve true o false dependiendo si se borró o no
+     */
+    public static function deleteById($id)
+    {
+        $conn = CoreDB::getConnection();
+        $sql = "DELETE FROM cars where id = ?;";
+        $ps = $conn->prepare($sql);
+        $ps->bind_param("i", $id);
+
+        try {
+            $ps->execute();
+        } catch (Exception $e) {
+            $conn->close();
+            return false;
+        }
+        $conn->close();
+        return true;
+    }
 }

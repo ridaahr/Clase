@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Galeria</title>
+    <style>
+        body{
+            background: rgb(225, 243, 255);
+        }
+        .gallery{
+            padding: 80px;
+        }
+        img{
+            max-width: 100%;
+        }
+        .gallery img{
+            background: white;
+            padding: 15px;
+            width: 100%;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+        }
+        .gallery img:hover{
+            border: 5px solid #f7f7f7;
+        }
+        
+    </style>
+</head>
+<body>
+   <section class="gallery">
+    <div class="container-lg">
+        <div class="row text-center pt-5">
+            <h3 class="display-4 ">Mi Galeria</h3>
+            <p class="fst-italic">Lorem ipsum dolor sit amet consectetur   </p>
+        </div>
+        <hr>
+        <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+            <div class="col">
+                <img class="gallery-item" src="img/bg.jpg" alt="Galeria1">
+            </div>
+            <div class="col">
+                <img class="gallery-item" src="img/bg2.jpg" alt="Galeria2">
+            </div>
+            <div class="col">
+                <img class="gallery-item" src="img/bg3.jpg" alt="Galeria3">
+            </div>
+            <div class="col">
+                <img class="gallery-item" src="img/bg2.jpg" alt="Galeria2">
+            </div>
+            <div class="col">
+                <img class="gallery-item" src="img/bg.jpg" alt="Galeria1">
+            </div>
+            <div class="col">
+                <img class="gallery-item" src="img/bg3.jpg" alt="Galeria3">
+            </div>
+
+        </div>
+    </div>
+   </section>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

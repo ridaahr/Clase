@@ -134,8 +134,8 @@ abstract class Vehicle
         $ret = "con matrícula " . $this->getPlate() . ", " .
             $this->getBrand() . " " . $this->getModel() .
             " del año " . $year .
-            ". Consumo de " . $this->getConsumation() . " l/100km. " .
-            $this->getPricePerDay() . "€/día.";
-        return $ret . ($this->getAvailable() ? " Disponible." : " No disponible.");
+            ".<br> Consumo de " . $this->getConsumation() . " l/100km.<br>" .
+            $this->getPricePerDay() . "€/día.<br>";
+        return $ret . ($this->getAvailable() ? " Disponible" : " No disponible");
     }
 }

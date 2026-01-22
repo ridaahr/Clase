@@ -1,9 +1,14 @@
 <?php
 session_start();
 $name = $surname = $email = $password = $password2 = $dni = $age = $connect = "";
-$nameError = $surnameError = $passError = $dniError = $ageError = "";
+$nameError = $surnameError = $emailError = $passError = $dniError = $ageError = "";
 $errors = false;
 $errorBD = "";
+
+if (isset($_SESSION["origin"]) || isset($_COOKIE["stay-connected"])) {
+    header("Location: index.php");
+    exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include $_SERVER["DOCUMENT_ROOT"] . "/utils/functions.php";
@@ -14,10 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password2 = secure($_POST["password2"]);
     $dni = strtoupper(trim($_POST["dni"]));
     $age = secure($_POST["age"]);
-
-    if (isset($_POST["stay-connected"])) {
-        $connect = $_POST["stay-connected"];
-    }
 
     if (empty($name)) {
         $errors = true;
@@ -34,7 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $emailError = "El correo es obligatorio";
     }
 
-    if (empty($password) or $password != $password2) {
+    if (strlen($password) < 3) {
+        $errors = true;
+        $passError = "La contraseña debe tener al menos 3 caracteres";
+    } elseif ($password !== $password2) {
         $errors = true;
         $passError = "Las contraseñas tienen que coincidir";
     }
@@ -56,6 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once $_SERVER["DOCUMENT_ROOT"] . "/app/repositories/CustomerDAO.php";
         $customer = new Customer($name, $surname, $email, $password, $dni, $age);
         if (CustomerDAO::create($customer)) {
+            if (isset($_POST["stay-connected"])) {
+                setcookie("stay-connected", $email, time() + 60 * 60 * 24 * 30, "/");
+            }
+
             $_SESSION["name"] = $name;
             $_SESSION["surname"] = $surname;
             $_SESSION["email"] = $email;
@@ -66,10 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
             exit();
         } else {
-            $errorBD = "Ya existe ese email";
+            $errorBD = "Ya existe ese email o dni";
         }
     }
 }
+$isLogged = isset($_SESSION["origin"]) || isset($_COOKIE["stay-connected"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -82,15 +91,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/header.php" ?>
-    <?= $errorBD ?>
-    <?php if ($errorBD != "") : ?>
-        <script>
-            alert("Email ya usado");
-        </script>
-    <?php endif; ?>
-    <?php include $_SERVER["DOCUMENT_ROOT"] . "/resources/views/components/form-signup.php"; ?>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/footer.php" ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/header.php" ?>
+    <?php include_once $_SERVER["DOCUMENT_ROOT"] . "/resources/views/components/form-signup.php"; ?>
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/resources/views/layouts/footer.php" ?>
 
 </body>
 

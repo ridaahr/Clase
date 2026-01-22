@@ -2,157 +2,255 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", Arial, sans-serif;
 }
 
+html, body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f0f4f8;
+    color: #1e293b;
+}
+
+body {
+    flex: 1;
+}
 
 header {
-    background: linear-gradient(90deg, #0f172a, #1e293b);
-    color: #ffffff;
-    padding: 16px 24px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: #fff;
+    padding: 20px 32px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
-
 
 header h1 {
-    font-size: 26px;
-    white-space: nowrap;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
+header h1::before {
+    content: "🚗";
+}
 
 nav ul {
     display: flex;
-    gap: 12px;
+    gap: 18px;
     list-style: none;
 }
-
 
 nav a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: #e5e7eb;
-    font-size: 14px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background-color: #1e40af;
-    transition: all 0.25s ease;
-    white-space: nowrap;
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(4px);
+    transition: all 0.35s ease;
 }
-
 
 nav a:hover {
-    background-color: #22d3ee;
-    color: #0f172a;
+    background: linear-gradient(135deg, #60a5fa, #3b82f6);
+    box-shadow: 0 6px 20px rgba(59,130,246,0.35);
+    transform: translateY(-2px) scale(1.03);
 }
 
-.form {
-    background: #ffffff;
-    max-width: 420px;
-    margin: 60px auto;
-    padding: 28px 32px;
-    border-radius: 14px;
-    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
-}
-
-
-.form h2 {
+.info {
+    background: #3b82f6;
+    color: #fff;
+    padding: 18px 24px;
+    border-radius: 16px;
+    max-width: 500px;
+    margin: 70px auto;
     text-align: center;
-    margin-bottom: 24px;
-    color: #0f172a;
-    font-size: 24px;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 12px 30px rgba(59,130,246,0.25);
+    transition: transform 0.3s ease;
 }
 
-
-.form form {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.info:hover {
+    transform: translateY(-4px);
 }
 
+.form, .form-delete, .login-form, .signup-form {
+    background: #fff;
+    max-width: 700px;
+    width: 90%;
+    margin: 50px auto;
+    padding: 40px 36px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-.form label {
+.form:hover, .form-delete:hover, .login-form:hover, .signup-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.15);
+}
+
+.form h2, .form-delete h2, .login-form h2, .signup-form h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 28px;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.form label, .form-delete label, .login-form label, .signup-form label {
     font-size: 14px;
-    color: #334155;
-    margin-top: 10px;
+    color: #475569;
+    margin-top: 12px;
+    display: block;
 }
-
 
 .form input[type="text"],
 .form input[type="password"],
-.form input[type="number"] {
-    padding: 10px 12px;
-    border-radius: 8px;
+.form input[type="number"],
+.form input[type="email"],
+.signup-form input[type="text"],
+.signup-form input[type="password"],
+.signup-form input[type="email"],
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form input[type="email"],
+.form-delete select {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 12px;
     border: 1px solid #cbd5e1;
-    font-size: 14px;
-    transition: border 0.2s ease, box-shadow 0.2s ease;
+    font-size: 15px;
+    margin-top: 6px;
+    transition: all 0.3s ease;
 }
 
 .form input::placeholder {
     color: #94a3b8;
 }
 
-
-.form input:focus {
+.form input:focus,
+.form-delete select:focus,
+.login-form input:focus,
+.signup-form input:focus {
     outline: none;
-    border-color: #22d3ee;
-    box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
-}
-
-
-.form input[type="checkbox"] {
-    margin-right: 8px;
-    accent-color: #1e40af;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59,130,246,0.2);
 }
 
 .checkbox-group {
-    display: flex;       
-    align-items: center; 
-    gap: 8px;             
-    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
 }
 
 .checkbox-group input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin: 0;
-    accent-color: #1e40af;
+    width: 20px;
+    height: 20px;
+    accent-color: #3b82f6;
 }
 
 .checkbox-group label {
     font-size: 14px;
     color: #475569;
-    cursor: pointer;      
-}
-
-.form button {
-    margin-top: 22px;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background: linear-gradient(90deg, #1e40af, #22d3ee);
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
     cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.form button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 10px 20px rgba(34, 211, 238, 0.35);
+.form button, .form-delete button, .login-form button, .signup-form button {
+    margin-top: 24px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.35s ease;
 }
 
+.form button, .login-form button, .signup-form button {
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(59,130,246,0.3);
+}
+
+.form-delete button {
+    background: linear-gradient(135deg, #ef4444, #f87171);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(239,68,68,0.3);
+}
+
+.form button:hover, .form-delete button:hover, .login-form button:hover, .signup-form button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+.list-cars {
+    max-width: 960px;
+    margin: 50px auto 100px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+}
+
+.list-cars li {
+    background: #fff;
+    padding: 20px 24px;
+    border-radius: 16px;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-weight: 500;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.list-cars li:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.15);
+}
+
+.list-cars li::before {
+    content: "🚗";
+    font-size: 22px;
+}
+
+.welcome {
+    max-width: 960px;
+    margin: 60px auto 40px auto;
+    padding: 32px 36px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 22px 48px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.welcome:hover {
+    transform: translateY(-4px);
+}
+
+.welcome h1 {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
 
 .errors {
     color: #dc2626;
     font-size: 13px;
-    margin-top: 2px;
+    margin-top: 4px;
 }
-
 
 .form-footer {
     margin-top: 20px;
@@ -162,7 +260,7 @@ nav a:hover {
 }
 
 .form-footer a {
-    color: #1e40af;
+    color: #3b82f6;
     font-weight: 600;
     text-decoration: none;
 }
@@ -171,42 +269,23 @@ nav a:hover {
     text-decoration: underline;
 }
 
-
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #0f172a;
+    background: linear-gradient(135deg, #1e293b, #0f172a);
     color: #cbd5f5;
     text-align: center;
-    padding: 12px 0;
-    z-index: 1000;
-}
-
-footer small {
+    padding: 16px 0;
+    margin-top: auto;
     font-size: 14px;
-}
-
-@media (max-width: 480px) {
-    .form {
-        margin: 30px 16px;
-        padding: 24px;
-    }
-
-    .form h2 {
-        font-size: 22px;
-    }
+    box-shadow: 0 -6px 16px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 900px) {
     header {
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
         text-align: center;
     }
 }
-
 
 @media (max-width: 600px) {
     nav ul {
@@ -214,13 +293,23 @@ footer small {
         width: 100%;
     }
 
-    nav li {
+    nav li, nav a {
         width: 100%;
-    }
-
-    nav a {
-        width: 100%; 
         justify-content: center;
         font-size: 15px;
+    }
+
+    .form, .form-delete, .login-form, .signup-form {
+        margin: 30px 16px;
+        padding: 30px 20px;
+    }
+
+    .form h2, .form-delete h2, .login-form h2, .signup-form h2 {
+        font-size: 24px;
+    }
+
+    .form-delete select {
+        font-size: 13px;
+        padding: 10px 12px;
     }
 }

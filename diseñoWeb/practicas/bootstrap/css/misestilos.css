@@ -1,0 +1,35 @@
+body{
+    background: salmon;
+    color: white;
+}
+header{
+    background: violet;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.contenedor {
+    margin-bottom: 20px;
+}
+
+main {
+    background: yellowgreen;
+    padding: 20px 0;
+}
+aside {
+    background: turquoise;
+    padding: 20px 0;
+}
+
+.widgets{
+    margin-bottom: 20px;
+}
+.widgets > div {
+    background: orange  ;
+    padding: 20px;
+}
+
+footer{
+    padding: 20px 0;
+    background: pink;
+}

@@ -4,6 +4,11 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/app/models/Customer.php";
 require_once $_SERVER["DOCUMENT_ROOT"] . "/app/core/CoreDB.php";
 
 class CustomerDAO {
+    /**
+     * crea un cliente
+     * @param Customer $customer le pasamos un objeto customer
+     * @return bool devuelve true o false dependiendo de si lo ha creado o no
+     */
     public static function create(Customer $customer) {
         $conn = CoreDB::getConnection();
         $sql = "INSERT INTO customers (name, surname, email, password, dni, age) values (?, ?, ?, ?, ?, ?);";
@@ -28,6 +33,11 @@ class CustomerDAO {
         return true;
     }
 
+    /**
+     * para obtener un cliente a través de su email, ya que es único
+     * @param string $email le pasamos un email
+     * @return Customer|null nos devuelve el cliente o null si no se encuentra
+     */
     public static function read(string $email): ?Customer {
         $conn = CoreDB::getConnection();
         $sql = "SELECT * FROM customers WHERE email = ?;";

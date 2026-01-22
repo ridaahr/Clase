@@ -91,7 +91,7 @@ class Car extends Vehicle
     {
         $extraDoors = $this->getDoors() * 0.1;
         $extraSeats = $this->getSeats() * 0.05;
-        return $this->consumation + $extraDoors + $extraSeats;
+        return $this->getConsumation() + $extraDoors + $extraSeats;
     }
 
     /**
@@ -100,9 +100,9 @@ class Car extends Vehicle
      */
     public function __toString()
     {
-        $ret = "ID:" . $this->getId() . ".Coche " . parent::__toString() .
-            " Con " . $this->getDoors() . " puertas y " .
-            $this->getSeats() . " asientos.";
+        $ret = "Coche " . parent::__toString() .
+            ".<br>" . $this->getDoors() . " puertas.<br>" .
+            $this->getSeats() . " asientos.<br>";
         return $ret . $this->infoExtras();
     }
 }

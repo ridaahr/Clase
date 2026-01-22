@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Desplegable</title>
+    <style>  
+    </style>
+</head>
+<body>
+   <div class="container">
+        <div class="row mt-4">
+          <div class="col">
+              <div class="accordion" id="lecciones">
+                <!-- Elemento nro. 1-->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="encabezado-1">
+                        <!-- Clases atributo y etiquetas para personas con discapacidad -->
+                        <button 
+                        class="accordion-button"
+                        type="button"
+    
+                        data-bs-toggle="collapse"
+                        data-bs-target="#elemento-1"
+                        aria-expanded="true"
+                        aria-controls="elemento-1"
+                        >
+                            Tema # 1
+                        </button>
+                    </h2>
+                    <div
+                    id="elemento-1"
+                    class="accordion-collapse collapse show"
+                    aria-labelledby="encabezado-1"
+                    data-bs-parent="#lecciones"
+                    >
+                        <div class="accordion-body">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti exercitationem ad consectetur quas officiis reprehenderit, inventore commodi modi, molestiae iste, omnis magni eos consequatur et.</p>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Elemento nro. 2-->
+                 <div class="accordion-item">
+                    <h2 class="accordion-header" id="encabezado-2">
+                        <button 
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#elemento-2"
+                        aria-expanded="true"
+                        aria-controles="elemento-2"
+                        >
+                            Tema # 2
+                        </button>
+                    </h2>
+                    <div
+                    id="elemento-2"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="encabezado-2"
+                    data-bs-parent="#lecciones"
+                    >
+                        <div class="accordion-body">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti exercitationem ad consectetur quas officiis reprehenderit, inventore commodi modi, molestiae iste, omnis magni eos consequatur et.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Elemento nro. 3-->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="encabezado-3">
+                        <button 
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#elemento-3"
+                        aria-expanded="true"
+                        aria-controles="elemento-3"
+                        >
+                            Tema # 3
+                        </button>
+                    </h2>
+                    <div
+                    id="elemento-3"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="encabezado-3"
+                    data-bs-parent="#lecciones"
+                    >
+                        <div class="accordion-body">
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti exercitationem ad consectetur quas officiis reprehenderit, inventore commodi modi, molestiae iste, omnis magni eos consequatur et.</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+          </div>
+            
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

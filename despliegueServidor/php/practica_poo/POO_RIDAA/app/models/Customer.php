@@ -3,11 +3,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/app/models/Rental.php";
 class Customer
 {
     public function __construct(
-        private String $name,
-        private String $surname,
-        private String $email,
-        private String $password,
-        private String $dni,
+        private string $name,
+        private string $surname,
+        private string $email,
+        private string $password,
+        private string $dni,
         private int $age,
         private array $rentals = [],
         private int $id = -1
