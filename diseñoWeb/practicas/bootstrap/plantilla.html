@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/mycss.css">
     <style>
         body {
             background: forestgreen;
@@ -15,63 +13,67 @@
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
 
-        <form action="">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <label for="nombre" class="form-label text-warning">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" placeholder="Rida">
-                </div>
-                <div class="col-12 mt-3 col-md-6">
-                    <label for="correo" class="form-label text-warning">Correo</label>
-                    <input type="text" class="form-control" id="correo" placeholder="rida@rida">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mt-3">
-                    <label for="mensaje" class="form-label text-warning">Mensaje</label>
-                    <textarea class="form-control" name="mensaje" id="mensaje"></textarea>
-                </div>
-                <div class="col-md-3 mt-3">
-                    <label for="" class="form-label text-warning">Estado civil</label>
-                    <div class="form-check">
-                        <input type="radio" name="radio" class="form-check-input" id="soltero">
-                        <label for="soltero" class="form-check-label text-warning">Soltero</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="radio" class="form-check-input" id="casado">
-                        <label for="casado" class="form-check-label text-warning">Casado</label>
-                    </div>
-                </div>
-                <div class="col-md-3 mt-3">
-                    <label for="pais" class="form-label text-warning">País</label>
-                    <select name="pais" id="pais" class="form-select" aria-label="Selección de país">
-                        <option value="protugal">Portugal</option>
-                        <option value="españa">España</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col mt-3">
-                    <div class="d-flex justify-content-center">
-                        <div class="form-check">
-                            <input type="checkbox" id="acepto" name="acepto" class="form-check-input">
-                            <label for="acepto" class="form-check-label text-warning">Acepto los términos y
-                                condiciones</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col d-flex justify-content-center">
-                    <button class="btn btn-lg btn-primary mt-3">Enviar</button>
-                </div>
-            </div>
-        </form>
-
+<form action="">
+    <div class="row mt-4">
+        <div class="col-12 col-md-6">
+            <label for="nombre" class="form-label text-warning">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Rida">
+        </div>
+        <div class="col-12 col-md-6 mt-3 mt-md-0">
+            <label for="correo" class="form-label text-warning">Correo</label>
+            <input type="text" class="form-control" id="correo" placeholder="rida@rida">
+        </div>
     </div>
 
-    <script src="js/bootstrap.bundle.min.js"></script>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <label for="mensaje" class="form-label text-warning">Mensaje</label>
+            <textarea class="form-control" id="mensaje"></textarea>
+        </div>
+        <div class="col-md-3 mt-3 mt-md-0">
+            <label class="form-label text-warning">Estado civil</label>
+            <div class="form-check">
+                <input type="radio" name="radio" id="soltero" class="form-check-input">
+                <label for="soltero" class="form-check-label text-warning">Soltero</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="radio" id="casado" class="form-check-input">
+                <label for="casado" class="form-check-label text-warning">Casado</label>
+            </div>
+        </div>
+        <div class="col-md-3 mt-3 mt-md-0">
+            <label for="pais" class="form-label text-warning">País</label>
+            <select id="pais" class="form-select">
+                <option value="portugal">Portugal</option>
+                <option value="espana">España</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col d-flex justify-content-center">
+            <div class="form-check">
+                <input type="checkbox" id="acepto" class="form-check-input">
+                <label for="acepto" class="form-check-label text-warning">
+                    Acepto los términos y condiciones
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-10 col-sm-8 col-md-6">
+            <button type="submit" class="btn btn-lg btn-primary w-100">
+                Enviar
+            </button>
+        </div>
+    </div>
+</form>
+
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
