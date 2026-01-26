@@ -1,97 +1,83 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fusión pegajosa (gooey)</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gooey CSS puro</title>
 
-  <style>
-    body{
-      margin:0;
-      height:100vh;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      background:#fff;
-      font-family:system-ui;
-    }
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#fff;
+  font-family:system-ui;
+}
 
-    /* Contenedor con filtro “gooey” */
-    .scene{
-      position:relative;
-      width:360px;
-      height:140px;
-      filter: url(#goo);
-    }
+/* CONTENEDOR GOOEY */
+.scene{
+  position:relative;
+  width:360px;
+  height:160px;
 
-    /* El blob: aquí NO ponemos borde, porque el filtro lo “derrite” */
-    .blob{
-      position:absolute;
-      top:30px;
-      width:90px;
-      height:90px;
-      background:#6a00ff;   /* morado */
-      border-radius:50%;
-    }
+  /* AJUSTE MÍNIMO FUNCIONAL */
+  filter: blur(2px) contrast(30);
+}
 
-    /* Dibujamos el borde rosa como un “halo” con box-shadow */
-    .blob::after{
-      content:"";
-      position:absolute;
-      inset:-10px;                 /* grosor del borde */
-      border-radius:inherit;
-      background:#ff2bd6;          /* rosa */
-      z-index:-1;
-    }
+/* BLOBS */
+.blob{
+  position:absolute;
+  top:30px;
+  width:100px;
+  height:100px;
+  background:#6a00ff;
+  border-radius:50%;
+}
 
-    .left{
-      left:70px;
-      animation:leftMove 2s ease-in-out infinite;
-    }
+/* HALO ROSA */
+.blob::after{
+  content:"";
+  position:absolute;
+  inset:-6px;
+  background:#ff2bd6;
+  border-radius:inherit;
+  z-index:-1;
+}
 
-    .right{
-      left:200px;
-      animation:rightMove 2s ease-in-out infinite;
-    }
+/* POSICIONES */
+.left{
+  left:60px;
+  animation:leftMove 3s ease-in-out infinite;
+}
 
-    /* Animaciones: van al centro y vuelven */
-    @keyframes leftMove{
-      0%   { transform: translateX(0); }
-      50%  { transform: translateX(45px); }
-      100% { transform: translateX(0); }
-    }
+.right{
+  left:200px;
+  animation:rightMove 3s ease-in-out infinite;
+}
 
-    @keyframes rightMove{
-      0%   { transform: translateX(0); }
-      50%  { transform: translateX(-45px); }
-      100% { transform: translateX(0); }
-    }
-  </style>
+/* ANIMACIONES */
+@keyframes leftMove{
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(50px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes rightMove{
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(-50px); }
+  100% { transform: translateX(0); }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- SVG filter “gooey” -->
-  <svg width="0" height="0" style="position:absolute">
-    <filter id="goo">
-      <!-- Difuminado -->
-      <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"/>
-      <!-- Aumenta contraste: crea el efecto pegajoso al tocarse -->
-      <feColorMatrix in="blur" mode="matrix" values="
-        1 0 0 0 0
-        0 1 0 0 0
-        0 0 1 0 0
-        0 0 0 20 -10" result="goo"/>
-      <!-- Mezcla con el original (para que se vea más nítido) -->
-      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
-    </filter>
-  </svg>
-
-  <div class="scene">
-    <div class="blob left"></div>
-    <div class="blob right"></div>
-  </div>
+<div class="scene">
+  <div class="blob left"></div>
+  <div class="blob right"></div>
+</div>
 
 </body>
 </html>
-
