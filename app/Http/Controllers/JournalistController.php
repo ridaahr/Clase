@@ -11,7 +11,7 @@ class JournalistController extends Controller
      */
     public function index()
     {
-        //
+        //todo
     }
 
     /**
