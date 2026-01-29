@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('journalists', function (Blueprint $table) {
-            $table->id();   //primary key auto_increment
-            $table->timestamps();   //columnas created_at y updated_at
+            $table->id();
+            $table->timestamps();
 
-            //Mis columnas:
             $table->string("name");
-            $table->string("surname");
-            $table->string("email")->unique()->nullable(false);
+            $table->string("surname")->nullable(true);
+            $table->string("email")->unique();
             $table->string("password");
         });
     }
