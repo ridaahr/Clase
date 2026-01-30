@@ -11,7 +11,8 @@
 </head>
 
 <body>
-    <h1>Journalists</h1>
+    @include("components.header")
+    <h2>Journalists</h2>
     <p class="bg-info">Estos son las y los periodistas de mi BD</p>
     @foreach ($journalists as $j)
         <p>Nombre: {{ $j->name }}</p>
