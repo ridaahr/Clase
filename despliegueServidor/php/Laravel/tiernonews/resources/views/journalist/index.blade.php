@@ -16,19 +16,18 @@
     <p class="bg-info">Estos son las y los periodistas de mi BD</p>
     <div class="container">
         <div class="row">
-            <div class="col">
+            @foreach ($journalists as $j)
+            <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                        @foreach ($journalists as $j)
-                        <p>Nombre: {{ $j->name }}</p>
-                        <p>Apellidos: {{ $j->surname }}</p>
-                        <p>Email: {{ $j->email }}</p>
-                        <p>Contraseña: {{ $j->password }}</p>
-                        @endforeach
+                    <p>Nombre: {{ $j->name }}</p>
+                    <p>Apellidos: {{ $j->surname }}</p>
+                    <p>Email: {{ $j->email }}</p>
+                    <p>Contraseña: {{ $j->password }}</p>
                     </div>
                 </div>
             </div>
-
+            @endforeach
         </div>
     </div>
 
