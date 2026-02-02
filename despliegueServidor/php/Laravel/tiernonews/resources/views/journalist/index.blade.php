@@ -17,13 +17,14 @@
     <div class="container">
         <div class="row">
             @foreach ($journalists as $j)
-            <div class="col-4">
-                <div class="card">
+            <div class="col-3">
+                <div class="card bg-light border-warning">
                     <div class="card-body">
                     <p>Nombre: {{ $j->name }}</p>
                     <p>Apellidos: {{ $j->surname }}</p>
                     <p>Email: {{ $j->email }}</p>
                     <p>Contraseña: {{ $j->password }}</p>
+                    <button class="btn btn-primary">Editar</button>
                     </div>
                 </div>
             </div>
