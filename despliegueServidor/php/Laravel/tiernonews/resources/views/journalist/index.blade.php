@@ -14,13 +14,24 @@
     @include("components.header")
     <h2>Journalists</h2>
     <p class="bg-info">Estos son las y los periodistas de mi BD</p>
-    
-    @foreach ($journalists as $j)
-        <p>Nombre: {{ $j->name }}</p>
-        <p>Apellidos: {{ $j->surname }}</p>
-        <p>Email: {{ $j->email }}</p>
-        <p>Contraseña: {{ $j->password }}</p>
-    @endforeach
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        @foreach ($journalists as $j)
+                        <p>Nombre: {{ $j->name }}</p>
+                        <p>Apellidos: {{ $j->surname }}</p>
+                        <p>Email: {{ $j->email }}</p>
+                        <p>Contraseña: {{ $j->password }}</p>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </body>
 
 </html>
