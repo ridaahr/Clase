@@ -8,11 +8,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get("/hola", function(){
+Route::get("/hola", function () {
     return "hola mundo!";
 });
 
-Route::get("/hola/{name}", function($name){
+Route::get("/hola/{name}", function ($name) {
     return "hola, $name";
 });
 
@@ -29,6 +29,7 @@ Route::post("/journalist", [JournalistController::class, "store"])->name('journa
 
 Route::get("/journalist/{id}", [JournalistController::class, "show"]);
 Route::get("/journalist/{id}/edit", [JournalistController::class, "edit"]);
-Route::put("/journalist/{id}", [JournalistController::class, "update"])->name(('journalist.update'));
+Route::get("/journalist/{id}/edit", [JournalistController::class, "edit"])->name('journalist.edit');
+Route::put("/journalist/{id}", [JournalistController::class, "update"])->name('journalist.update');
 Route::delete("/journalist/{id}", [JournalistController::class, "destroy"]);
-
+Route::delete("journalist/{id}", [JournalistController::class, "destroy"])->name('journalist.destroy');

@@ -1,0 +1,18 @@
+{
+    "name": "luis",
+    "surname": "ramirez",
+    "email": "l@l.com",
+    "password": "admin",
+    "job": {
+        "newspaper": "El país",
+        "department": "International"
+    },
+    "article": {
+        "title": "el assad",
+        "content": "el otro día..."
+    },
+    "award": [
+        "world press photo",
+        "pulitzer"
+    ]
+}

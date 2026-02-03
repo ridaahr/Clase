@@ -31,7 +31,6 @@ class JournalistController extends Controller
     {
         // devuelvo una vista con un formulario de creación
         return view('journalist.create');
-        
     }
 
     /**
@@ -101,10 +100,22 @@ class JournalistController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        //busco el periodista
+        $j = Journalist::find($id);
+        if ($j == null) {
+            $message = "El periodista no existe";
+        } else {
+            //eliminamos
+            Journalist::destroy($id);
+            $message = "Periodista " . $j->name . " eliminado";
+        }
+        //devolvemos al index con un mensajito
+        $journalists = Journalist::all();
+        return redirect()->route('journalist')->with('deleted', $message);
     }
 
-    public function sayName($name){
+    public function sayName($name)
+    {
         return "hola $name";
     }
 }
