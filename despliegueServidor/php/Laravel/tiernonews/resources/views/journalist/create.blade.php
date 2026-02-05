@@ -21,6 +21,13 @@
     -->
     <div class="container">
         <div class="row">
+            @if ($errors->any())
+            @foreach($errors->all() as $error) 
+            <div class="alert alert-success mt-2">
+                {{ $error }}
+            </div>
+            @endforeach
+            @endif
             <div class="col">
                 <form action="{{ route('journalist.store') }}" method="post">
                     @csrf
@@ -49,7 +56,7 @@
                 </form>
             </div>
 
-            
+
 
         </div>
     </div>
