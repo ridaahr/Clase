@@ -22,8 +22,8 @@
     <div class="container">
         <div class="row">
             @if ($errors->any())
-            @foreach($errors->all() as $error) 
-            <div class="alert alert-success mt-2">
+            @foreach($errors->all() as $c => $error) 
+            <div class="alert alert-danger mt-2">
                 {{ $error }}
             </div>
             @endforeach
@@ -34,7 +34,10 @@
                     <!-- añade un campo hidden con un token imprescindible para que laravel le deje continuar -->
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input name="name" type="text" class="form-control" id="name" placeholder="Enter name">
+                        <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" id="name" placeholder="Enter name"
+                        >
+                        @error('name')<small class="text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="surname">Apellidos</label>
@@ -55,9 +58,6 @@
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-
-
-
         </div>
     </div>
 </body>

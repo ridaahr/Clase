@@ -45,16 +45,16 @@ class JournalistController extends Controller
         $j = new Journalist($request->all());
         //antes de guardar hago validaciones
         $request->validate([
-            "name" => "required",
+            "name" => "required|min:4",
             "password" => "min:4|required",
             "email" => "unique:journalists,email"
         ]);
         //guardo en la bd
         $j->save();
         //Para crear el index tengo que buscar los periodistas primero
-        $journalists = Journalist::all();
+        //$journalists = Journalist::all();
         //return view('journalist.index', compact("journalists"));
-        return redirect()->route("journalist.create");
+        return redirect()->route("journalist");
     }
 
     /**
