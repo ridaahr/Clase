@@ -12,6 +12,7 @@ if (isset($_COOKIE["stay-connected"])) {
 }
 
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     include $_SERVER["DOCUMENT_ROOT"] . "/utils/functions.php";
