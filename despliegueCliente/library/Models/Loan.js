@@ -1,4 +1,4 @@
-export class Loan {
+class Loan {
   constructor(id, userId, bookId, loanDate, returnDate, returned = false) {
     this.id = id;
     this.userId = userId;

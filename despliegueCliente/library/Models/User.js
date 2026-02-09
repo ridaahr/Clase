@@ -3,7 +3,7 @@ export class User {
     this.id = id;
     this.name = name;
     this.email = email;
-    this.role = role; // "user" | "admin"
+    this.role = role;
     this.penaltyUntil = penaltyUntil;
   }
 
