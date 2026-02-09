@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Journalist;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -22,7 +24,24 @@ class JournalistApiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $errors = false;
+        //validaciones:
+        if (!isset($request->name)) {
+            $errors = true;
+        } elseif (!isset($request->password)) {
+            $errors = true;
+        }
+        if (!$errors) {
+            $j = new Journalist($request->all());
+            //todo ver si existe el email
+            $j->save();
+            return response()->json($j);
+        } else {
+            return response()->json([
+                "message" => "error",
+                "data" => null
+            ], JsonResponse::HTTP_NOT_FOUND);
+        }
     }
 
     /**
@@ -90,6 +109,48 @@ class JournalistApiController extends Controller
                 "message" => "Not found",
                 "data" => null
             ], JsonResponse::HTTP_NOT_FOUND);
+        }
+    }
+    //para búsquedas
+    public function search(Request $request)
+    {
+        Log::channel('stderr')->debug('VARIABLES DE BUSQUEDA', ['name' => $request->name]);
+        //buscar por nombre en la bd;
+        /*
+        if (isset($request->name)) {
+            $journalists = Journalist::where('name', $request->name)->get();
+            return response()->json($journalists);
+        }
+        */
+        /*
+        if (isset($request->email)) {
+            $journalists = Journalist::where('email', $request->email)->get();
+            return response()->json($journalists);
+        }
+        */
+
+        if (isset($request->minreaders) && isset($request->maxreaders)) {
+            $articles = Article::where('readers', '>=', $request->minreaders)
+                ->where('readers', '<=', $request->maxreaders)->get();
+            return response()->json($articles);
+        } else if (isset($request->minreaders)) {
+            //devolver los que tenga mas de 10 readers
+            $articles = Article::where(
+                'readers',
+                '>=',
+                $request->minreaders
+            )->get();
+            return response()->json($articles);
+        }
+        //por nombre y email
+        if (isset($request->name) && isset($request->email)) {
+            $journalists = Journalist::where('name', $request->name)->where('email', $request->email)->get();
+            return $journalists;
+        }
+        //por nombrre o apellido
+        if (isset($request->name) && isset($request->surname)) {
+            $journalists = Journalist::where('name', $request->name)->orwhere('surname', $request->surname)->get();
+            return $journalists;
         }
     }
 }

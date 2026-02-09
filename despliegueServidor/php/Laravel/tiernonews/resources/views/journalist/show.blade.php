@@ -14,13 +14,22 @@
     @include("components.header")
     <h2>Journalist</h2>
     <p class="bg-info">Este es el periodista que buscas</p>
-    
-
-        <p>Nombre: {{ $journalist->name }}</p>
-        <p>Apellidos: {{ $journalist->surname }}</p>
-        <p>Email: {{ $journalist->email }}</p>
-        <p>Contraseña: {{ $journalist->password }}</p>
-
+    <div class="container">
+        <div class="row">
+            <p>Nombre: {{ $journalist->name }}</p>
+            <p>Apellidos: {{ $journalist->surname }}</p>
+            <p>Email: {{ $journalist->email }}</p>
+            <p>Contraseña: {{ $journalist->password }}</p>
+        </div>
+        <h3>{{ $journalist->name }} ha escrito {{ sizeof($journalist->articles) }} artículos</h3>
+        <div class="row">
+            @foreach ($journalist->articles as $article)
+            <div class="col">
+                <p>Título: {{ $article->title }}</p>
+            </div>
+            @endforeach
+        </div>
+    </div>
 </body>
 
 </html>

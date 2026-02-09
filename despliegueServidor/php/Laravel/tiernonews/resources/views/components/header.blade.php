@@ -11,16 +11,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('article.index') }}">Articles</a>
             </li>
-
-            @if (request()->routeIs('journalist*'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('journalist.create') }}">Create journalists</a>
             </li>
-            @elseif (request()->routeIs('article*'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('article.create') }}">Create article</a>
             </li>
-            @endif
+
         </ul>
     </nav>
 </header>
