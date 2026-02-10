@@ -145,12 +145,12 @@ class JournalistApiController extends Controller
         //por nombre y email
         if (isset($request->name) && isset($request->email)) {
             $journalists = Journalist::where('name', $request->name)->where('email', $request->email)->get();
-            return $journalists;
+            return response()->json($journalists);
         }
         //por nombrre o apellido
         if (isset($request->name) && isset($request->surname)) {
             $journalists = Journalist::where('name', $request->name)->orwhere('surname', $request->surname)->get();
-            return $journalists;
+            return response()->json($journalists);
         }
     }
 }

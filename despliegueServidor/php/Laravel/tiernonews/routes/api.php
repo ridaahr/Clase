@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleApiController;
 use App\Http\Controllers\JournalistApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,3 +16,4 @@ Route::delete("/journalist/{id}", [JournalistApiController::class, "destroy"]);
 
 //endpoint para búsquedas de prueba de Journalists;
 Route::get('/search', [JournalistApiController::class, "search"]);
+Route::get('/delete', [ArticleApiController::class, "deleteByReaders"]);
