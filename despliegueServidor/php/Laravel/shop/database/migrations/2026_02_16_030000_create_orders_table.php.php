@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->foreignId('product_id')->constrained('products');
+            //$table->foreignId('client_id')->constrained()->onDelete('cascade');
+            //Como no había hecho el onDelete 'cascade' borro a mano las orders en el controlador
+            $table->foreignId('client_id')->constrained('clients');
+            $table->dateTime('date')->nullable();
         });
     }
 
