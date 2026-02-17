@@ -11,16 +11,42 @@
 
 <body>
     @include("components.header")
-
     <div class="container mt-4">
-        <h2>Clientes</h2>
-        <p class="bg-info p-2 rounded">Estos son las y los clientes de mi BD</p>
+        <h2>Pedidos</h2>
+        <p class="bg-info p-2 rounded">Estos son los pedidos de mi BD</p>
 
         @if (session('deleted'))
         <div class="alert alert-success">
             {{ session('deleted') }}
         </div>
         @endif
+
+        <div class="row">
+            @foreach ($orders as $o)
+            <div class="col-md-4 mt-3">
+                <div class="card bg-light border-warning">
+                    <div class="card-body">
+                        <p>Fecha: {{ $o->date }}</p>
+                        <p>ID cliente: {{ $o->client_id }}</p>
+                        <p>ID producto: {{ $o->product_id }}</p>
+                        <form action="{{ route('order.destroy', $o->id) }}"
+                            method="POST" class="d-inline">
+                            @csrf
+                            @method('delete')
+                            <button class="btn btn-danger btn-sm">
+                                Borrar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Clientes</h2>
+        <p class="bg-info p-2 rounded">Estos son las y los clientes de mi BD</p>
 
         <div class="row">
             @foreach ($clients as $c)

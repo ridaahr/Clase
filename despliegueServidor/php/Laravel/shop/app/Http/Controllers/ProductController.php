@@ -57,11 +57,30 @@ class ProductController extends Controller
         //
     }
 
+
+    public function search() {
+        return view('product.search');
+    }
+
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function showProducts(Request $request)
     {
-        //
+        if (isset($request->minPrice) && isset($request->maxPrice) && !isset($request->size)) {
+            $products = Product::where('price', '>=', 'minPrice')
+            ->where('price', '<=', 'maxPrice');
+        } elseif (!isset($request->minPrice) && isset($request->maxPrice) && isset($request->size)) {
+            $products = Product::where('size', '=', 'size')
+            ->where('price', '<=', 'maxPrice');
+        } elseif (isset($request->minPrice) && !isset($request->maxPrice) && isset($request->size)) {
+            $products = Product::where('size', '=', 'size')
+            ->where('price', '>=', 'minPrice');
+        } else {
+            $message = "Tienes que rellenar al menos dos campos";
+            $products = [];
+        }
+        return view("product.search", compact($products))->with('error', $message);
     }
 }

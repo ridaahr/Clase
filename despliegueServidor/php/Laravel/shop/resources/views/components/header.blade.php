@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar navbar-expand navbar-dark bg-dark px-4">
         <a class="navbar-brand fw-bold" href="#">
-            Tierno News
+            SHOP
         </a>
 
         <ul class="navbar-nav ms-auto d-flex flex-row gap-3">

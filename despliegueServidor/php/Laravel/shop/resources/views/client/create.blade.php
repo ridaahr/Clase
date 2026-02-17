@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <label for="address">Direccioń</label>
-                        <input name="text" type="text" class="form-control" id="address" placeholder="Address">
+                        <input name="address" type="text" class="form-control" id="address" placeholder="Address">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

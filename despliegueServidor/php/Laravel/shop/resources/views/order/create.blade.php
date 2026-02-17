@@ -26,8 +26,8 @@
                     @csrf
                     <!-- añade un campo hidden con un token imprescindible para que laravel le deje continuar -->
                     <div class="form-group">
-                        <label for="title">Fecha</label>
-                        <input name="title" type="date" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}" id="date" placeholder="Enter date">
+                        <label for="date">Fecha</label>
+                        <input name="date" type="date" class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}" id="date" placeholder="Enter date">
                         @error('date')<small class="text-danger">{{ $message }}</small>
                         @enderror
                     </div>

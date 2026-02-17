@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\Order;
 use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,7 +16,8 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::all();
-        return view('order.index', compact('orders'));
+        $clients = Client::all();
+        return view('index', compact('orders', 'clients'));
     }
 
     /**
@@ -32,16 +34,18 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    { 
-        $product = new Product($request->all());
+    {
+        $order = new Order($request->all());
+        if (!$request->exists('date')) {
+            $order->date = Carbon::now();;
+        }
         $request->validate([
             'date' => 'required',
             'client_id' => 'required',
             'product_id' => 'required',
         ]);
-        
-        $product->save();
-        return redirect()->route('order.index')->with('success', 'Pedido guardado');;
+        $order->save();
+        return redirect()->route('index')->with('success', 'Pedido guardado');
     }
 
     /**
@@ -73,6 +77,14 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        
+        $order = Order::find($id);
+        if ($order == null) {
+            $message = "El pedido no existe";
+        } else {
+            Order::destroy($id);
+            $message = "Pedido eliminado";
+        }
+        $orders = Order::all();
+        return redirect()->route('index')->with('deleted', $message);
     }
 }

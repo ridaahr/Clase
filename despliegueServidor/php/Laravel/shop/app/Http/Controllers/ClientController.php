@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -74,6 +75,7 @@ class ClientController extends Controller
         if ($c == null) {
             $message = "El cliente no existe";
         } else {
+            $c->orders()->delete();
             Client::destroy($id);
             $message = "Cliente " . $c->name . " eliminado";
         }
