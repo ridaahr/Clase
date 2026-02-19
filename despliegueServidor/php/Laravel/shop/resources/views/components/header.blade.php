@@ -14,6 +14,18 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('order.create') }}">Crear pedidos</a>
             </li>
+            @auth
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('logout') }}">Logout, {{ auth()->user()->name }}</a>
+            </li>
+            @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            </li>
+            @endauth
         </ul>
     </nav>
 </header>
