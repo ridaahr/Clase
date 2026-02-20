@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [OrderController::class, "index"])->name("index");
+Route::get('/', [OrderController::class, "index"])->name("index")->middleware('auth');;
 Route::delete('/client/{id}', [ClientController::class, "destroy"])->name('client.destroy');
 Route::get('/client/create', [ClientController::class, "create"])->name("client.create");
 Route::post('/client', [ClientController::class, "store"])->name("client.store");
@@ -15,8 +15,8 @@ Route::post('/order', [OrderController::class, "store"])->name("order.store");
 Route::delete('/order/{id}', [OrderController::class, "destroy"])->name("order.destroy");
 
 //opcionales
-Route::get("/product/search", [ProductController::class, "search"])->name('product.search');
-Route::get("/product/search", [ProductController::class, "showProducts"]);
+Route::get("/product/search", [ProductController::class, "search"])->name("product.search");
+Route::post("/product/search", [ProductController::class, "showProducts"]);
 
 //AUTENTICACIÓN
 //Rutas protegidas (requieren autenticación)

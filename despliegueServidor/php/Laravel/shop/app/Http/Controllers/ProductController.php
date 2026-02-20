@@ -59,7 +59,8 @@ class ProductController extends Controller
 
 
     public function search() {
-        return view('product.search');
+        $products = [];
+        return view('product.search', compact('products'));
     }
 
 
@@ -69,18 +70,26 @@ class ProductController extends Controller
     public function showProducts(Request $request)
     {
         if (isset($request->minPrice) && isset($request->maxPrice) && !isset($request->size)) {
-            $products = Product::where('price', '>=', 'minPrice')
-            ->where('price', '<=', 'maxPrice');
+            $products = Product::where('price', '>=', $request->minPrice)
+            ->where('price', '<=', $request->maxPrice)->get();
+            $message = "";
         } elseif (!isset($request->minPrice) && isset($request->maxPrice) && isset($request->size)) {
-            $products = Product::where('size', '=', 'size')
-            ->where('price', '<=', 'maxPrice');
+            $products = Product::where('size', '=', $request->size)
+            ->where('price', '<=', $request->maxPrice)->get();
+            $message = "";
         } elseif (isset($request->minPrice) && !isset($request->maxPrice) && isset($request->size)) {
-            $products = Product::where('size', '=', 'size')
-            ->where('price', '>=', 'minPrice');
+            $products = Product::where('size', '=', $request->size)
+            ->where('price', '>=', $request->minPrice)->get();
+            $message = "";
+        } elseif (isset($request->minPrice) && isset($request->maxPrice) && isset($request->size)){
+            $products = Product::where('size', '=', $request->size)
+            ->where('price', '>=', $request->minPrice)
+            ->where('price', '<=', $request->maxPrice)->get();
+            $message = "";
         } else {
             $message = "Tienes que rellenar al menos dos campos";
             $products = [];
         }
-        return view("product.search", compact($products))->with('error', $message);
+        return view("product.search", compact('products', 'message'));
     }
 }

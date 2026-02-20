@@ -36,11 +36,12 @@
                     </div>
                     <div class="form-group">
                         <label for="size">Talla</label>
-                        <input name="size" type="numero" class="form-control" id="size" placeholder="Enter readers">
+                        <input name="size" type="numero" class="form-control" id="size" placeholder="Enter size">
                     </div>
                     <button type="submit" class="btn btn-primary">Buscar</button>
                 </form>
                 <div class="row">
+                    @if( isset ($products))
                     @foreach ($products as $p)
                     <div class="col-md-4 mt-3">
                         <div class="card bg-light border-warning">
@@ -53,6 +54,10 @@
                         </div>
                     </div>
                     @endforeach
+                    @endif
+                    @if( isset ($message))
+                        {{ $message }}
+                    @endif
                 </div>
             </div>
 

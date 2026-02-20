@@ -8,13 +8,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('index') }}">Inicio</a>
             </li>
+            @auth
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('client.create') }}">Crear cliente</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('order.create') }}">Crear pedidos</a>
             </li>
-            @auth
+            
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('logout') }}">Logout, {{ auth()->user()->name }}</a>
             </li>
