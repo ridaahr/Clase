@@ -4,14 +4,15 @@ async function obtenerPokemons(nombre) {
         let pokemons = await response.json();
         let encontrado = false;
         for (let i = 0; i < pokemons["results"].length; i++) {
-            if (pokemons["results"][i]["name"] == nombre) {
+            if (pokemons["results"][i]["name"] == nombre.toLowerCase()) {
+                encontrado = true;
                 return pokemons["results"][i]["url"];
             }
         }
-        if (encontrado == false) {
+        if (!encontrado) {
             return "No se ha encontrado";
         }
-        console.log(pokemons);
+        //console.log(pokemons);
     } catch (error) {
         return error;
     }
@@ -20,37 +21,40 @@ async function obtenerPokemons(nombre) {
 async function obtenerUrl(pokemon) {
     try {
         let valor = await pokemon;
-        console.log(valor);
-        async function info() {
-            try {
-                let response = await fetch(valor);
-                let info = await response.json();
-                console.log(info);
-                const div = document.createElement("div");
-
-                const name = document.createElement("p");
-                const type = document.createElement("p");
-                const img = document.createElement("img");
-                name.textContent = "Nombre: " + buscar.value;
-                for (let i = 0; i < info["types"].length; i++) {
-                    type.textContent += "Tipo: " + info["types"][i]["type"]["name"] + ". ";
-                }
-                let imgUrl = (info["sprites"]["front_default"]);
-                img.setAttribute("src", imgUrl);
-                div.appendChild(name);
-                div.appendChild(type);
-                div.appendChild(img);
-                document.body.appendChild(div);
-                new Audio(info["cries"]["latest"]).play();
-            } catch (error) {
-                return error;
-            }
+        if (valor === "No se ha encontrado") {
+            return alert(valor);
         }
-        info();
+        let response = await fetch(valor);
+        let info = await response.json();
+        mostrarPokemon(info);
     } catch (error) {
         console.log(error);
-        return error;
     }
+}
+
+function mostrarPokemon(info) {
+    const contenedor = document.getElementById("resultado");
+    contenedor.innerHTML = "";
+    const div = document.createElement("div");
+    const name = document.createElement("p");
+    const type = document.createElement("p");
+    const img = document.createElement("img");
+    type.textContent = "Tipo: ";
+    name.textContent = "Nombre: " + buscar.value;
+    for (let i = 0; i < info["types"].length; i++) {
+        if (i == info["types"].length - 1) {
+            type.textContent += info["types"][i]["type"]["name"] + ".";
+        } else {
+            type.textContent += info["types"][i]["type"]["name"] + ", ";
+        }
+    }
+    let imgUrl = (info["sprites"]["front_default"]);
+    img.setAttribute("src", imgUrl);
+    div.appendChild(name);
+    div.appendChild(type);
+    div.appendChild(img);
+    contenedor.appendChild(div);
+    new Audio(info["cries"]["latest"]).play();
 }
 
 
@@ -60,7 +64,6 @@ let boton = document.getElementById("boton");
 boton.addEventListener("click", () => {
     let pokemon = obtenerPokemons(buscar.value);
     obtenerUrl(pokemon);
-
     //let data = info();
     //console.log(data);
 })
