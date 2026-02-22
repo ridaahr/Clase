@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subject;
-use App\Models\Teacher;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class SubjectController extends Controller
+class TestApiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $subjects = Subject::all();
-        return view('subject.index', compact('subjects'));
+        //
     }
 
     /**
@@ -22,8 +20,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        $teachers = Teacher::all();
-        return view('subject.create', compact('teachers'));
+        //
     }
 
     /**
@@ -31,23 +28,21 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        $subject = new Subject($request->all());
-        $subject->save();
-        return redirect()->route('subject.show', $subject)->with('succes', 'Asignatura creada');
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Subject $subject)
+    public function show(string $id)
     {
-        return view('subject.show', compact('subject'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Subject $subject)
+    public function edit(string $id)
     {
         //
     }
@@ -55,7 +50,7 @@ class SubjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -63,7 +58,7 @@ class SubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Subject $subject)
+    public function destroy(string $id)
     {
         //
     }
