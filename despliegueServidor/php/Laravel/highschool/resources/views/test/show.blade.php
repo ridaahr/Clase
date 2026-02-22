@@ -14,25 +14,10 @@
         <div class="row">
             <div class="card mt-3" style="width: 18rem;">
                 <div class="card-body">
-                    <p>Nombre: {{ $subject->name }}</p>
-                    <p>Duración: {{ $subject->duration }}</p>
-                    <p>Profesor: {{ $subject->teacher->name }}</p>
-                    <p>Salario: {{ $subject->teacher->salary }}</p>
-                    <p>Email: {{ $subject->teacher->email }}</p>
-                    <p>Activo: {{ $subject->teacher->active }}</p>
-                    <p>Tests:</p>
-                    @foreach ($subject->tests as $test)
                     <p>Nombre: {{ $test->name }}</p>
                     <p>Preguntas: {{ $test->numberQuestions }}</p>
                     <p>Tipo: {{ $test->type }}</p>
-                    <p>Asignatura: {{ $test->subject_id }}</p>
-                    <div class="container">
-                        <div class="row">
-                            <a href="{{ route('test.edit', $test) }}"><button type="button"
-                                    class="btn btn-primary">Editar</button></a>
-                        </div>
-                    </div>
-                    @endforeach
+
                     <div class="container">
                         <div class="row">
                             <a href="{{ route('index') }}"><button type="button"
@@ -41,7 +26,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
