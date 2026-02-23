@@ -10,10 +10,12 @@
 </head>
 
 <body>
+    @include('components.header')
     <div class="container">
         <div class="row">
             <div class="card mt-3" style="width: 18rem;">
                 <div class="card-body">
+                    asdasd
                     <p>Nombre: {{ $subject->name }}</p>
                     <p>Duración: {{ $subject->duration }}</p>
                     <p>Profesor: {{ $subject->teacher->name }}</p>
@@ -30,6 +32,13 @@
                         <div class="row">
                             <a href="{{ route('test.edit', $test) }}"><button type="button"
                                     class="btn btn-primary">Editar</button></a>
+                        </div>
+                        <div class="row mt-2">
+                            <form action="{{ route('test.destroy', $test) }}" method="POST" class="mt-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Eliminar test</button>
+                            </form>
                         </div>
                     </div>
                     @endforeach

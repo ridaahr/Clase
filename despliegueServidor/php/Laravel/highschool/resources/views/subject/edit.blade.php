@@ -10,9 +10,10 @@
 </head>
 
 <body>
+    @include('components.header')
     <div class="container">
         <div class="row">
-            <form action="{{ route('subject.store') }}" method="post">
+            <form action="{{ route('subject.update') }}" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="name">Nombre</label>

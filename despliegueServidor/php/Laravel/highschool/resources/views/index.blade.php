@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    @include('components.header')
     <div class="container">
         <div class="row">
             @foreach ($teachers as $teacher)

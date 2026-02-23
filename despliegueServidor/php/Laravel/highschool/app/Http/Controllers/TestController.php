@@ -21,7 +21,8 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = Subject::all();
+        return view('test.create', compact('subjects'));
     }
 
     /**
@@ -29,7 +30,9 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $test = new Test($request->all());
+        $test->save();
+        return redirect()->route('index')->with('succes', 'Test guardado');
     }
 
     /**
@@ -59,7 +62,7 @@ class TestController extends Controller
         $test->type = $request->type;
         $test->subject_id = $request->subject_id;
         $test->save();
-        return redirect()->route('test.show', $test)->with('success', 'Test editado');
+        return redirect()->route('subject.show', $test)->with('success', 'Test editado');
     }
 
     /**
@@ -67,6 +70,7 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        //
+        Test::destroy($test->id);
+        return  redirect()->route('teacher.show', $test)->with('success', 'Test eliminado');
     }
 }

@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    @include('components.header')
     <div class="container">
         <div class="row">
             <div class="card mt-3" style="width: 18rem;">

@@ -18,4 +18,3 @@ Route::get('/subject', [SubjectController::class, 'create'])->name('subject.crea
 Route::post('/subject', [SubjectController::class, 'store'])->name('subject.store');
 Route::get('/test', [TestController::class, 'create'])->name('test.create');
 Route::post('/test', [TestController::class, 'store'])->name('test.store');
-Route::get('/test/{test}', [TestController::class, 'show'])->name('test.show');

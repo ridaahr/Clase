@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    @include('components.header')
     <div class="container">
         <div class="row">
             <form action="{{ route('teacher.store') }}" method="post">
