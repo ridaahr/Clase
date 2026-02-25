@@ -3,6 +3,7 @@ async function obtenerPokemons(nombre) {
         let response = await fetch("https://pokeapi.co/api/v2/pokemon?offset=0&limit=1350");
         let pokemons = await response.json();
         let encontrado = false;
+        console.log(pokemons);
         for (let i = 0; i < pokemons["results"].length; i++) {
             if (pokemons["results"][i]["name"] == nombre) {
                 return pokemons["results"][i]["url"];
@@ -11,7 +12,7 @@ async function obtenerPokemons(nombre) {
         if (encontrado == false) {
             return "No se ha encontrado";
         }
-        console.log(pokemons);
+        
     } catch (error) {
         return error;
     }
@@ -27,7 +28,6 @@ async function obtenerUrl(pokemon) {
                 let info = await response.json();
                 console.log(info);
                 const div = document.createElement("div");
-
                 const name = document.createElement("p");
                 const type = document.createElement("p");
                 const img = document.createElement("img");
@@ -41,7 +41,6 @@ async function obtenerUrl(pokemon) {
                 div.appendChild(type);
                 div.appendChild(img);
                 document.body.appendChild(div);
-                new Audio(info["cries"]["latest"]).play();
             } catch (error) {
                 return error;
             }
@@ -64,3 +63,28 @@ boton.addEventListener("click", () => {
     //let data = info();
     //console.log(data);
 })
+
+
+
+
+
+boton.addEventListener("click", (e) => {
+            for (let i = 0; i < animales.length; i++) {
+                const boton2 = document.createElement("button");
+                boton2.textContent = animales[i]["name"];
+                div.appendChild(boton)
+                console.log(animales[i]["name"]);
+                boton2.addEventListener("click", (e) => {
+                    const ul = document.createElement("ul");
+                    const liName = document.createElement("li");
+                    liName.textContent = animales[i]["name"];
+                    const liClass = document.createElement("li");
+                    liClass.textContent = animales[i]["taxonomy"]["class"];
+                    const liOrder = document.createElement("li");
+                    liOrder.textContent = animales[i]["taxonomy"]["class"];
+                    const liFamily = document.createElement("li");
+                    liFamily.textContent = animales[i]["taxonomy"]["class"];
+                    info.appendChild(ul);
+                });
+            }
+        })
