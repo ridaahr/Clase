@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -12,7 +13,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::all();
+        return view('subject.index', compact('subjects'));
     }
 
     /**
@@ -20,7 +22,8 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        $teachers = Teacher::all();
+        return view('subject.create', compact('teachers'));
     }
 
     /**
@@ -28,7 +31,9 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $subject = new Subject($request->all());
+        $subject->save();
+        return redirect()->route('subject.show', $subject)->with('succes', 'Asignatura creada');
     }
 
     /**
@@ -36,7 +41,7 @@ class SubjectController extends Controller
      */
     public function show(Subject $subject)
     {
-        //
+        return view('subject.show', compact('subject'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Subject;
 use App\Models\Test;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,8 @@ class TestController extends Controller
      */
     public function create()
     {
-        //
+        $subjects = Subject::all();
+        return view('test.create', compact('subjects'));
     }
 
     /**
@@ -28,7 +30,9 @@ class TestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $test = new Test($request->all());
+        $test->save();
+        return redirect()->route('index')->with('succes', 'Test guardado');
     }
 
     /**
@@ -36,7 +40,7 @@ class TestController extends Controller
      */
     public function show(Test $test)
     {
-        //
+        return view('test.show', compact('test'));
     }
 
     /**
@@ -44,7 +48,8 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {
-        //
+        $subjects = Subject::all();
+        return view('test.edit', compact('test', 'subjects'));
     }
 
     /**
@@ -52,7 +57,12 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        //
+        $test->name = $request->name;
+        $test->numberQuestions = $request->numberQuestions;
+        $test->type = $request->type;
+        $test->subject_id = $request->subject_id;
+        $test->save();
+        return redirect()->route('subject.show', $test)->with('success', 'Test editado');
     }
 
     /**
@@ -60,6 +70,7 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        //
+        Test::destroy($test->id);
+        return  redirect()->route('teacher.show', $test)->with('success', 'Test eliminado');
     }
 }

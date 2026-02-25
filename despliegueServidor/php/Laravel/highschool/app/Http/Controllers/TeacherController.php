@@ -12,7 +12,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::all();
+        return view('index', compact('teachers'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher.create');
     }
 
     /**
@@ -28,7 +29,9 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $teacher = new Teacher($request->all());
+        $teacher->save();
+        return redirect()->route('index')->with('succes', 'Profesor guardado');
     }
 
     /**
@@ -36,7 +39,7 @@ class TeacherController extends Controller
      */
     public function show(Teacher $teacher)
     {
-        //
+        return view('teacher.show', compact('teacher'));
     }
 
     /**
@@ -44,7 +47,7 @@ class TeacherController extends Controller
      */
     public function edit(Teacher $teacher)
     {
-        //
+        return view("teacher.edit", compact("teacher"));
     }
 
     /**
@@ -52,14 +55,25 @@ class TeacherController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        $teacher->name = $request->name;
+        $teacher->salary = $request->salary;
+        $teacher->email = $request->email;
+        $teacher->active = $request->active;
+        $teacher->save();
+        return view('teacher.show', compact('teacher'));
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Teacher $teacher)
     {
-        //
+
+        if ($teacher == null) {
+            $message = "El profesor no existe";
+        } else {
+            //eliminamos
+            Teacher::destroy($teacher->id);
+            $message = "Profesor " . $teacher->name . " eliminado";
+        }
+        $teachers = Teacher::all();
+        return redirect()->route('index')->with('deleted', $message);
     }
 }
