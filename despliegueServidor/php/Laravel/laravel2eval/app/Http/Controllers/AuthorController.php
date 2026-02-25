@@ -14,7 +14,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        $authors = Author::all();
+        return view('index', compact('authors'));
     }
 
     /**
@@ -44,9 +45,10 @@ class AuthorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Author $author)
+    public function edit(string $id)
     {
-        //
+        $a = Author::find($id);
+        return view('author.edit', compact('a'));
     }
 
     /**
@@ -101,4 +103,21 @@ class AuthorController extends Controller
             ], 400);
         }
     } */
+
+    public function showBetweenAges(Request $request)
+    {
+        if (!isset($request->minimum) || !isset($request->maximum)) {
+            $message = 'Faltan datos';
+            $authors = [];
+        } else {
+            $authors = Author::where('age', '>', $request->minimum)
+                ->where('age', '<', $request->maximum)->get();
+                if (count($authors) > 0) {
+                    $message = 'Se han encontrado estos autores';
+                } else {
+                    $message = 'No se han encontrado autores';
+                }
+        }
+        return view('author.ages', compact('authors', 'message'));
+    }
 }

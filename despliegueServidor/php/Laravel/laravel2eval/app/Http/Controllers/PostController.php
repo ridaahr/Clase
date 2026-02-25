@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Http\Controllers\Controller;
+use App\Models\Author;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -22,7 +23,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $authors = Author::all(); // para seleccionar autor
+        return view('post.create', compact('authors'));
     }
 
     /**
@@ -30,7 +32,20 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // antes de guardar hago validaciones
+        $request->validate([
+            "title" => "required|string|min:5|max:255",
+            "content" => "required|string|min:15",
+            "author_id" => "required|exists:authors,id"
+        ]);
+
+        // creo el post con los datos del request
+        $p = new Post($request->all());
+
+        // guardo en la bd
+        $p->save();
+
+        return redirect()->route("index")->with('result', 'Post creado correctamente');
     }
 
     /**

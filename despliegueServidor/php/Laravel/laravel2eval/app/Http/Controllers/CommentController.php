@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -62,5 +63,16 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         //
+    }
+
+    public function deleteByPostId(string $id) {
+        $post = Post::find($id);
+        if ($post != null) {
+            $post->comments()->delete();
+            $message = "Comentarios del post " . $post->title . " eliminados";
+        } else {
+            $message = "No se encuentra el post";
+        }
+        return redirect()->route('author.edit', $post->author_id)->with('result', $message);
     }
 }
