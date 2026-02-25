@@ -20,9 +20,9 @@ class CommentController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Post $post)
     {
-        //
+        return view('comment.create', compact('post'));
     }
 
     /**
@@ -30,7 +30,20 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validaciones
+        $request->validate([
+            "content" => "required|string|min:3",
+            "post_id" => "required|exists:posts,id",
+        ]);
+
+        // crear comment (sin fill)
+        $c = new Comment();
+        $c->content = $request->content;
+        $c->post_id = $request->post_id;
+        $c->save();
+
+        // redirige donde quieras (yo te lo dejo a index)
+        return redirect()->route('index')->with('result', 'Comentario creado correctamente');
     }
 
     /**
@@ -46,7 +59,8 @@ class CommentController extends Controller
      */
     public function edit(Comment $comment)
     {
-        //
+        $post = $comment->post;
+        return view('comment.edit', compact('comment', 'post'));
     }
 
     /**
@@ -54,7 +68,15 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $request->validate([
+            "content" => "required|string|min:3",
+        ]);
+
+        // actualizar (sin fill)
+        $comment->content = $request->content;
+        $comment->save();
+
+        return redirect()->route('index')->with('result', 'Comentario actualizado correctamente');
     }
 
     /**

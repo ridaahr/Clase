@@ -15,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // Cargar autores y comments para evitar N+1 queries
+        $posts = Post::with(['author', 'comments'])->get();
+
+        return view('post.index', compact('posts'));
     }
 
     /**
@@ -61,7 +64,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $authors = Author::all();
+        return view('post.edit', compact('post', 'authors'));
     }
 
     /**
@@ -69,7 +73,20 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        // Validaciones
+        $request->validate([
+            "title" => "required|string|min:5|max:255",
+            "content" => "required|string|min:15",
+            "author_id" => "required|exists:authors,id",
+        ]);
+
+        // Actualizar (sin fill)
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->author_id = $request->author_id;
+        $post->save();
+
+        return redirect()->route("index")->with("result", "Post actualizado correctamente");
     }
 
     /**
