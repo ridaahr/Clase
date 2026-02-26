@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Popovers</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#c86ad8; }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="d-flex flex-wrap gap-2">
+
+      <button type="button" class="btn btn-primary"
+        data-bs-toggle="popover" data-bs-placement="top"
+        data-bs-title="Título" data-bs-content="Contenido del popover">
+        Popover Arriba
+      </button>
+
+      <button type="button" class="btn btn-primary"
+        data-bs-toggle="popover" data-bs-placement="bottom"
+        data-bs-title="Título" data-bs-content="Contenido del popover">
+        Popover Abajo
+      </button>
+
+      <button type="button" class="btn btn-primary"
+        data-bs-toggle="popover" data-bs-placement="left"
+        data-bs-title="Título" data-bs-content="Contenido del popover">
+        Popover Izquierda
+      </button>
+
+      <button type="button" class="btn btn-primary"
+        data-bs-toggle="popover" data-bs-placement="right"
+        data-bs-title="Título" data-bs-content="Contenido del popover">
+        Popover Derecha
+      </button>
+
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Activar popovers
+    document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el => {
+      new bootstrap.Popover(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offcanvas</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#0b7a3a; }
+  </style>
+</head>
+<body>
+
+  <div class="container py-4">
+    <button class="btn btn-primary me-2" data-bs-toggle="offcanvas" data-bs-target="#ocStart">
+      Boton
+    </button>
+    <button class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#ocEnd">
+      Título
+    </button>
+  </div>
+
+  <!-- Izquierda (start) - no scroll body -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="ocStart" data-bs-scroll="false" data-bs-backdrop="true">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Lorem, ipsum dolor.</h5>
+      <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="small">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, inventore.
+      </p>
+    </div>
+  </div>
+
+  <!-- Derecha (end) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="ocEnd" data-bs-scroll="false" data-bs-backdrop="true">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">Título</h5>
+      <button class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="small">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dolorem beatae deserunt, ea culpa fugiat.
+      </p>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

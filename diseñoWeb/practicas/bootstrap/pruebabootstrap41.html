@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Navs</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#8fe0ea; }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+
+    <!-- Nav simple -->
+    <ul class="nav mb-4">
+      <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+    </ul>
+
+    <!-- Nav centrado -->
+    <ul class="nav justify-content-center mb-4">
+      <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+    </ul>
+
+    <!-- Nav a la derecha -->
+    <ul class="nav justify-content-end mb-4">
+      <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+    </ul>
+
+    <div class="row g-4 mt-2">
+      <!-- Vertical -->
+      <div class="col-12 col-md-4">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link active" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Pills -->
+      <div class="col-12 col-md-8">
+        <ul class="nav nav-pills mb-3">
+          <li class="nav-item"><a class="nav-link active" href="#">Elemento #1</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Elemento #2</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Elemento #3</a></li>
+        </ul>
+
+        <div class="btn-group mb-3">
+          <button class="btn btn-primary">Elemento #1</button>
+          <button class="btn btn-outline-primary">Elemento #2</button>
+          <button class="btn btn-outline-primary">Elemento #3</button>
+        </div>
+
+        <div class="d-grid gap-2 col-6">
+          <button class="btn btn-primary">Elemento #1</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

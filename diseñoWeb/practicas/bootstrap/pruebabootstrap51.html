@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Varios recursos</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#fff; }
+    .left{
+      padding: 28px 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .left h1{ font-size: 44px; margin:0; font-weight: 800; }
+    .left h2{ font-size: 18px; margin: 10px 0 6px; font-weight: 700; }
+    .left .line{ font-weight:700; letter-spacing:2px; }
+    .left p{ max-width: 420px; line-height: 1.7; font-size: 16px; margin-top: 12px; }
+
+    .demo-wrap{ padding: 16px; display:flex; justify-content:flex-end; }
+    .demo{
+      width: 420px; max-width: 100%;
+      background:#cfeecf; /* verde suave */
+      padding: 14px;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+    }
+    .ph{ height:120px; border-radius: 2px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row g-0">
+      <div class="col-12 col-lg-4 left">
+        <h1>Bootstrap</h1>
+        <h2>Varios recursos.</h2>
+        <div class="line">___</div>
+        <p>Enlaces de colores, ratios y fondos en bootstrap</p>
+      </div>
+
+      <div class="col-12 col-lg-8 demo-wrap">
+        <div class="demo">
+          <div class="mb-2 fw-bold">Enlaces de Colores</div>
+          <div class="d-flex flex-column gap-1 mb-3">
+            <a class="link-primary" href="#">link-primary</a>
+            <a class="link-secondary" href="#">link-secondary</a>
+            <a class="link-success" href="#">link-success</a>
+            <a class="link-danger" href="#">link-danger</a>
+            <a class="link-warning" href="#">link-warning</a>
+            <a class="link-info" href="#">link-info</a>
+            <a class="link-dark" href="#">link-dark</a>
+          </div>
+
+          <div class="mb-2 fw-bold">Ratios</div>
+          <div class="row g-2 mb-3">
+            <div class="col-6">
+              <div class="ratio ratio-1x1 bg-primary rounded"></div>
+            </div>
+            <div class="col-6">
+              <div class="ratio ratio-1x1 bg-secondary rounded"></div>
+            </div>
+            <div class="col-6">
+              <div class="ratio ratio-4x3 bg-primary rounded"></div>
+            </div>
+            <div class="col-6">
+              <div class="ratio ratio-4x3 bg-secondary rounded"></div>
+            </div>
+          </div>
+
+          <div class="mb-2 fw-bold">Fondos</div>
+          <div class="row g-2">
+            <div class="col-6">
+              <div class="p-2 text-white bg-primary">bg-primary</div>
+              <div class="p-2 text-white bg-success">bg-success</div>
+              <div class="p-2 text-dark bg-warning">bg-warning</div>
+              <div class="p-2 text-dark bg-info">bg-info</div>
+            </div>
+            <div class="col-6">
+              <div class="p-2 text-white bg-danger">bg-danger</div>
+              <div class="p-2 text-white bg-dark">bg-dark</div>
+              <div class="p-2 text-dark bg-light border">bg-light</div>
+              <div class="p-2 text-white bg-secondary">bg-secondary</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

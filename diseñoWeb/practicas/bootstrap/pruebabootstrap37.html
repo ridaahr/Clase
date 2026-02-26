@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Bootstrap</title>
+
+    <!-- Bootstrap LOCAL -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<style>
+body{
+    background-color:#e57373;
+}
+</style>
+
+<body>
+
+<div class="container mt-4">
+
+    <!-- FILA 1 -->
+    <div class="d-flex flex-wrap gap-3 mb-4">
+
+        <!-- Boton Dropdown -->
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Boton Dropdown
+            </button>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Opcion #1</a></li>
+                <li><a class="dropdown-item" href="#">Opcion #2</a></li>
+                <li><a class="dropdown-item" href="#">Opcion #3</a></li>
+            </ul>
+        </div>
+
+        <!-- Enlace Dropdown -->
+        <div class="dropdown">
+            <a class="btn btn-primary dropdown-toggle"
+               data-bs-toggle="dropdown">
+               Enlace Dropdown
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Opcion #1</a></li>
+                <li><a class="dropdown-item" href="#">Opcion #2</a></li>
+                <li><a class="dropdown-item" href="#">Opcion #3</a></li>
+            </ul>
+        </div>
+
+        <!-- Boton verde -->
+        <div class="dropdown">
+            <button class="btn btn-success dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Boton
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Opcion #1</a></li>
+            </ul>
+        </div>
+
+        <!-- Boton rojo -->
+        <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Boton Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Opcion #1</a></li>
+            </ul>
+        </div>
+
+        <!-- Dark -->
+        <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Boton Dropdown
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-dark show">
+                <li><a class="dropdown-item active">Opcion #1</a></li>
+                <li><a class="dropdown-item">Opcion #2</a></li>
+                <li><a class="dropdown-item">Opcion #3</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <!-- FILA 2 -->
+    <div class="d-flex flex-wrap gap-3">
+
+        <!-- Dropup -->
+        <div class="dropup">
+            <button class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Dropup
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Opcion</a></li>
+            </ul>
+        </div>
+
+        <!-- Dropstart -->
+        <div class="dropstart">
+            <button class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Dropstart
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Opcion</a></li>
+            </ul>
+        </div>
+
+        <!-- Dropend -->
+        <div class="dropend">
+            <button class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Dropend
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Opcion</a></li>
+            </ul>
+        </div>
+
+        <!-- Normal -->
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle"
+                data-bs-toggle="dropdown">
+                Dropdown
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item">Opcion</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Bootstrap JS LOCAL -->
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

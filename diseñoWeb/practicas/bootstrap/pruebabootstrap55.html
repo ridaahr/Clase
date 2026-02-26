@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Overflow</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#fff; }
+    .left{
+      padding: 28px 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .left h1{ font-size: 44px; margin:0; font-weight: 800; }
+    .left h2{ font-size: 18px; margin: 10px 0 6px; font-weight: 700; }
+    .left .line{ font-weight:700; letter-spacing:2px; }
+    .left p{ max-width: 420px; line-height: 1.7; font-size: 16px; margin-top: 12px; }
+
+    .demo-wrap{ padding: 16px; display:flex; justify-content:flex-end; }
+    .demo{
+      width: 560px; max-width: 100%;
+      background:#f5f6c8;
+      padding: 14px;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+    }
+    .box{
+      width: 120px; height: 120px;
+      border: 2px solid #222;
+      background:#f7f7e6;
+      padding: 6px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row g-0">
+      <div class="col-12 col-lg-4 left">
+        <h1>Bootstrap</h1>
+        <h2>Varios recursos.</h2>
+        <div class="line">___</div>
+        <p>Contenedores de texto, overflow</p>
+      </div>
+
+      <div class="col-12 col-lg-8 demo-wrap">
+        <div class="demo">
+
+          <div class="d-flex gap-3">
+            <div>
+              <div class="fw-bold small mb-1">.overflow-auto</div>
+              <div class="box overflow-auto">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos maxime rem necessitatibus.
+                Laborum, doloribus corporis.
+              </div>
+            </div>
+
+            <div>
+              <div class="fw-bold small mb-1">.overflow-hidden</div>
+              <div class="box overflow-hidden">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos maxime rem necessitatibus.
+                Laborum, doloribus corporis.
+              </div>
+            </div>
+
+            <div>
+              <div class="fw-bold small mb-1">.overflow-visible</div>
+              <div class="box overflow-visible">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos maxime rem necessitatibus.
+                Laborum, doloribus corporis.
+              </div>
+            </div>
+
+            <div>
+              <div class="fw-bold small mb-1">.overflow-scroll</div>
+              <div class="box overflow-scroll">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis quos maxime rem necessitatibus.
+                Laborum, doloribus corporis.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

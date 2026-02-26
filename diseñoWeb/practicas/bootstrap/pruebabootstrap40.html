@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modal</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#6d3b3b; }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#m1">
+      Abrir Modal 1
+    </button>
+  </div>
+
+  <div class="modal fade" id="m1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Título del modal</h5>
+          <button class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <h4>Hola Mundo</h4>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-link" data-bs-dismiss="modal">Cancelar</button>
+          <button class="btn btn-primary" type="button">Acepto</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

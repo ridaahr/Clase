@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sombras y barras</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#fff; }
+    .left{
+      padding: 28px 18px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    .left h1{ font-size: 44px; margin:0; font-weight: 800; }
+    .left h2{ font-size: 18px; margin: 10px 0 6px; font-weight: 700; }
+    .left .line{ font-weight:700; letter-spacing:2px; }
+    .left p{ max-width: 420px; line-height: 1.7; font-size: 16px; margin-top: 12px; }
+
+    .demo-wrap{ padding: 16px; display:flex; justify-content:flex-end; }
+    .demo{
+      width: 560px; max-width: 100%;
+      background:#f5f6c8; /* amarillo suave */
+      padding: 14px;
+      border-radius: 6px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.15);
+    }
+    .panel{ background:#fff; padding:10px; border-radius:2px; }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row g-0">
+      <div class="col-12 col-lg-4 left">
+        <h1>Bootstrap</h1>
+        <h2>Varios recursos.</h2>
+        <div class="line">___</div>
+        <p>Sombras y barras</p>
+      </div>
+
+      <div class="col-12 col-lg-8 demo-wrap">
+        <div class="demo">
+
+          <div class="fw-bold mb-2">Sombras</div>
+          <div class="panel shadow-none mb-3">Sin sombra</div>
+          <div class="panel shadow-sm mb-3">Sombra pequeña</div>
+          <div class="panel shadow mb-3">Sombra normal</div>
+          <div class="panel shadow-lg mb-4">Sombra larga</div>
+
+          <div class="fw-bold mb-2">Barras y %</div>
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="progress mb-2" style="height:18px;">
+                <div class="progress-bar" style="width:25%;">25%</div>
+              </div>
+              <div class="progress mb-2" style="height:18px;">
+                <div class="progress-bar" style="width:50%;">50%</div>
+              </div>
+              <div class="progress mb-2" style="height:18px;">
+                <div class="progress-bar" style="width:75%;">75%</div>
+              </div>
+              <div class="progress" style="height:18px;">
+                <div class="progress-bar" style="width:100%;">100%</div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div class="p-2 bg-dark rounded-1">
+                <div class="d-flex align-items-end gap-2" style="height:130px;">
+                  <div class="bg-primary" style="width:45px;height:25%;"></div>
+                  <div class="bg-primary" style="width:45px;height:50%;"></div>
+                  <div class="bg-primary" style="width:45px;height:75%;"></div>
+                  <div class="bg-primary" style="width:45px;height:100%;"></div>
+                </div>
+                <div class="d-flex justify-content-between text-white small mt-1">
+                  <span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>List Groups</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    body{ background:#e57373; }
+  </style>
+</head>
+<body>
+  <div class="container py-4">
+
+    <div class="row g-4">
+
+      <!-- Col 1: list-group normal con active -->
+      <div class="col-12 col-md-3">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action active" href="#">Elemento #1</a>
+          <a class="list-group-item list-group-item-action" href="#">Elemento #2</a>
+          <a class="list-group-item list-group-item-action" href="#">Elemento #3</a>
+          <a class="list-group-item list-group-item-action" href="#">Elemento #4</a>
+          <a class="list-group-item list-group-item-action" href="#">Elemento #5</a>
+        </div>
+      </div>
+
+      <!-- Col 2: list-group con badges -->
+      <div class="col-12 col-md-3">
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center active" href="#">
+            Elemento #1 <span class="badge bg-light text-dark rounded-pill">10</span>
+          </a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="#">
+            Elemento #2 <span class="badge bg-primary rounded-pill">2</span>
+          </a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="#">
+            Elemento #3 <span class="badge bg-primary rounded-pill">7</span>
+          </a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="#">
+            Elemento #4 <span class="badge bg-primary rounded-pill">4</span>
+          </a>
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" href="#">
+            Elemento #5 <span class="badge bg-primary rounded-pill">5</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Col 3: list-group con colores -->
+      <div class="col-12 col-md-3">
+        <div class="list-group">
+          <div class="list-group-item list-group-item-primary">Elemento #1</div>
+          <div class="list-group-item list-group-item-secondary">Elemento #2</div>
+          <div class="list-group-item list-group-item-success">Elemento #3</div>
+          <div class="list-group-item list-group-item-danger">Elemento #4</div>
+          <div class="list-group-item list-group-item-warning">Elemento #5</div>
+          <div class="list-group-item list-group-item-info">Elemento #6</div>
+          <div class="list-group-item list-group-item-light">Elemento #7</div>
+          <div class="list-group-item list-group-item-dark text-white">Elemento #8</div>
+        </div>
+      </div>
+
+      <!-- Col 4: list-group con checkboxes -->
+      <div class="col-12 col-md-3">
+        <div class="list-group">
+          <label class="list-group-item d-flex gap-2 align-items-center">
+            <input class="form-check-input flex-shrink-0" type="checkbox">
+            <span>Elemento 01</span>
+          </label>
+
+          <label class="list-group-item d-flex gap-2 align-items-center">
+            <input class="form-check-input flex-shrink-0" type="checkbox">
+            <span>Checkbox 1</span>
+          </label>
+
+          <label class="list-group-item d-flex gap-2 align-items-center">
+            <input class="form-check-input flex-shrink-0" type="checkbox">
+            <span>Checkbox 2</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Col 5: card con list-group + texto (como derecha de la imagen) -->
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <div class="card-header">Título</div>
+
+          <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action active" href="#">1. Elemento #1</a>
+            <a class="list-group-item list-group-item-action" href="#">2. Elemento #2</a>
+            <a class="list-group-item list-group-item-action" href="#">3. Elemento #3</a>
+            <a class="list-group-item list-group-item-action" href="#">4. Elemento #4</a>
+          </div>
+
+          <div class="card-body">
+            <h6 class="card-title mb-2">Título de la noticia</h6>
+            <p class="card-text small mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, architecto!
+            </p>
+            <a class="small" href="#">Ver más</a>
+
+            <hr>
+
+            <h6 class="card-title mb-2">Título de la noticia</h6>
+            <p class="card-text small mb-2">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, architecto!
+            </p>
+            <a class="small" href="#">Ver más</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
